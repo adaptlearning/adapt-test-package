@@ -1,0 +1,20 @@
+{
+  "name": "adapt-contrib-spoor",
+  "version": "2.0.0",
+  "framework": "^2.0.0",
+  "homepage": "https://github.com/adaptlearning/adapt-contrib-spoor",
+  "authors": [
+    "Kevin Corry <kevinc@learningpool.com>",
+    "Kev Adsett <kev.adsett@kineo.com>"
+  ],
+  "displayName" : "Spoor",
+  "extension" : "spoor",
+  "description": "An extension which allows basic SCORM tracking",
+  "main": "/js/adapt-contrib-spoor.js",
+  "keywords": [
+    "adapt-plugin",
+    "adapt-extension"
+  ],
+  "license": "GPLv3",
+  "targetAttribute": "_spoor"
+}

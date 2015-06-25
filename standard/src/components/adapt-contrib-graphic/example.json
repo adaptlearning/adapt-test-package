@@ -1,0 +1,18 @@
+    {
+        "_id":"c-30",
+        "_parentId":"b-15",
+        "_type":"component",
+        "_component":"graphic",
+        "_classes":"",
+        "_layout":"left",
+        "title":"Here is a graphic object",
+        "displayTitle":"Here is a graphic object",
+        "body":"Hi everybody!",
+        "instruction":"",
+        "_graphic": {
+            "alt": "alt text",
+            "large": "http://cdn.lipstiq.com/wp-content/uploads/2013/07/minions-film.jpg",
+            "small": "http://minionslovebananas.com/images/check-in-minion.jpg",
+            "attribution":"Copyright © 2015"
+        }
+    }

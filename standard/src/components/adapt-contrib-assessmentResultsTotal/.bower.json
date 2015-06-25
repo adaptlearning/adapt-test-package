@@ -1,0 +1,25 @@
+{
+  "name": "adapt-contrib-assessmentResultsTotal",
+  "homepage": "https://github.com/adaptlearning/adapt-contrib-assessmentResultsTotal",
+  "authors": [
+    "Dan Ghost <danielghost@kineo.com>",
+    "Oliver Foster <oliver.foster@kineo.com>"
+  ],
+  "description": "A simple core contributed text component",
+  "main": "/js/adapt-contrib-assessmentResultsTotal.js",
+  "keywords": [
+    "adapt-plugin",
+    "adapt-component"
+  ],
+  "license": "GPLv3",
+  "_release": "2b1328c9c0",
+  "_resolution": {
+    "type": "branch",
+    "branch": "develop",
+    "commit": "2b1328c9c082d6d97fd0de2dd4523da0c69aaa5d"
+  },
+  "_source": "git://github.com/adaptlearning/adapt-contrib-assessmentResultsTotal.git",
+  "_target": "develop",
+  "_originalSource": "adapt-contrib-assessmentResultsTotal",
+  "_direct": true
+}

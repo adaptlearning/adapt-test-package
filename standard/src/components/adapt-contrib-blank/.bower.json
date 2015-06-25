@@ -1,0 +1,27 @@
+{
+  "name": "adapt-contrib-blank",
+  "framework": "^2.0.0",
+  "homepage": "https://github.com/adaptlearning/adapt-contrib-blank",
+  "authors": [
+    "Kevin Corry <kevinc@learningpool.com>"
+  ],
+  "displayName": "Blank",
+  "component": "blank",
+  "description": "A simple adapt core contributed blank component",
+  "main": "/js/adapt-contrib-blank.js",
+  "keywords": [
+    "adapt-plugin",
+    "adapt-component"
+  ],
+  "license": "GPLv3",
+  "_release": "57aa84544c",
+  "_resolution": {
+    "type": "branch",
+    "branch": "develop",
+    "commit": "57aa84544cef098dacfe5bf2de907a7378f5ec0a"
+  },
+  "_source": "git://github.com/adaptlearning/adapt-contrib-blank.git",
+  "_target": "develop",
+  "_originalSource": "adapt-contrib-blank",
+  "_direct": true
+}

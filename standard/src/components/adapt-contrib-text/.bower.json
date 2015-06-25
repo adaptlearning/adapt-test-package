@@ -1,0 +1,27 @@
+{
+  "name": "adapt-contrib-text",
+  "framework": "^2.0.0",
+  "homepage": "https://github.com/darylhedley/adapt-contrib-text",
+  "authors": [
+    "Daryl Hedley <darylhedley@hotmail.com>"
+  ],
+  "displayName": "Text",
+  "component": "text",
+  "description": "A simple core contributed text component",
+  "main": "/js/adapt-contrib-text.js",
+  "keywords": [
+    "adapt-plugin",
+    "adapt-component"
+  ],
+  "license": "GPLv3",
+  "_release": "213ed4d8cf",
+  "_resolution": {
+    "type": "branch",
+    "branch": "develop",
+    "commit": "213ed4d8cfc7eb2acd9aaac515db1d632dfdce59"
+  },
+  "_source": "git://github.com/adaptlearning/adapt-contrib-text.git",
+  "_target": "develop",
+  "_originalSource": "adapt-contrib-text",
+  "_direct": true
+}

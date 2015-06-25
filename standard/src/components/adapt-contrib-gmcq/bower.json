@@ -1,0 +1,23 @@
+{
+  "name": "adapt-contrib-gmcq",
+  "version": "2.0.0",
+  "framework": "^2.0.0",
+  "homepage": "https://github.com/adaptlearning/adapt-contrib-gmcq",
+  "authors": [
+    "Daryl Hedley <darylhedley@hotmail.com>",
+    "Himanshu Rajotia <himanshu.rajotia@credipoint.com>"
+  ],
+  "displayName" : "Graphical Multiple Choice Question",
+  "component" : "gmcq",
+  "assetFields" : [
+    "_items[]._graphic.small",
+    "_items[]._graphic.large"
+  ],
+  "description": "A multiple choice question component, with images",
+  "main": "/js/adapt-contrib-gmcq.js",
+  "keywords": [
+    "adapt-plugin",
+    "adapt-component"
+  ],
+  "license": "GPLv3"
+}

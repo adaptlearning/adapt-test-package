@@ -1,0 +1,144 @@
+{
+  "type":"object",
+  "$schema": "http://json-schema.org/draft-03/schema",
+  "id": "http://jsonschema.net",
+  "$ref": "http://localhost/plugins/content/component/model.schema",
+  "properties":{
+    "_allowsAnyCase": {
+      "type":"boolean",
+      "required":false,
+      "default":false,
+      "title": "Allow any case"
+    },
+    "_allowsPunctuation": {
+      "type":"boolean",
+      "required":false,
+      "default":false,
+      "title": "Allow punctuation"
+    },
+    "_attempts": {
+      "type":"number",
+      "required":true,
+      "minimum": 1,
+      "default":1,
+      "title": "Number of attempts"
+    },
+    "_questionWeight": {
+      "type":"number",
+      "required":false,
+      "title": "Question weight"
+    },
+    "_items": {
+      "type":"array",
+      "required":true,
+      "minItems": 1,
+      "maxItems": 20,
+      "title": "Text input questions",
+      "items": {
+        "type":"object",
+        "required":false,
+        "properties":{
+          "_answers": {
+            "type":"array",
+            "required":false,
+            "title": "Possible answers",
+            "items": {
+              "type":"string",
+              "required":true,
+              "minLength": 1
+            }
+          },
+          "prefix": {
+            "type":"string",
+            "required":false,
+            "title": "Text area prefix text"
+          },
+          "suffix": {
+            "type":"string",
+            "required":false,
+            "title": "Text area suffix text"
+          },
+          "placeholder": {
+            "type":"string",
+            "required":true,
+            "minLength": 1,
+            "title": "Placeholder"
+          }
+        }
+      }
+    },
+    "_buttons": {
+      "type":"object",
+      "required":false,
+      "title": "Buttons",
+      "properties":{
+        "hideCorrectAnswer": {
+          "type":"string",
+          "required":false,
+          "title": "Hide correct answer button label"
+        },
+        "reset": {
+          "type":"string",
+          "required":false,
+          "title": "Reset button label"
+        },
+        "showCorrectAnswer": {
+          "type":"string",
+          "required":false,
+          "title": "Show correct answer button label"
+        },
+        "submit": {
+          "type":"string",
+          "required":false,
+          "title": "Submit button label"
+        }
+      }
+    },
+    "_feedback": {
+      "type":"object",
+      "required":false,
+      "title": "Feedback text",
+      "properties":{
+        "_incorrect": {
+          "type":"object",
+          "required":false,
+          "title": "Feedback for incorrect answers",
+          "properties":{
+            "final": {
+              "type":"string",
+              "required":false,
+              "title": "Incorrect final answer"
+            },
+            "notFinal": {
+              "type":"string",
+              "required":false,
+              "title": "Incorrect non final answer"
+            }
+          }
+        },
+        "_partlyCorrect": {
+          "type":"object",
+          "required":false,
+          "title": "Feedback when answer is partly correct",
+          "properties":{
+            "final": {
+              "type":"string",
+              "required":false,
+              "title": "Partially correct final answer"
+            },
+            "notFinal": {
+              "type":"string",
+              "required":false,
+              "title": "Partially correct non final answer"
+            }
+          }
+        },
+        "correct": {
+          "type":"string",
+          "required":false,
+          "title": "Feedback for correct answer"
+        }
+      }
+    }
+  }
+}

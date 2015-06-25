@@ -1,0 +1,32 @@
+{
+  "name": "adapt-contrib-graphic",
+  "framework": "^2.0.0",
+  "homepage": "https://github.com/adaptlearning/adapt-contrib-graphic",
+  "authors": [
+    "Brian Quinn <brian@learningpool.com>",
+    "Himanshu Rajotia <himanshu.rajotia@credipoint.com>"
+  ],
+  "displayName": "Graphic",
+  "component": "graphic",
+  "assetFields": [
+    "_graphic.small",
+    "_graphic.large"
+  ],
+  "description": "Graphic component which dynamically displays small and large images of different resolutions based upon device width",
+  "main": "/js/adapt-contrib-graphic.js",
+  "keywords": [
+    "adapt-plugin",
+    "adapt-component"
+  ],
+  "license": "GPLv3",
+  "_release": "8bb850735f",
+  "_resolution": {
+    "type": "branch",
+    "branch": "develop",
+    "commit": "8bb850735fd21f46327e71ad0e57f4d5ffcfa004"
+  },
+  "_source": "git://github.com/adaptlearning/adapt-contrib-graphic.git",
+  "_target": "develop",
+  "_originalSource": "adapt-contrib-graphic",
+  "_direct": true
+}

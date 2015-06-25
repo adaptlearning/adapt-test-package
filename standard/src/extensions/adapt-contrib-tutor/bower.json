@@ -1,0 +1,21 @@
+{
+  "name": "adapt-contrib-tutor",
+  "version": "2.0.0",
+  "framework": "^2.0.0",
+  "homepage": "https://github.com/adaptlearning/adapt-contrib-tutor",
+  "authors": [
+    "Kevin Corry <kevinc@learningpool.com>",
+    "Daryl Hedley <darylhedley@hotmail.com>",
+    "Himanshu Rajotia <himanshu.rajotia@exultcorp.com>"
+  ],
+  "displayName" : "Tutor",
+  "extension" : "tutor",
+  "description": "An extension which provides a basic feedback overlay for question components",
+  "main": "/js/adapt-contrib-tutor.js",
+  "keywords": [
+    "adapt-plugin",
+    "adapt-extension"
+  ],
+  "license": "GPLv3",
+  "targetAttribute": "_tutor"
+}

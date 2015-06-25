@@ -1,0 +1,15 @@
+{
+  "name": "adapt-contrib-textInput",
+  "version": "2.0.0",
+  "description": "A question component that allows the learner to input text based upon a question stem",
+  "main": "",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/adaptlearning/adapt-contrib-textInput.git"
+  },
+  "author": "AdaptLearning",
+  "license": "GPL v3",
+  "bugs": {
+    "url": "https://github.com/adaptlearning/adapt-contrib-textInput/issues"
+  }
+}

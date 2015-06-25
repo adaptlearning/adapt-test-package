@@ -1,0 +1,25 @@
+<div class="accordion-inner component-inner" role="region" aria-label="{{_globals._components._accordion.ariaRegion}}">
+    {{> component this}}
+    <div class="accordion-widget component-widget">
+        {{#each _items}}
+        <div class="accordion-item">
+            <a href="#" role="button" class="accordion-item-title {{#if _isVisited}}visited{{/if}}" aria-expanded="false" aria-label="{{{title}}}">
+              <div class="accordion-item-title-inner">
+                <div class="accordion-item-title-icon icon icon-plus h5"></div>
+                      {{{title}}}
+              </div>
+            </a>
+            <div class="accordion-item-body">
+                <div class="accordion-item-body-inner">
+                    {{{a11y_text body}}}
+                    {{#if _graphic}}
+                    <div class="accordion-item-graphic">
+                        <img src="{{_graphic.src}}" alt="{{_graphic.alt}}" tabindex="0">     
+                    </div>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>

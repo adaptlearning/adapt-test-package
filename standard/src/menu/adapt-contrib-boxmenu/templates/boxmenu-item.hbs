@@ -1,0 +1,19 @@
+<div class="menu-item-inner" aria-label="{{_globals._accessibility._ariaLabels.menuItem}}" {{#if _globals._accessibility._ariaLabels.menuItem}}tabindex="0"{{/if}}>
+    <div class="menu-item-graphic">
+        <img src="{{_graphic.src}}" alt="{{_graphic.alt}}" />
+    </div>
+    <div class="menu-item-title">
+        <div class="menu-item-title-inner h3 accessible-text-block" role="heading" aria-level="2" tabindex="0">{{{displayTitle}}}</div>
+    </div>
+    <div class="menu-item-body">
+        <div class="menu-item-body-inner">{{{a11y_text body}}}</div>
+    </div>
+    <div class="menu-item-button">
+        <a href="#/id/{{_id}}" role="button" aria-label="{{linkText}}" class="{{#if _isVisited}}visited{{/if}} accessible-text-block">
+            {{{linkText}}}
+        </a>
+        {{#if duration}}
+            <span class="menu-item-duration accessible-text-block" role="region" tabindex="0">{{#if durationLabel}}{{{durationLabel}}}{{else}}Duration:{{/if}} {{{duration}}}</span>
+        {{/if}}
+    </div>
+</div>

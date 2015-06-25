@@ -1,0 +1,29 @@
+{
+  "name": "adapt-contrib-trickle",
+  "framework": "^2.0.0",
+  "homepage": "https://github.com/adaptlearning/adapt-contrib-trickle",
+  "authors": [
+    "Kevin Corry <kevinc@learningpool.com>",
+    "Oliver Foster <oliver.foster@kineo.com>"
+  ],
+  "displayName": "Trickle",
+  "extension": "trickle",
+  "description": "A vertical locking extension",
+  "main": "/js/adapt-contrib-trickle.js",
+  "keywords": [
+    "adapt-plugin",
+    "adapt-extension"
+  ],
+  "license": "GPLv3",
+  "targetAttribute": "_trickle",
+  "_release": "171394d58b",
+  "_resolution": {
+    "type": "branch",
+    "branch": "develop",
+    "commit": "171394d58ba3ba6a834904434634da7486c6629c"
+  },
+  "_source": "git://github.com/adaptlearning/adapt-contrib-trickle.git",
+  "_target": "develop",
+  "_originalSource": "adapt-contrib-trickle",
+  "_direct": true
+}
