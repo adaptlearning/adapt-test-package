@@ -1,0 +1,46 @@
+// Component styling
+// =================
+
+.component {
+    .component-inner {
+        .component-background;
+    }
+
+    .component-title{
+        margin-bottom: @component-title-margin-bottom;
+        color: @title-color;
+        text-align: left;
+
+        .dir-rtl & {
+            text-align: right;
+        }
+    }
+
+    .component-title-inner {
+        padding: @component-title-padding;
+    }
+
+    .component-body{
+        margin: @component-body-margin;
+
+        a {
+          text-decoration: underline;
+          color: @font-color;
+        }
+    }
+
+    .component-body-inner{
+        padding: @component-body-padding;
+    }
+
+    .component-instruction {
+        margin-bottom: @component-instruction-margin-bottom;
+        .instruction-text;
+    }
+
+    .component-instruction-inner {
+        &.validation-error {
+            color: @validation-error-text-color;
+        }
+    }
+}

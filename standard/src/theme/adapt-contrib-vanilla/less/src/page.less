@@ -1,0 +1,45 @@
+// Page styling
+// ============
+
+.page {
+    background-color: @background-color;
+
+    .page-header {
+        background-color: @background-color-inverted;
+    }
+
+    .page-header-inner {
+        padding: @page-header-padding 0;
+
+        @media all and (max-width: (@device-width-large + 20px)) {
+            padding: @page-header-padding 20px;
+        }
+
+        @media all and (max-width: (@device-width-small + 20px)) {
+            padding: @page-header-padding 10px;
+        }
+    }
+
+    .page-header-content {
+        max-width: @device-width-large;
+        margin: auto;
+        color: @foreground-color-inverted;
+    }
+
+    .page-header-content-inner {
+        text-align: center;
+    }
+
+    .page-title {
+        margin-bottom: @block-body-margin-bottom;
+    }
+
+    .page-body {
+        margin-bottom: @block-body-margin-bottom;
+    }
+
+    .page-instruction {
+        margin-bottom: @block-instruction-margin-bottom;
+        .instruction-text;
+    }
+}

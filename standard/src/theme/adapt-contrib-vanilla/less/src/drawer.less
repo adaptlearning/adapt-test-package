@@ -1,0 +1,58 @@
+// Drawer styling
+// ==============
+
+.drawer {
+    background-color: @drawer-color;
+    color: @drawer-item-text-color;
+
+    .drawer-toolbar {
+        border-bottom: 1px solid @drawer-border-color;
+    }
+
+    .drawer-toolbar .icon {
+        color: @drawer-icon-color;
+        padding: @navigation-padding;
+
+        &:hover {
+            color: @drawer-icon-color-hover;
+        }
+
+        @media all and (max-width:(@device-width-small - 1px)) {
+            padding: @navigation-padding-mobile;
+        }
+    }
+
+    .drawer-inner {
+        border-left: 5px solid @drawer-border-color;
+
+        .dir-rtl & {
+            border-left: inherit;
+            border-right: 5px solid @drawer-border-color;
+        }
+    }
+
+    .drawer-item {
+        .drawer-item-title {
+            .sub-title
+        }
+        
+        .drawer-item-open {
+            border-bottom: 1px solid @drawer-item-color;
+            color: @drawer-item-text-color;
+            text-decoration: none;
+            
+            .no-touch &:hover {
+                background-color: @drawer-item-color-hover;
+                color: @drawer-item-text-color-hover;
+            }
+        }
+    }
+
+    .drawer-item-open {
+        padding: @drawer-item-padding-top @drawer-item-padding-right @drawer-item-padding-bottom @drawer-item-padding-left;
+        //stops rollover of drawar items on touch devices    
+        &.touch:hover {
+             background-color: @drawer-color;
+       }
+    }
+}
