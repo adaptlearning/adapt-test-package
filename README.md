@@ -8,6 +8,8 @@ The easiest one to get hold of is the one that’s installed as a course on our 
 
 Should you want a copy to modify and/or install on your own LMS or web server, you can download it from this Github repository, using the ‘Download ZIP’ button on the main page or [check it out using Git](https://github.com/adaptlearning/adapt-test-package.git). You will need to extract the version you want to use (see below). We have included the source files so you can experiment with it and try out different configurations, modify the theme - everything you'd normally do when creating a course using the Adapt framework.
 
+Instructions for manually installing the test package are [available here](/adaptlearning/adapt-test-package/wiki/Install-the-Test-Package).
+
 There are two courses in the version in Github. The version in the ‘rtl’ folder (coming soon) is for any testing of right-to-left languages such as Hebrew or Arabic; the version in the ‘standard’ folder is the same one you’ll find on the [Adapt Framework Pre-release Testing page](https://community.adaptlearning.org/course/view.php?id=4), only it includes the source as well to allow you to modify it as much as you need. This is the one most of you will want to use.
 
 ## Reporting bugs
