@@ -122,7 +122,7 @@
             }
         }
     },
-    "_latestTrackingId": 83,
+    "_latestTrackingId": 84,
     "_pageLevelProgress": {
         "_isEnabled": true,
         "_altText": "of components completed on this page"
@@ -167,5 +167,15 @@
         "_postTotalScoreToLms": true,
         "_isPercentageBased": true,
         "_scoreToPass": 75
+    },
+    "_bookmarking": {
+        "_isEnabled": true,
+        "_level": "block",
+        "title": "Bookmarking",
+        "body": "Would you like to continue where you left off?",
+        "_buttons": {
+            "yes": "Yes",
+            "no": "No"
+        }
     }
 }

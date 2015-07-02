@@ -1152,6 +1152,27 @@
 		}
 	},
 	{
+		"_id": "c-167",
+		"_parentId": "b-117",
+		"_type": "component",
+		"_component": "media",
+		"_classes": "",
+		"_layout": "full",
+		"_comment": "_setCompletionOn = inview | play | ended",
+		"_setCompletionOn": "play",
+		"_useClosedCaptions": false,
+		"title": "Media - with audio source",
+		"displayTitle": "Media - with audio source",
+		"body": "Sometimes we need to make use of rich media to really drive home a point, bring a complex subject to life or just let audio to literally do the talking. This is when the media component comes to the fore.<br><br>Component can be either single or spanned.",
+		"instruction": "Select the play button to start the audio.",
+		"_media": {
+			"mp3": "course/en/audio/c-167.mp3"
+		},
+		"_pageLevelProgress": {
+			"_isEnabled": true
+		}
+	},
+	{
 		"_id": "c-170",
 		"_parentId": "b-120",
 		"_type": "component",
