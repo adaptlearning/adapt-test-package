@@ -19,6 +19,7 @@
         "adapt-contrib-boxMenu": "develop",
         "adapt-contrib-pageLevelProgress": "develop",
         "adapt-contrib-resources": "develop",
-        "adapt-contrib-slider": "develop"
+        "adapt-contrib-slider": "develop",
+        "adapt-contrib-bookmarking": "develop"
     }
 }
