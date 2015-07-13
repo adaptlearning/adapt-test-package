@@ -338,7 +338,7 @@
 		"_items": [
 			{
 				"text": "Option 1",
-				"_shouldBeSelected": true,
+				"_shouldBeSelected": false,
 				"_graphic": {
 					"alt": "",
 					"large": "course/en/images/c-65-1.png",
@@ -347,7 +347,7 @@
 			},
 			{
 				"text": "Option 2",
-				"_shouldBeSelected": false,
+				"_shouldBeSelected": true,
 				"_graphic": {
 					"alt": "",
 					"large": "course/en/images/c-65-2.png",
@@ -695,7 +695,7 @@
 		"_selectable": 5,
 		"title": "Do you know your plugins?",
 		"displayTitle": "Do you know your plugins?",
-		"body": "Which of the following are not types of Adapt plugins?",
+		"body": "Which of the following are types of Adapt plugins?",
 		"instruction": "Choose one or more options and select Submit.",
 		"_items": [
 			{
