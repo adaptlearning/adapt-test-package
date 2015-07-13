@@ -338,7 +338,7 @@
 		"_items": [
 			{
 				"text": "Option 1",
-				"_shouldBeSelected": true,
+				"_shouldBeSelected": false,
 				"_graphic": {
 					"alt": "",
 					"large": "course/en/images/c-65-1.png",
@@ -347,7 +347,7 @@
 			},
 			{
 				"text": "Option 2",
-				"_shouldBeSelected": false,
+				"_shouldBeSelected": true,
 				"_graphic": {
 					"alt": "",
 					"large": "course/en/images/c-65-2.png",
