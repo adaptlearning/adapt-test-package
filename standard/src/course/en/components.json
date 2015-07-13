@@ -892,7 +892,7 @@
 		"_attempts": 1,
 		"_questionWeight": 1,
 		"_isRandom": true,
-		"_selectable": 4,
+		"_selectable": 1,
 		"title": "Adding titles to icons",
 		"displayTitle": "Adding titles to icons",
 		"body": "Version 2.0 of the framework makes it possible to add titles to the icons shown on the navigation bar. Do you know what JSON file you would need to edit to add a title to an icon?",
