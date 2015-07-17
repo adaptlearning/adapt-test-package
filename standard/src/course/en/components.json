@@ -72,6 +72,9 @@
 			"large": "course/en/images/c-25.jpg",
 			"medium": "course/en/images/c-25.jpg",
 			"small": "course/en/images/c-25.jpg"
+		},
+		"_pageLevelProgress": {
+			"_isEnabled": true
 		}
 	},
 	{
