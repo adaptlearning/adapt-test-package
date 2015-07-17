@@ -27,7 +27,7 @@
         },
         "remainingAttemptsText": "attempts remaining",
         "remainingAttemptText": "final attempt",
-        "disabledAriaLabel": "This button is disabled at the moment"
+        "disabledAriaLabel": "This button is disabled at the moment."
     },
     "_globals": {
         "_components": {
@@ -125,7 +125,7 @@
     "_latestTrackingId": 84,
     "_pageLevelProgress": {
         "_isEnabled": true,
-        "_altText": "of components completed on this page"
+        "_altText": "of components completed on this page."
     },
     "_resources": {
         "title": "Resources",
