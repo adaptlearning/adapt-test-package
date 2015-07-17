@@ -11,19 +11,19 @@
         },
         "_reset": {
             "buttonText": "Reset",
-            "ariaLabel": ""
+            "ariaLabel": "Reset the question by clicking here."
         },
         "_showCorrectAnswer": {
             "buttonText": "Correct Answer",
-            "ariaLabel": ""
+            "ariaLabel": "Show the correct answer by clicking here."
         },
         "_hideCorrectAnswer": {
             "buttonText": "My Answer",
-            "ariaLabel": ""
+            "ariaLabel": "Show the answer you gave by clicking here."
         },
         "_showFeedback": {
             "buttonText": "Show Feedback",
-            "ariaLabel": ""
+            "ariaLabel": "View the question feedback again by clicking here."
         },
         "remainingAttemptsText": "attempts remaining",
         "remainingAttemptText": "final attempt",
