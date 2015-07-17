@@ -118,7 +118,7 @@
                 "menuBack": "Back to menu",
                 "menuIndicatorHeading": "Menu item heading ",
                 "pageLevelProgress": "Page sections",
-                "pageLevelProgressIndicatorBar": "Select here to view your progress through the course. Select an item to navigate to it. You have completed "
+                "pageLevelProgressIndicatorBar": "Progress bar. Select here to view your current progress, and select an item to navigate to it. You have completed "
             }
         }
     },
