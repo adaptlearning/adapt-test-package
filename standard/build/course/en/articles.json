@@ -37,10 +37,6 @@
 				"_split": "2,1",
 				"_randomisation": false
 			},
-			"_randomisation": {
-				"_isEnabled": false,
-				"_blockCount": 1
-			},
 			"_questions": {
 				"_resetType": "hard",
 				"_canShowFeedback": false
