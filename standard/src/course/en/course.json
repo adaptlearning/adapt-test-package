@@ -7,7 +7,7 @@
     "_buttons": {
         "_submit": {
             "buttonText": "Submit",
-            "ariaLabel": "Select here to submit your answer."
+            "ariaLabel": "Submit your answer by clicking here."
         },
         "_reset": {
             "buttonText": "Reset",
@@ -129,7 +129,7 @@
     },
     "_resources": {
         "title": "Resources",
-        "description": "Click here to view resources for this course",
+        "description": "View resources for this course by clicking here.",
         "_filterButtons": {
             "all": "All",
             "document": "PDF",
@@ -146,19 +146,19 @@
             {
                 "_type": "document",
                 "title": "Button idea",
-                "description": "Click here to see a proposed button idea",
+                "description": "See a proposed button idea by clicking here.",
                 "_link": "course/en/pdf/adapt-framework-prototypes-buttons.pdf"
             },
             {
                 "_type": "media",
                 "title": "Adapt Learning YouTube Channel",
-                "description": "Fancy catching up on some Adapt material",
+                "description": "Fancy catching up on some Adapt material? Click here.",
                 "_link": "https://www.youtube.com/channel/UCW8SlSFuCc--B66Gf9fAEcQ"
             },
             {
                 "_type": "link",
                 "title": "Community Site",
-                "description": "Click here to view our community site",
+                "description": "View our community site by clicking here.",
                 "_link": "https://community.adaptlearning.org"
             }
         ]
