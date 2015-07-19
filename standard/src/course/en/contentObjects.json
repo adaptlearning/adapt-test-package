@@ -14,7 +14,10 @@
 		},
 		"linkText": "View",
 		"durationLabel":"Duration:",
-		"duration": "2 mins"
+		"duration": "2 mins",
+		"_pageLevelProgress": {
+            "_isEnabled": true
+        }
 	},
 	{
 		"_id": "co-10",
@@ -31,7 +34,10 @@
 		},
 		"linkText": "View",
 		"durationLabel":"Duration:",
-		"duration": "2 mins"
+		"duration": "2 mins",
+		"_pageLevelProgress": {
+            "_isEnabled": true
+        }
 	},
 	{
 		"_id": "co-15",
@@ -48,7 +54,10 @@
 		},
 		"linkText": "View",
 		"durationLabel":"Duration:",
-		"duration": "2 mins"
+		"duration": "2 mins",
+		"_pageLevelProgress": {
+            "_isEnabled": true
+        }
 	},
 	{
 		"_id": "co-20",
@@ -64,6 +73,9 @@
 		},
 		"linkText": "View",
 		"durationLabel":"Duration:",
-		"duration": "2 mins"
+		"duration": "2 mins",
+		"_pageLevelProgress": {
+            "_isEnabled": true
+        }
 	}
 ]
