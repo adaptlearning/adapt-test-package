@@ -389,7 +389,7 @@
         "_id": "b-110",
         "_parentId": "a-20",
         "_type": "block",
-        "_classes": "",
+        "_classes": "divider-block",
         "title": "b-110",
         "displayTitle": "",
         "body": "",
