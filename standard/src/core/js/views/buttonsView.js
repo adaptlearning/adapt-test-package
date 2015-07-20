@@ -35,13 +35,33 @@ define(function() {
 
         postRender: function() {
             this.updateAttemptsCount();
+            this.checkResetSubmittedState();
             this.onButtonStateChanged(null, this.model.get('_buttonState'));
             this.onFeedbackMessageChanged(null, this.model.get('feedbackMessage'));
+        },
+
+        checkResetSubmittedState: function() {
+            var isSubmitted = this.model.get('_isSubmitted');
+
+            if (!isSubmitted) {
+
+                var $icon = this.$('.buttons-marking-icon');
+                $icon.removeClass('icon-cross');  
+                $icon.removeClass('icon-tick');  
+                $icon.addClass('display-none');
+                this.$el.removeClass("submitted");
+
+            } else {
+
+                this.$el.addClass("submitted");
+
+            }
         },
 
         onActionClicked: function() {
             var buttonState = this.model.get('_buttonState');
             this.trigger('buttons:' + buttonState);
+            this.checkResetSubmittedState();
         },
 
         onFeedbackClicked: function() {
@@ -73,21 +93,23 @@ define(function() {
                     }
                 }
 
-            } else {
-                switch(changedAttribute) {
-                case "showCorrectAnswer": case "hideCorrectAnswer":
-					//make model answer button inaccessible but enabled for visual users
-					//	due to inability to represent selected incorrect/correct answers to a screen reader, may need revisiting
-                    this.$('.buttons-action').a11y_cntrl(false).html(this.model.get('_buttons')["_" + changedAttribute].buttonText)
-                    .attr('aria-label', this.model.get('_buttons')["_" + changedAttribute].ariaLabel);
-                    break;
-                default:
-					//enabled button, make accessible and update aria labels and text.
-                    this.$('.buttons-action').a11y_cntrl_enabled(true).html(this.model.get('_buttons')["_" + changedAttribute].buttonText)
-                    .attr('aria-label', this.model.get('_buttons')["_" + changedAttribute].ariaLabel);
+            } else {        
+                // Backwords compatibility with v1.x
+                var ariaLabel = this.model.get('_buttons')["_" + changedAttribute].ariaLabel;
+                var buttonText = this.model.get('_buttons')["_" + changedAttribute].buttonText;
+                
+                switch (changedAttribute) {
+                    case "showCorrectAnswer": case "hideCorrectAnswer":
+    				    //make model answer button inaccessible but enabled for visual users
+    				    //	due to inability to represent selected incorrect/correct answers to a screen reader, may need revisiting
+                        this.$('.buttons-action').a11y_cntrl(false).html(buttonText).attr('aria-label', ariaLabel);
+                        break;
+                    default:
+    				    //enabled button, make accessible and update aria labels and text.
+                        this.$('.buttons-action').a11y_cntrl_enabled(true).html(buttonText).attr('aria-label', ariaLabel);
                 }
-
             }
+
             this.updateAttemptsCount();
         },
 
@@ -96,7 +118,10 @@ define(function() {
             var attemptsLeft = (this.model.get('_attemptsLeft')) ? this.model.get('_attemptsLeft') : this.model.get('_attempts')
             var isCorrect = this.model.get('_isCorrect');
             var shouldDisplayAttempts = this.model.get('_shouldDisplayAttempts');
-            var attemptsString;                        
+            var attemptsString;
+
+            this.checkResetSubmittedState();
+
             if (!isInteractionComplete && attemptsLeft != 0) {
                 attemptsString = attemptsLeft + " ";
                 if (attemptsLeft > 1) {
