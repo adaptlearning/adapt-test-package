@@ -3,7 +3,7 @@
 
 @white: #ffffff;
 @black: #4b4e4f;
-@blue: #3d6fd4;
+@blue: #078292;
 @light-grey: #78909c;
 @mid-grey: #546e7a;
 @dark-grey: #37474f;
@@ -77,32 +77,25 @@
 
 @navigation-progress-border-color: @navigation-icon-color;
 
-@navigation-text-color: @navigation-icon-color;
-@navigation-text-color-hover: @navigation-icon-color-hover;
-
 // Drawer
 @drawer-color: @quaternary-color;
 @drawer-border-color: darken(@drawer-color, 20%);
 
-@drawer-icon-color: @drawer-text-color;
+@drawer-icon-color: @quaternary-color-inverted;
 @drawer-icon-color-hover: darken(@drawer-icon-color, 40%);
 
 @drawer-item-color: @drawer-color;
 @drawer-item-color-hover: darken(@drawer-item-color, 40%);
-@drawer-item-color-completed: @drawer-item-color-hover;
+@drawer-item-color-selected: @drawer-item-color-hover;
 @drawer-item-color-disabled: @item-color-disabled;
-
-@drawer-item-border-color: @drawer-text-color;
 
 @drawer-item-text-color: @quaternary-color-inverted;
 @drawer-item-text-color-hover: @drawer-item-text-color;
-@drawer-item-text-color-completed: @drawer-item-text-color;
+@drawer-item-text-color-selected: @drawer-item-text-color;
 @drawer-item-text-color-disabled: @item-text-color-disabled;
 
 @drawer-progress-color: @drawer-item-text-color;
 @drawer-progress-color-hover: darken(@drawer-progress-color, 40%);
-@drawer-progress-background-color: darken(@drawer-item-color, 20%);
-@drawer-progress-background-color-disabled: darken(@drawer-item-color, 40%);
 
 @drawer-progress-border-color: darken(@drawer-item-color, 20%);
 
@@ -114,7 +107,6 @@
 @item-color-disabled: @disabled-color;
 @item-color-visited: desaturate(@item-color, 90%);
 @item-color-selected: @item-color-hover;
-@item-colour-inverted: @primary-color-inverted;
 
 @item-text-color: @primary-color-inverted;
 @item-text-color-hover: @item-text-color;
@@ -130,11 +122,7 @@
 @item-border-color-disabled: @item-color-disabled;
 @item-border-color-visited: @item-color-visited;
 @item-border-color-selected: @item-color-selected;
-@item-border-color-inverted: @item-colour-inverted;
-
-// Results
-@results-background-color: @primary-color;
-@results-text-color: @primary-color-inverted;
+@item-border-color-inverted: @item-text-color;
 
 // Menu
 @menu-item-color: @primary-color;

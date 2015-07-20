@@ -1,13 +1,9 @@
 {
   "name": "adapt-contrib-vanilla",
-  "version": "2.0.0",
-  "framework": "^2.0.0",
   "homepage": "https://github.com/darylhedley/adapt-contrib-vanilla",
   "authors": [
     "Daryl Hedley <darylhedley@hotmail.com>"
   ],
-  "displayName": "Vanilla",
-  "theme": "vanilla",
   "description": "A core bundled theme",
   "main": "js/vanilla.js",
   "keywords": [
@@ -21,5 +17,15 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "_release": "6d2adcd593",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "6d2adcd593527a7204c9fa4f34e079ecd13fe7ef"
+  },
+  "_source": "git://github.com/darylhedley/adapt-contrib-vanilla.git",
+  "_target": "*",
+  "_originalSource": "adapt-contrib-vanilla",
+  "_direct": true
 }
