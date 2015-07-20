@@ -18,6 +18,8 @@
             background-color:@item-color-selected;
             border-color:@item-border-color-selected;
             .mcq-answer-icon {
+                color:@item-text-color-selected;
+
                  &.radio {
                     &:before {
                         content: "\e65d";
@@ -37,17 +39,30 @@
             }
             .mcq-item-icon {
                 color:@item-text-color-selected;
+
+                &.mcq-correct-icon {
+                    color:@validation-success;
+                }
+
+                &.mcq-incorrect-icon {
+                    color:@validation-error;
+                }
             }
         }
     }
 
+    .mcq-item-inner {
+        padding-top: @item-padding-top;
+        padding-bottom: @item-padding-bottom;
+        padding-right: @item-padding-right;
+        padding-left: (@icon-size+(@item-padding-left*2));
+    }
+
     .mcq-correct-icon {
-        color:@validation-success;
         display:none;
     }
 
     .mcq-incorrect-icon {
-        color:@validation-error;
         display:none;
     }
 
@@ -81,14 +96,15 @@
             background-color:@item-color-disabled;
             border-color:@item-border-color-disabled;
             cursor:default;
-        }
 
-        .mcq-item.correct .selected .state {
-            color:@validation-success;
-        }
-
-        .mcq-item.incorrect .selected .state {
-            color:@validation-error;
+            .mcq-item-icon {
+                &.mcq-correct-icon {
+                    color:@validation-success;
+                }
+                &.mcq-incorrect-icon {
+                    color:@validation-error;
+                }
+            }
         }
     }
 }
@@ -102,7 +118,7 @@
                 background-color:@item-color-hover;
                 border-color:@item-border-color-hover;
                 .mcq-item-icon {
-                    color:@item-text-color-hover;
+                    color: none;
                 }
             }
             .mcq-item label.disabled {
@@ -115,7 +131,12 @@
                     border-color:@item-border-color-disabled;
                 }
                 .mcq-item-icon {
-                    color:@item-text-color-disabled;
+                    &.mcq-correct-icon {
+                        color:@validation-success;
+                    }
+                    &.mcq-incorrect-icon {
+                        color:@validation-error;
+                    }
                 }
             }
         }

@@ -64,20 +64,26 @@
 }
 
 .no-touch {
-  .matching-select-icon {
-    &:hover {
-      color: @item-text-color-hover;
-    }
-  }
   .matching-select-container {
     &:hover {
-      color: @button-text-color-hover;
       background-color: @item-color-hover;
+      .matching-select {
+        color: @item-text-color-hover;
+        &:disabled {
+          color: @item-text-color-disabled;
+        }
+      }
+      .matching-dropdown-icon {
+        color: @item-text-color-hover;
+      }
     }
   }
 }
 
 .ie8 {
+  .submitted.matching-widget .matching-select-container {
+    background-color: @white;
+  }
   .matching-select-container {
     &.disabled {
       background-color: @item-color-disabled;
