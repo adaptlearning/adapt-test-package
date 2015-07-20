@@ -11,7 +11,6 @@
   "instruction": "",
   "_items": [
     {
-      "alt": "Heading 1",
       "title": "Heading 1",
       "body": "This is display text 1.",
       "_graphic": {
@@ -20,7 +19,6 @@
       }
     },
     {
-      "alt": "Heading 2",
       "title": "Heading 2",
       "body": "This is display text 2.",
       "_graphic": {
@@ -29,7 +27,6 @@
       }
     },
     {
-      "alt": "Heading 3",
       "title": "Heading 3",
       "body": "This is display text 3.",
       "_graphic": {
