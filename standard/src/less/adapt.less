@@ -774,7 +774,7 @@ a, button {-webkit-tap-highlight-color: rgba(0,0,0,0.2);}
 
     .gmcq-item input {
         position:absolute;
-        bottom:14px;
+        top: 25px;
         left:25px;
         .dir-rtl & {
             left:inherit;
@@ -2834,6 +2834,9 @@ html.accessibility {
         color: @item-text-color;
         text-align: center;
         z-index: 2;
+        .ie8 & {
+            border: 2px solid @item-border-color;
+        }
         .no-touch & {
             &:hover {
                 background-color:@item-hover-color;
@@ -3192,7 +3195,6 @@ html.accessibility {
         background-color:@primary-color;
     }
 }
-
 .resources {
     .resources-filter a {
         display:block;
