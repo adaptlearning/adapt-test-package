@@ -72,6 +72,9 @@
 			"large": "course/en/images/c-25.jpg",
 			"medium": "course/en/images/c-25.jpg",
 			"small": "course/en/images/c-25.jpg"
+		},
+		"_pageLevelProgress": {
+			"_isEnabled": true
 		}
 	},
 	{
@@ -423,14 +426,14 @@
 			}
 		],
 		"_feedback": {
-			"correct": "Correct answer feedback.<br><br>That’s correct. The Adapt Open Source project was established by City & Guilds Kineo, Learning Pool and Sponge. At the time of the writing there a total of seven <a href='https://community.adaptlearning.org/mod/page/view.php?id=51' target='_blank'>official collaborators</a>.<br><br>Component facts: <strong>Text input</strong> components let learners enter their own answers, which is great for questions that require a bit more flexibility, like those with answers that could be written as both full words and numbers.",
+			"correct": "Correct answer feedback.<br><br>That’s correct. The Adapt Open Source project was established by City & Guilds Kineo, Learning Pool and Sponge. At the time of writing, there are a total of seven <a href='https://community.adaptlearning.org/mod/page/view.php?id=51' target='_blank'>official collaborators</a>.<br><br>Component facts: <strong>Text input</strong> components let learners enter their own answers, which is great for questions that require a bit more flexibility, like those with answers that could be written as both full words and numbers.",
 			"_partlyCorrect": {
 				"notFinal": "notFinal",
-				"final": "Incorrect answer feedback.<br><br>Sorry, that’s not right. The Adapt Open Source project was established by City & Guilds Kineo, Learning Pool and Sponge. At the time of the writing there a total of seven <a href='https://community.adaptlearning.org/mod/page/view.php?id=51' target='_blank'>official collaborators</a>.<br><br>Component facts: <strong>Text input</strong> components let learners enter their own answers, which is great for questions that require a bit more flexibility, like those with answers that could be written as both full words and numbers."
+				"final": "Incorrect answer feedback.<br><br>Sorry, that’s not right. The Adapt Open Source project was established by City & Guilds Kineo, Learning Pool and Sponge. At the time of writing, there are a total of seven <a href='https://community.adaptlearning.org/mod/page/view.php?id=51' target='_blank'>official collaborators</a>.<br><br>Component facts: <strong>Text input</strong> components let learners enter their own answers, which is great for questions that require a bit more flexibility, like those with answers that could be written as both full words and numbers."
 			},
 			"_incorrect": {
 				"notFinal": "notFinal",
-				"final": "Incorrect answer feedback.<br><br>Sorry, that’s not right. The Adapt Open Source project was established by City & Guilds Kineo, Learning Pool and Sponge. At the time of the writing there a total of seven <a href='https://community.adaptlearning.org/mod/page/view.php?id=51' target='_blank'>official collaborators</a>.<br><br>Component facts: <strong>Text input</strong> components let learners enter their own answers, which is great for questions that require a bit more flexibility, like those with answers that could be written as both full words and numbers."
+				"final": "Incorrect answer feedback.<br><br>Sorry, that’s not right. The Adapt Open Source project was established by City & Guilds Kineo, Learning Pool and Sponge. At the time of writing, there are a total of seven <a href='https://community.adaptlearning.org/mod/page/view.php?id=51' target='_blank'>official collaborators</a>.<br><br>Component facts: <strong>Text input</strong> components let learners enter their own answers, which is great for questions that require a bit more flexibility, like those with answers that could be written as both full words and numbers."
 			}
 		},
 		"_pageLevelProgress": {
@@ -493,7 +496,7 @@
 				]
 			},
 			{
-				"text": "Adapt adheres to the WCAG 2.0 guidelines to level AA, but when we’re these published?",
+				"text": "Adapt adheres to the WCAG 2.0 guidelines to level AA, but when were these published?",
 				"_options": [
 					{
 						"text": "2008",
@@ -1123,41 +1126,12 @@
 		}
 	},
 	{
-		"_id": "c-165",
-		"_parentId": "b-115",
-		"_type": "component",
-		"_component": "accordion",
-		"_classes": "",
-		"_layout": "right",
-		"title": "Accordion - single width",
-		"displayTitle": "Accordion - single width",
-		"body": "You can use the <strong>accordion</strong> component to present learners with a series of headings, which once selected, expand to reveal associated text. Select each of the headings below to find out more about how accordions can be used.<br><br>These components can be either single or spanned. If spanned they can also contain a graphic.",
-		"instruction": "Select the headings to find out more.",
-		"_items": [
-			{
-				"title": "Lists",
-				"body": "This is display text 1 and we’re using it to discuss lists.<br><br>If you need to present a list which can standalone as a piece of content, but which can also be explored in more detail, then accordions are a great choice."
-			},
-			{
-				"title": "Steps in a process",
-				"body": "This is display text 2 and now we’re discussing how accordions can be great at presenting a process.<br><br>The headings can be used to present the high level stages in the process which once selected, provide a more extensive explanation of what happens at that specific point."
-			},
-			{
-				"title": "Recaps",
-				"body": "This is display text 3 and we’re now talking about using accordions to provide the learner with a summary.<br><br>Each accordion item corresponds to a key piece of learning presented on the page. When this item is selected a short summary of the learning point is provided."
-			}
-		],
-		"_pageLevelProgress": {
-			"_isEnabled": true
-		}
-	},
-	{
 		"_id": "c-167",
-		"_parentId": "b-117",
+		"_parentId": "b-115",
 		"_type": "component",
 		"_component": "media",
 		"_classes": "",
-		"_layout": "full",
+		"_layout": "right",
 		"_comment": "_setCompletionOn = inview | play | ended",
 		"_setCompletionOn": "play",
 		"_useClosedCaptions": false,
@@ -1168,6 +1142,54 @@
 		"_media": {
 			"mp3": "course/en/audio/c-167.mp3"
 		},
+		"_pageLevelProgress": {
+			"_isEnabled": true
+		}
+	},
+	{
+		"_id": "c-163",
+		"_parentId": "b-117",
+		"_type": "component",
+		"_component": "narrative",
+		"_classes": "",
+		"_layout": "full",
+		"_comment": "setCompletionOn = inview | allItems",
+		"_setCompletionOn": "allItems",
+		"_hasNavigationInTextArea": true,
+		"title": "Narrative (nav in display text)",
+		"displayTitle": "Narrative (nav in display text)",
+		"body": "The narrative component lets you scroll through a series of images each with some accompanying text.<br><br>This component is always spanned.",
+		"instruction": "Select the arrow to find out more.",
+		"mobileInstruction": "Select the arrow followed by the plus icon to find out more.",
+		"_items": [
+			{
+				"title": "Narrative item 1",
+				"body": "Narratives are particularly good for showing dialogue between two or more characters, with each step of the conversation being accompanied by an image. This photo story approach can be used to provide context for the learning about to follow, to illustrate real world application of the learning or to show the impact on people when the learning hasn’t been applied correctly.",
+				"_graphic": {
+					"src": "course/en/images/c-30-1.jpg",
+					"alt": "2 business men talking holding a tablet"
+				},
+				"strapline": "Narrative item 1"
+			},
+			{
+				"title": "Narrative item 2",
+				"body": "Narratives can also be used to present case studies, where the different displays are used to set the scene, show the key events and then the outcome.",
+				"_graphic": {
+					"src": "course/en/images/c-30-2.jpg",
+					"alt": "Beach telescope"
+				},
+				"strapline": "Narrative item 2"
+			},
+			{
+				"title": "Narrative item 3",
+				"body": "The narrative can also be used when you want to illustrate the constituent steps that make up a larger process.",
+				"_graphic": {
+					"src": "course/en/images/c-30-3.jpg",
+					"alt": "Female pointing to the word excellent"
+				},
+				"strapline": "Narrative item 3"
+			}
+		],
 		"_pageLevelProgress": {
 			"_isEnabled": true
 		}
@@ -1221,14 +1243,14 @@
 			}
 		],
 		"_feedback": {
-			"correct": "Correct answer feedback.<br><br>That’s correct. The Adapt Open Source project was established by City & Guilds Kineo, Learning Pool and Sponge. At the time of the writing there a total of seven <a href='https://community.adaptlearning.org/mod/page/view.php?id=51' target='_blank'>official collaborators</a>.<br><br>Component facts: <strong>Text input</strong> components let learners enter their own answers, which is great for questions that require a bit more flexibility, like those with answers that could be written as both full words and numbers.",
+			"correct": "Correct answer feedback.<br><br>That’s correct. The Adapt Open Source project was established by City & Guilds Kineo, Learning Pool and Sponge. At the time of writing, there are a total of seven <a href='https://community.adaptlearning.org/mod/page/view.php?id=51' target='_blank'>official collaborators</a>.<br><br>Component facts: <strong>Text input</strong> components let learners enter their own answers, which is great for questions that require a bit more flexibility, like those with answers that could be written as both full words and numbers.",
 			"_partlyCorrect": {
 				"notFinal": "notFinal",
-				"final": "Incorrect answer feedback.<br><br>Sorry, that’s not right. The Adapt Open Source project was established by City & Guilds Kineo, Learning Pool and Sponge. At the time of the writing there a total of seven <a href='https://community.adaptlearning.org/mod/page/view.php?id=51' target='_blank'>official collaborators</a>.<br><br>Component facts: <strong>Text input</strong> components let learners enter their own answers, which is great for questions that require a bit more flexibility, like those with answers that could be written as both full words and numbers."
+				"final": "Incorrect answer feedback.<br><br>Sorry, that’s not right. The Adapt Open Source project was established by City & Guilds Kineo, Learning Pool and Sponge. At the time of writing, there are a total of seven <a href='https://community.adaptlearning.org/mod/page/view.php?id=51' target='_blank'>official collaborators</a>.<br><br>Component facts: <strong>Text input</strong> components let learners enter their own answers, which is great for questions that require a bit more flexibility, like those with answers that could be written as both full words and numbers."
 			},
 			"_incorrect": {
 				"notFinal": "notFinal",
-				"final": "Incorrect answer feedback.<br><br>Sorry, that’s not right. The Adapt Open Source project was established by City & Guilds Kineo, Learning Pool and Sponge. At the time of the writing there a total of seven <a href='https://community.adaptlearning.org/mod/page/view.php?id=51' target='_blank'>official collaborators</a>.<br><br>Component facts: <strong>Text input</strong> components let learners enter their own answers, which is great for questions that require a bit more flexibility, like those with answers that could be written as both full words and numbers."
+				"final": "Incorrect answer feedback.<br><br>Sorry, that’s not right. The Adapt Open Source project was established by City & Guilds Kineo, Learning Pool and Sponge. At the time of writing, there are a total of seven <a href='https://community.adaptlearning.org/mod/page/view.php?id=51' target='_blank'>official collaborators</a>.<br><br>Component facts: <strong>Text input</strong> components let learners enter their own answers, which is great for questions that require a bit more flexibility, like those with answers that could be written as both full words and numbers."
 			}
 		},
 		"_pageLevelProgress": {
@@ -1331,12 +1353,32 @@
 		}
 	},
 	{
-		"_id": "c-180",
+		"_id": "c-165",
 		"_parentId": "b-125",
 		"_type": "component",
-		"_component": "blank",
+		"_component": "accordion",
 		"_classes": "",
 		"_layout": "right",
-		"title": "title"
+		"title": "Accordion - single width",
+		"displayTitle": "Accordion - single width",
+		"body": "You can use the <strong>accordion</strong> component to present learners with a series of headings, which once selected, expand to reveal associated text. Select each of the headings below to find out more about how accordions can be used.<br><br>These components can be either single or spanned. If spanned they can also contain a graphic.",
+		"instruction": "Select the headings to find out more.",
+		"_items": [
+			{
+				"title": "Lists",
+				"body": "This is display text 1 and we’re using it to discuss lists.<br><br>If you need to present a list which can standalone as a piece of content, but which can also be explored in more detail, then accordions are a great choice."
+			},
+			{
+				"title": "Steps in a process",
+				"body": "This is display text 2 and now we’re discussing how accordions can be great at presenting a process.<br><br>The headings can be used to present the high level stages in the process which once selected, provide a more extensive explanation of what happens at that specific point."
+			},
+			{
+				"title": "Recaps",
+				"body": "This is display text 3 and we’re now talking about using accordions to provide the learner with a summary.<br><br>Each accordion item corresponds to a key piece of learning presented on the page. When this item is selected a short summary of the learning point is provided."
+			}
+		],
+		"_pageLevelProgress": {
+			"_isEnabled": true
+		}
 	}
 ]
