@@ -15,11 +15,11 @@
   ],
   "license": "GPLv3",
   "targetAttribute": "_resources",
-  "_release": "558ae0fe3b",
+  "_release": "081969e4e9",
   "_resolution": {
     "type": "branch",
     "branch": "develop",
-    "commit": "558ae0fe3b68f45a4d23e88c45ed1da66d125335"
+    "commit": "081969e4e9f0037561a187fa1a803fb2ffb27edd"
   },
   "_source": "git://github.com/adaptlearning/adapt-contrib-resources.git",
   "_target": "develop",

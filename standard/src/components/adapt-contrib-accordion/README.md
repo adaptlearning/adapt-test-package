@@ -21,9 +21,9 @@ Clickable title items are used to toggle the visibility of these content panels.
 
 ##Settings overview
 
-For example JSON format, see [example.json](https://github.com/adaptlearning/adapt-contrib-accordion/blob/master/example.json)
+For example JSON format, see [example.json](https://github.com/adaptlearning/adapt-contrib-textInput/blob/master/example.json). A description of the core settings can be found at: [Core model attributes](https://github.com/adaptlearning/adapt_framework/wiki/Core-model-attributes)
 
-A description of the core settings can be found at: [Core model attributes](https://github.com/adaptlearning/adapt_framework/wiki/Core-model-attributes). The following explains further settings for the accordion component:
+The following explains further settings for the accordion component:
 
 ####_component
 

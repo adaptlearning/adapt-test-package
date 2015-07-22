@@ -16,11 +16,11 @@
   ],
   "license": "GPLv3",
   "targetAttribute": "_trickle",
-  "_release": "171394d58b",
+  "_release": "b5b2a0208c",
   "_resolution": {
     "type": "branch",
     "branch": "develop",
-    "commit": "171394d58ba3ba6a834904434634da7486c6629c"
+    "commit": "b5b2a0208cb3bf3a814d0a3e4b0471e6e47d1d81"
   },
   "_source": "git://github.com/adaptlearning/adapt-contrib-trickle.git",
   "_target": "develop",

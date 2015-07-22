@@ -14,11 +14,11 @@
     "adapt-component"
   ],
   "license": "GPLv3",
-  "_release": "57aa84544c",
+  "_release": "a16262a34b",
   "_resolution": {
     "type": "branch",
     "branch": "develop",
-    "commit": "57aa84544cef098dacfe5bf2de907a7378f5ec0a"
+    "commit": "a16262a34b9c70246b47afedddb3cf73a633860a"
   },
   "_source": "git://github.com/adaptlearning/adapt-contrib-blank.git",
   "_target": "develop",

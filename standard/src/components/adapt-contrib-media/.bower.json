@@ -19,11 +19,11 @@
     "adapt-component"
   ],
   "license": "GPLv3",
-  "_release": "baa0636ae0",
+  "_release": "bc4af07c81",
   "_resolution": {
     "type": "branch",
     "branch": "develop",
-    "commit": "baa0636ae0ea37e683fbc8c0a363e79e68c47f6a"
+    "commit": "bc4af07c8165f6906d560362bfc2b908d9b63efb"
   },
   "_source": "git://github.com/adaptlearning/adapt-contrib-media.git",
   "_target": "develop",

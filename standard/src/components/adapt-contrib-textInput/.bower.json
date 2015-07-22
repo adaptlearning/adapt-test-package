@@ -15,11 +15,11 @@
     "adapt-component"
   ],
   "license": "GPLv3",
-  "_release": "24b036092b",
+  "_release": "25af9c3820",
   "_resolution": {
     "type": "branch",
     "branch": "develop",
-    "commit": "24b036092b9aa71d977e4c338a6ffe07b32db24d"
+    "commit": "25af9c3820d217f0df0ccb116796805639c9a707"
   },
   "_source": "git://github.com/adaptlearning/adapt-contrib-textInput.git",
   "_target": "develop",

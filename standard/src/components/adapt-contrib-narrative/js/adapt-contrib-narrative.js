@@ -12,7 +12,6 @@ define(function(require) {
 
         events: {
             'click .narrative-strapline-title': 'openPopup',
-            'touchend .narrative-strapline-title': 'openPopup',
             'click .narrative-controls': 'onNavigationClicked'
         },
 
@@ -138,8 +137,9 @@ define(function(require) {
             var Hotgraphic = Adapt.componentStore.hotgraphic;
             
             var model = this.prepareHotgraphicModel();
-            var newHotgraphic = new Hotgraphic({model: model, $parent: this.options.$parent});
-            this.options.$parent.append(newHotgraphic.$el);
+            var newHotgraphic = new Hotgraphic({ model: model });
+
+            $("." + this.model.get("_parentId")).append(newHotgraphic.$el);
             this.remove();
             _.defer(function() {
                 Adapt.trigger('device:resize');

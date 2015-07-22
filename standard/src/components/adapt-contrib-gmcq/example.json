@@ -6,6 +6,7 @@
     "_classes":"",
     "_layout":"full",
     "_attempts":1,
+    "_shouldDisplayAttempts": false,
     "_questionWeight":1,
     "_isRandom":false,
     "_selectable":1,
@@ -66,7 +67,6 @@
         "ariaLabel": ""
       },
       "remainingAttemptsText": "attempts remaining",
-      "remainingAttemptText": "final attempt",
-      "disabledAriaLabel": "This button is disabled at the moment"
+      "remainingAttemptText": "final attempt"
     }
 }

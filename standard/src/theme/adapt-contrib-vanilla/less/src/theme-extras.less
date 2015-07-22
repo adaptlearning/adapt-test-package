@@ -10,7 +10,6 @@
     background-color: @background-color-inverted;
     color: @foreground-color-inverted;
     text-align: center;
-
     .block-title,
     .block-body,
     .block-instruction,
@@ -19,6 +18,9 @@
     .component-instruction {
     	color: @foreground-color-inverted;
     	text-align: center;
+    }
+    .component-inner {
+    	background-color: transparent;
     }
 }
 
@@ -44,6 +46,7 @@
 
 	&.background-color-inverted {
 		background-color: @background-color-inverted;
+		color: @font-color-inverted;
 	}
 }
 
@@ -55,13 +58,34 @@
 	padding: @component-padding;
 }
 
+// Assessment - remove graphic components for mobile view (when components snap down to single span).
+// ==========
 
-// Component background - used to apply variable based background color and padding on components
+.assessment {
+	.graphic-component {
+		display: block;
+
+		@media all and (max-width: @device-width-medium) {
+			display: none;
+		}
+	}
+}
+
+// THIS CLASS IS FOR THE PURPOSE OF THE ADAPT DEMO 
+// blank component demo - applied at block level to add a background image in place of a blank component
 // ====================
 
 .blank-background {
 	background-image: url(assets/blank-bg.jpg);
 	background-repeat: no-repeat;
+	background-position: center;
+
+	@media all and (max-width: @device-width-large) {
+		background-image: url(assets/blank-bg-900.jpg);
+		background-position: right;
+	}
+
+	@media all and (max-width: @device-width-medium) {
+		background-image: none;
+	}
 }
-
-

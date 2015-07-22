@@ -8,6 +8,8 @@ define(function(require) {
     var QuestionView = require('coreViews/questionView');
     var Adapt = require('coreJS/adapt');
 
+    var genericAnswerIndexOffset = 65536;
+
     var TextInput = QuestionView.extend({
         events: {
             "blur input":"forceFixedPositionFakeScroll",
@@ -22,11 +24,50 @@ define(function(require) {
 
         // Used by question to setup itself just before rendering
         setupQuestion: function() {
+            this.setupItemIndexes();
+            this.restoreUserAnswer();
             // Check if items need to be randomised
             if (this.model.get('_isRandom') && this.model.get('_isEnabled')) {
                 this.model.set("_items", _.shuffle(this.model.get("_items")));
             }
         },
+
+        setupItemIndexes: function() {
+            
+            _.each(this.model.get('_items'), function(item, index) {
+
+                if (item._index === undefined) item._index = index;
+                if (item._answerIndex === undefined) item._answerIndex = -1;
+
+            });
+
+        },
+
+        restoreUserAnswer: function() {
+            if (!this.model.get("_isSubmitted")) return;
+
+            var userAnswer = this.model.get("_userAnswer");
+            var genericAnswers = this.model.get("_answers");
+            _.each(this.model.get("_items"), function(item) {
+                var answerIndex = userAnswer[item._index];
+                if (answerIndex > -1) {
+                    item.userAnswer = item._answers[answerIndex];
+                    item._answerIndex = answerIndex;
+                } else if (answerIndex >= genericAnswerIndexOffset) {
+                    item.userAnswer = genericAnswers[answerIndex - genericAnswerIndexOffset];
+                    item._answerIndex = answerIndex;
+                } else {
+                    if (item.userAnswer === undefined) item.userAnswer = "******";
+                    item._answerIndex = -1;
+                }
+            });
+
+            this.setQuestionAsSubmitted();
+            this.markQuestion();
+            this.setScore();
+            this.showMarking();
+            this.setupFeedback();
+        },  
 
         // Used by question to disable the question during submit and complete stages
         disableQuestion: function() {
@@ -89,9 +130,18 @@ define(function(require) {
 
         //This preserve the state of the users answers for returning or showing the users answer
         storeUserAnswer: function() {
-            _.each(this.model.get('_items'), function(item, index) {
+            var items = this.model.get('_items');
+            _.each(items, function(item, index) {
                 item.userAnswer = this.$('.textinput-item-textbox').eq(index).val();
             }, this);
+
+            this.isCorrect();
+
+            var userAnswer = new Array( items.length );
+            _.each(items, function(item, index) {
+                userAnswer[ item._index ] = item._answerIndex;
+            });
+            this.model.set("_userAnswer", userAnswer);
         },
 
         // Return a boolean based upon whether question is correct or not
@@ -111,6 +161,7 @@ define(function(require) {
                 _.each(correctAnswers, function(answerGroup, answerIndex) {
                     if(this.checkAnswerIsCorrect(answerGroup, item.userAnswer)) {
                         item._isCorrect = true;
+                        item._answerIndex = answerIndex + genericAnswerIndexOffset;
                         correctAnswers.splice(answerIndex,1);
                         numberOfCorrectAnswers++;
                         this.model.set('_numberOfCorrectAnswers', numberOfCorrectAnswers);
@@ -128,14 +179,17 @@ define(function(require) {
             var numberOfSpecificAnswers = 0;
             _.each(this.model.get('_items'), function(item, index) {
                 if(!item._answers) return;
-                var userAnswer = this.$(".textinput-item-textbox").eq(index).val();
+                //var userAnswer = this.$(".textinput-item-textbox").eq(index).val();
+                var userAnswer = item.userAnswer || ""; 
                 if (this.checkAnswerIsCorrect(item["_answers"], userAnswer)) {
                     numberOfCorrectAnswers++;
                     item._isCorrect = true;
+                    item._answerIndex = _.indexOf(item["_answers"], this.cleanupUserAnswer(userAnswer));
                     this.model.set('_numberOfCorrectAnswers', numberOfCorrectAnswers);
                     this.model.set('_isAtLeastOneCorrectSelection', true);
                 } else {
                     item._isCorrect = false;
+                    item._answerIndex = -1;
                 }
                 numberOfSpecificAnswers++;
             }, this);
@@ -174,7 +228,7 @@ define(function(require) {
         showMarking: function() {
             _.each(this.model.get('_items'), function(item, i) {
                 var $item = this.$('.textinput-item').eq(i);
-                $item.addClass(item._isCorrect ? 'correct' : 'incorrect');
+                $item.removeClass('correct incorrect').addClass(item._isCorrect ? 'correct' : 'incorrect');
             }, this);
         },
 
@@ -197,7 +251,8 @@ define(function(require) {
             this.$('.textinput-item-textbox').prop('disabled', !this.model.get('_isEnabled')).val('');
 
             this.model.set({
-                _isAtLeastOneCorrectSelection: false
+                _isAtLeastOneCorrectSelection: false,
+                _isCorrect: undefined
             });
         },
 

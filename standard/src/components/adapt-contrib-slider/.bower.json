@@ -16,11 +16,11 @@
     "adapt-component"
   ],
   "license": "GPLv3",
-  "_release": "7dd5f6c5d1",
+  "_release": "872059962e",
   "_resolution": {
     "type": "branch",
     "branch": "develop",
-    "commit": "7dd5f6c5d1c611c88335caedd5eecf479b81dc6b"
+    "commit": "872059962e024d886881750fbd83238ea0831544"
   },
   "_source": "git://github.com/adaptlearning/adapt-contrib-slider.git",
   "_target": "develop",

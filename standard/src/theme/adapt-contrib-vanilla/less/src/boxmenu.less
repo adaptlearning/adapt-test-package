@@ -30,7 +30,7 @@
 	}
 
 	.menu-title {
-		margin: @menu-block-title-margin-bottom 0;
+		margin: @menu-block-title-margin-top 0 @menu-block-title-margin-bottom;
 		color: @inverted-foreground-color;
 	}
 
@@ -71,8 +71,9 @@
 	}
 	
 	.menu-item-title {
-		margin: @menu-block-title-margin-bottom 0;
+		margin: @menu-block-title-margin-top 0 @menu-block-title-margin-bottom;
 		padding: 0;
+		.item-title;
 	}
 
 	.menu-item-body {
@@ -150,7 +151,7 @@
 			&.nth-child-even, 
 			&.nth-child-odd {
 				.menu-item-inner{
-					margin: 0 auto 30px;
+					margin: 0 auto;
 				}
 			}
 		}

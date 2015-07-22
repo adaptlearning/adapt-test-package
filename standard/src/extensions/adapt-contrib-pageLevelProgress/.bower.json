@@ -16,11 +16,11 @@
   ],
   "license": "GPLv3",
   "targetAttribute": "_pageLevelProgress",
-  "_release": "259b330444",
+  "_release": "470eb20c8a",
   "_resolution": {
     "type": "branch",
     "branch": "develop",
-    "commit": "259b3304448d94cb412c2abd445835b59a502a82"
+    "commit": "470eb20c8a8a681e0c4fbc427239b7955154b9fb"
   },
   "_source": "git://github.com/adaptlearning/adapt-contrib-pageLevelProgress.git",
   "_target": "develop",

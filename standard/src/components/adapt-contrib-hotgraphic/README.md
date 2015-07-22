@@ -5,7 +5,7 @@ A contributed hot graphic component that enables a user to click on hot spots ov
 ##Installation
 
 
-First, be sure to install the [Adapt Command Line Interface](https://github.com/cajones/adapt-cli), then from the command line run:-
+First, be sure to install the [Adapt Command Line Interface](https://github.com/adaptlearning/adapt-cli), then from the command line run:-
 
         adapt install adapt-contrib-hotgraphic
 
@@ -13,7 +13,7 @@ This component can also be installed by adding the component to the adapt.json f
 
         "adapt-contrib-hotgraphic": "*"
 
-###Usage
+##Usage
 
 Once installed, the component can be used to display an image with clickable 'hot spot' elements. The location of these hot spots are defined within the content. When a hot spot is clicked, a pop-up window appears which displays an image and text.
 
@@ -21,7 +21,7 @@ Controls are provided to move between the next and previous hot spots via the po
 
 ##Settings overview
 
-For example JSON format, see [example.json](https://github.com/adaptlearning/adapt-contrib-hotgraphic/blob/master/example.json). A description of the core settings can be found at: [Core model attributes](https://github.com/adaptlearning/adapt_framework/wiki/Core-model-attributes)
+For example JSON format, see [example.json](example.json). A description of the core settings can be found at: [Core model attributes](https://github.com/adaptlearning/adapt_framework/wiki/Core-model-attributes)
 
 Further settings for this component are:
 
@@ -44,6 +44,10 @@ Hides the previous and next actions and progress indicator from the toolbar.
 ####_canCycleThroughPagination
 
 Enables the popups to be cycled through. e.g. going from item 3 back around to item 1.
+
+####_useGraphicsAsPins
+
+When this is set to true, the item graphics can be used as 'pins'.  When this is set to 'false' (per default), a main poster image is displayed, with pins overlayed to trigger the hot spots.
 
 ####mobileBody
 
@@ -78,6 +82,8 @@ Title text can be entered here for the image.
 ####_items
 
 Multiple items can be entered. Each item represents one hot spot for this component and contains values for `title`, `body` and `_graphic`.
+
+Within _graphic, 'src', 'title', 'alt' and '_classes' can be set.
 
 ####title
 
@@ -127,9 +133,3 @@ When viewport size changes to the smallest range this component will behave like
 ##Browser spec
 
 This component has been tested to the standard Adapt browser specification.
-
-
-
-
-
-

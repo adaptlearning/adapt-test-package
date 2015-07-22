@@ -54,6 +54,28 @@ require([
 
             mapAdaptIdsToObjects();
 
+            if (typeof Adapt.course.get('_buttons').submit !== 'undefined') {
+                // Backwards compatibility with v1.x
+                var oldButtons = Adapt.course.get('_buttons');
+                var buttons = [];
+                
+                for (var key in oldButtons) {
+                    buttons['_' + key] = {
+                        buttonText: oldButtons[key],
+                        ariaLabel: oldButtons[key]
+                    };
+                }
+                
+                // HACK - Append other missing values
+                buttons['_showFeedback'] = {
+                    buttonText: 'Show feedback',
+                    ariaLabel: 'Show feedback'
+                };
+                
+                // Replace the existing property
+                Adapt.course.set('_buttons', buttons); 
+            }
+
             // Triggered to setup model connections in AdaptModel.js
             Adapt.trigger('app:dataLoaded');
             // Sets up collection mapping
@@ -84,7 +106,11 @@ require([
     // This enables plugins to tap in before the course files are loaded & also to change the default language
     function loadCourseData() {
         // All code that needs to run before adapt starts should go here    
-        var courseFolder = "course/" + Adapt.config.get('_defaultLanguage')+"/";
+        var language = Adapt.config.get('_defaultLanguage');
+
+        var courseFolder = "course/" + language +"/";
+
+        $('html').attr("lang", language);
 
         Adapt.course = new CourseModel(null, {url:courseFolder + "course.json", reset:true});
         

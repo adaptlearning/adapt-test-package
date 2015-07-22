@@ -93,10 +93,11 @@ define(function(require) {
             var Narrative = Adapt.componentStore.narrative;
 
             var model = this.prepareNarrativeModel();
-            var newNarrative = new Narrative({model: model, $parent: this.options.$parent});
+            var newNarrative = new Narrative({ model: model });
+
             newNarrative.reRender();
             newNarrative.setupNarrative();
-            this.options.$parent.append(newNarrative.$el);
+            $("." + this.model.get("_parentId")).append(newNarrative.$el);
             Adapt.trigger('device:resize');
             this.remove();
         },
@@ -135,8 +136,11 @@ define(function(require) {
                 this.$('.hotgraphic-popup-controls.back').a11y_cntrl_enabled(true);
                 this.$('.hotgraphic-popup-controls.next').a11y_cntrl_enabled(true);
             }
-
-            this.$('.hotgraphic-popup').attr('class', 'hotgraphic-popup ' + 'item-' + index);
+            var classes = this.model.get("_items")[index]._classes 
+                ? this.model.get("_items")[index]._classes
+                : '';  // _classes has not been defined
+      
+            this.$('.hotgraphic-popup').attr('class', 'hotgraphic-popup ' + 'item-' + index + ' ' + classes);
 
         },
 

@@ -13,11 +13,11 @@
     "adapt-component"
   ],
   "license": "GPLv3",
-  "_release": "fcb71615aa",
+  "_release": "dab939fcae",
   "_resolution": {
     "type": "branch",
     "branch": "develop",
-    "commit": "fcb71615aa3308e181e82ea37754700f0a4ddc0d"
+    "commit": "dab939fcaee423e84598276284c6bf493dd8a6ea"
   },
   "_source": "git://github.com/adaptlearning/adapt-contrib-assessmentResults.git",
   "_target": "develop",

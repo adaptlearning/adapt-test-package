@@ -48,10 +48,19 @@ define([
 
         restoreLocation: function() {
             _.defer(_.bind(function() {
-                this.stopListening();
+                this.stopListening(Adapt, "pageView:ready menuView:ready", this.restoreLocation);
 
                 var courseBookmarkModel = Adapt.course.get('_bookmarking');
                 courseBookmarkModel._locationID = this.locationID;
+
+                if (this.locationID == Adapt.location._currentId) return;
+
+                try {
+                    var model = Adapt.findById(this.locationID);
+                } catch (error) {
+                    return;
+                }
+
                 this.showPrompt();
             }, this));
         },
@@ -134,7 +143,6 @@ define([
         addInViewListeners: function (view) {
             var element = view.$el;
             element.data('locationID', view.model.get('_id'));
-            console.log("View check on", view.model.get('_id'));  
             element.on('inview', _.bind(this.onInview, this));
             this.inviewEventListeners.push(element);
         },
@@ -196,7 +204,6 @@ define([
         setLocationID: function (id) {
             if (!Adapt.offlineStorage) return;
             Adapt.offlineStorage.set("location", id);
-            console.log("Location set", id);
         },
 
         removeInViewListeners: function () {

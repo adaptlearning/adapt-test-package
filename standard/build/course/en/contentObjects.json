@@ -43,7 +43,7 @@
 		"_id": "co-15",
 		"_parentId": "course",
 		"_type": "page",
-		"_classes": "",
+		"_classes": "assessment",
 		"title": "Adapt Assessment",
 		"displayTitle": "Adapt Assessment",
 		"pageBody": "We’ve put together a very short quiz to demonstrate the new assessment functionality. In this simple example there are two banks that each contain three questions with two being taken from each bank at random. The order in which the questions are presented is then also randomised, as is the order of each questions options.<br><br><strong>Think you can get a perfect score? Scroll down to attempt the first question.</strong>",

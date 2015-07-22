@@ -18,11 +18,11 @@
     "adapt-component"
   ],
   "license": "GPLv3",
-  "_release": "67aa8e046d",
+  "_release": "ae21a9410c",
   "_resolution": {
     "type": "branch",
     "branch": "develop",
-    "commit": "67aa8e046dfc03f4bfe310e7f71138df5bfb327d"
+    "commit": "ae21a9410cc06bcce5a42a2825d96bc1a96f96df"
   },
   "_source": "git://github.com/adaptlearning/adapt-contrib-hotgraphic.git",
   "_target": "develop",
