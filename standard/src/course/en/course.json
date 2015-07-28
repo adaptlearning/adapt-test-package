@@ -132,7 +132,7 @@
         "description": "View resources for this course by clicking here.",
         "_filterButtons": {
             "all": "All",
-            "document": "PDF",
+            "document": "Document",
             "media": "Media",
             "link": "Link"
         },
@@ -145,9 +145,9 @@
         "_resourcesItems": [
             {
                 "_type": "document",
-                "title": "Button idea",
-                "description": "See a proposed button idea by clicking here.",
-                "_link": "course/en/pdf/adapt-framework-prototypes-buttons.pdf"
+                "title": "Vanilla Theme Swatch",
+                "description": "See the swatch for the default vanilla by clicking here.",
+                "_link": "course/en/images/vanilla-swatch.jpeg"
             },
             {
                 "_type": "media",
