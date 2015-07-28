@@ -391,7 +391,7 @@
 		"_allowsPunctuation": true,
 		"title": "Text Input",
 		"displayTitle": "Text Input",
-		"body": "Can you name one of the three companies that established Adapt is a community led Open Source project?",
+		"body": "Can you name one of the three companies that established Adapt as a community led Open Source project?",
 		"instruction": "Input your answers and select Submit.",
 		"_items": [
 			{
@@ -1169,8 +1169,8 @@
 		"_comment": "setCompletionOn = inview | allItems",
 		"_setCompletionOn": "allItems",
 		"_hasNavigationInTextArea": true,
-		"title": "Narrative (nav in display text)",
-		"displayTitle": "Narrative (nav in display text)",
+		"title": "Narrative - nav in display text",
+		"displayTitle": "Narrative - nav in display text",
 		"body": "The narrative component lets you scroll through a series of images each with some accompanying text.<br><br>This component is always spanned.",
 		"instruction": "Select the arrow to find out more.",
 		"mobileInstruction": "Select the arrow followed by the plus icon to find out more.",
@@ -1221,7 +1221,7 @@
 		"_allowsPunctuation": true,
 		"title": "Text Input - spanned",
 		"displayTitle": "Text Input - spanned",
-		"body": "Can you name one of the three companies that established Adapt is a community led Open Source project?",
+		"body": "Can you name one of the three companies that established Adapt as a community led Open Source project?",
 		"instruction": "Input your answers and select Submit.",
 		"_items": [
 			{
