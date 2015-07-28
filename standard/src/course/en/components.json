@@ -391,7 +391,7 @@
 		"_allowsPunctuation": true,
 		"title": "Text Input",
 		"displayTitle": "Text Input",
-		"body": "Can you name one of the three companies that established Adapt is a community led Open Source project?",
+		"body": "Can you name one of the three companies that established Adapt as a community led Open Source project?",
 		"instruction": "Input your answers and select Submit.",
 		"_items": [
 			{
@@ -1221,7 +1221,7 @@
 		"_allowsPunctuation": true,
 		"title": "Text Input - spanned",
 		"displayTitle": "Text Input - spanned",
-		"body": "Can you name one of the three companies that established Adapt is a community led Open Source project?",
+		"body": "Can you name one of the three companies that established Adapt as a community led Open Source project?",
 		"instruction": "Input your answers and select Submit.",
 		"_items": [
 			{
