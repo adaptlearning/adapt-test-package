@@ -1,0 +1,15 @@
+{
+	"name": "adapt-ids",
+	"version": "0.0.1",
+	"description": "Displays the IDs for all content objects.",
+	"main": "/js/main.js",
+	"keywords": [
+		"adapt-plugin",
+		"adapt-extension"
+	],
+	"authors": [
+		"Thomas Taylor"
+	],
+	"license": "GPL-3.0",
+	"homepage": "https://github.com/taylortom/adapt-ids"
+}

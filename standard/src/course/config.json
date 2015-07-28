@@ -25,8 +25,5 @@
             "_onAssessmentFailure": "incomplete"
         }
     },
-    "_inspector": {
-        "_isEnabled": true,
-        "_tracUrl": ""
-    }
+    "_showIds": true
 }
