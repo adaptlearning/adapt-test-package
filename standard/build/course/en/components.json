@@ -343,7 +343,7 @@
 				"text": "Option 1",
 				"_shouldBeSelected": false,
 				"_graphic": {
-					"alt": "Triangle 1",
+					"alt": "Triangle with 3 equal sides.",
 					"large": "course/en/images/c-65-1.png",
 					"small": "course/en/images/c-65-1.png"
 				}
@@ -352,7 +352,7 @@
 				"text": "Option 2",
 				"_shouldBeSelected": true,
 				"_graphic": {
-					"alt": "Triangle 2",
+					"alt": "Triangle with 2 equal sides.",
 					"large": "course/en/images/c-65-2.png",
 					"small": "course/en/images/c-65-2.png"
 				}
@@ -361,7 +361,7 @@
 				"text": "Option 3",
 				"_shouldBeSelected": false,
 				"_graphic": {
-					"alt": "Triangle 3",
+					"alt": "Triangle with a right-angle.",
 					"large": "course/en/images/c-65-3.png",
 					"small": "course/en/images/c-65-3.png"
 				}
