@@ -94,14 +94,17 @@
                 "menu": "Menu",
                 "menuItem": "Menu item. Select to view.",
                 "menuViewButton": "Select here to enter.",
+                "menuEnd": "You have reached the end of the menu.",
                 "page": "",
                 "pageLoaded": "Page Loaded.",
+                "pageEnd": "You have reached the end of the page.",
                 "previous": "Back",
                 "navigationBack": "Navigate back",
                 "navigationDrawer": "Open course resources.",
                 "close": "Close",
                 "closeDrawer": "Close Drawer",
                 "closeResources": "Close resources",
+                "resourcesEnd": "You have reached the end of the list of resources.",
                 "drawerBack": "Back to drawer",
                 "drawer": "Top of side drawer",
                 "closePopup": "Close popup",
@@ -118,7 +121,8 @@
                 "menuBack": "Back to menu",
                 "menuIndicatorHeading": "Menu item heading ",
                 "pageLevelProgress": "Page sections",
-                "pageLevelProgressIndicatorBar": "Progress bar. Select here to view your current progress, and select an item to navigate to it. You have completed "
+                "pageLevelProgressIndicatorBar": "Progress bar. Select here to view your current progress, and select an item to navigate to it. You have completed ",
+                "pageLevelProgressEnd": "You have reached the end of the list of page sections."
             }
         }
     },
