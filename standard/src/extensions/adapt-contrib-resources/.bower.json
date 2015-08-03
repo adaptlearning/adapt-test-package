@@ -2,9 +2,7 @@
   "name": "adapt-contrib-resources",
   "framework": "^2.0.0",
   "homepage": "https://github.com/adaptlearning/adapt-contrib-resources",
-  "authors": [
-    "Daryl Hedley <darylhedley@hotmail.com>, Dan Gray <dan@sinensis.co.uk>"
-  ],
+  "issues": "https://adaptlearning.atlassian.net/secure/CreateIssueDetails!init.jspa?pid=10100&issuetype=1&priority=6&components=10522",
   "displayName": "Resources",
   "extension": "resources",
   "description": "An extension to allow learners to view resources",
@@ -15,11 +13,11 @@
   ],
   "license": "GPLv3",
   "targetAttribute": "_resources",
-  "_release": "081969e4e9",
+  "_release": "1c00996020",
   "_resolution": {
     "type": "branch",
     "branch": "develop",
-    "commit": "081969e4e9f0037561a187fa1a803fb2ffb27edd"
+    "commit": "1c009960204b5461f2164ae8ee803fbd80f9fa5c"
   },
   "_source": "git://github.com/adaptlearning/adapt-contrib-resources.git",
   "_target": "develop",

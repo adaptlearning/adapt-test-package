@@ -1,13 +1,3 @@
-/*
- * adapt-contrib-media
- * License - http://github.com/adaptlearning/adapt_framework/blob/master/LICENSE
- * Maintainers - Chris Steele <chris.steele@kineo.com>,
- *               Daryl Hedley <darylhedley@gmail.com>,
- *               Kevin Corry <kevinc@learningpool.com>,
- *               Kirsty Hames <kirstyjhames@gmail.com>,
- *               Thomas Taylor <thomas.taylor@kineo.com>
- *               Brian Quinn <brian@learningpool.com>
- */
 define(function(require) {
 
     var mep = require('components/adapt-contrib-media/js/mediaelement-and-player.min');
@@ -46,7 +36,7 @@ define(function(require) {
             var hasAccessibility = Adapt.config.has('_accessibility') && Adapt.config.get('_accessibility')._isEnabled
                 ? true
                 : false;
-                
+
             if (hasAccessibility) modelOptions.alwaysShowControls = true;
 
             // create the player
@@ -176,8 +166,8 @@ define(function(require) {
 
         onToggleInlineTranscript: function(event) {
             if (event) event.preventDefault();
-            var $transcriptBodyContainer = $(".media-inline-transcript-body-container");
-            var $button = $(".media-inline-transcript-button");
+            var $transcriptBodyContainer = this.$(".media-inline-transcript-body-container");
+            var $button = this.$(".media-inline-transcript-button");
 
             if  ($transcriptBodyContainer.hasClass("inline-transcript-open")) {
                 $transcriptBodyContainer.slideUp();
@@ -194,7 +184,7 @@ define(function(require) {
             var hasAccessibility = Adapt.config.has('_accessibility') && Adapt.config.get('_accessibility')._isEnabled
                 ? true
                 : false;
-                
+
             if (hasAccessibility) {
                 if (!this.mediaElement.player) return;
 

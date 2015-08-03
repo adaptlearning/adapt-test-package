@@ -1,10 +1,8 @@
 {
   "name": "adapt-contrib-text",
   "framework": "^2.0.0",
-  "homepage": "https://github.com/darylhedley/adapt-contrib-text",
-  "authors": [
-    "Daryl Hedley <darylhedley@hotmail.com>"
-  ],
+  "homepage": "https://github.com/adaptlearning/adapt-contrib-text",
+  "issues": "https://adaptlearning.atlassian.net/secure/CreateIssueDetails!init.jspa?pid=10100&issuetype=1&priority=6&components=10502",
   "displayName": "Text",
   "component": "text",
   "description": "A simple core contributed text component",
@@ -14,11 +12,11 @@
     "adapt-component"
   ],
   "license": "GPLv3",
-  "_release": "342ca1695f",
+  "_release": "e7f95d4927",
   "_resolution": {
     "type": "branch",
     "branch": "develop",
-    "commit": "342ca1695f624a9cf5ba9e8c7f7dc6d91f89d091"
+    "commit": "e7f95d4927361e67966516c2b7959275ce8fcc4a"
   },
   "_source": "git://github.com/adaptlearning/adapt-contrib-text.git",
   "_target": "develop",

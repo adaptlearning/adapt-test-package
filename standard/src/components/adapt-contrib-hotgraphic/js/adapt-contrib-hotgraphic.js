@@ -1,8 +1,3 @@
-/*
- * adapt-contrib-hotgraphic
- * License - http://github.com/adaptlearning/adapt_framework/blob/master/LICENSE
- * Maintainers - Kevin Corry <kevinc@learningpool.com>, Daryl Hedley <darylhedley@hotmail.com>
- */
 define(function(require) {
 
     var ComponentView = require('coreViews/componentView');
@@ -94,10 +89,11 @@ define(function(require) {
 
             var model = this.prepareNarrativeModel();
             var newNarrative = new Narrative({ model: model });
+            var $container = $(".component-container", $("." + this.model.get("_parentId")));
 
             newNarrative.reRender();
             newNarrative.setupNarrative();
-            $("." + this.model.get("_parentId")).append(newNarrative.$el);
+            $container.append(newNarrative.$el);
             Adapt.trigger('device:resize');
             this.remove();
         },

@@ -2,9 +2,7 @@
   "name": "adapt-contrib-blank",
   "framework": "^2.0.0",
   "homepage": "https://github.com/adaptlearning/adapt-contrib-blank",
-  "authors": [
-    "Kevin Corry <kevinc@learningpool.com>"
-  ],
+  "issues": "https://adaptlearning.atlassian.net/secure/CreateIssueDetails!init.jspa?pid=10100&issuetype=1&priority=6&components=10503",
   "displayName": "Blank",
   "component": "blank",
   "description": "A simple adapt core contributed blank component",
@@ -14,11 +12,11 @@
     "adapt-component"
   ],
   "license": "GPLv3",
-  "_release": "a16262a34b",
+  "_release": "11df317093",
   "_resolution": {
     "type": "branch",
     "branch": "develop",
-    "commit": "a16262a34b9c70246b47afedddb3cf73a633860a"
+    "commit": "11df3170933b5e561b9d27d6e21f90ec0c4c6009"
   },
   "_source": "git://github.com/adaptlearning/adapt-contrib-blank.git",
   "_target": "develop",

@@ -2,11 +2,7 @@
   "name": "adapt-contrib-matching",
   "framework": "^2.0.0",
   "homepage": "https://github.com/adaptlearning/adapt-contrib-matching",
-  "authors": [
-    "Kevin Corry <kevinc@learningpool.com>",
-    "Daryl Hedley <darylhedley@gmail.com>",
-    "Himanshu Rajotia <himanshu.rajotia@credipoint.com>"
-  ],
+  "issues": "https://adaptlearning.atlassian.net/secure/CreateIssueDetails!init.jspa?pid=10100&issuetype=1&priority=6&components=10510",
   "description": "A question component that allows the learner to match the options to question stems",
   "main": "/js/adapt-contrib-matching.js",
   "displayName": "Matching Question",
@@ -16,11 +12,11 @@
     "adapt-component"
   ],
   "license": "GPLv3",
-  "_release": "c77182ea1e",
+  "_release": "5afbd11da3",
   "_resolution": {
     "type": "branch",
     "branch": "develop",
-    "commit": "c77182ea1ef5f7ee7c76e0de52285caddd849717"
+    "commit": "5afbd11da3cd6bb27f1f6398af4d8eb7eea5d7a8"
   },
   "_source": "git://github.com/adaptlearning/adapt-contrib-matching.git",
   "_target": "develop",

@@ -1,3 +1,4 @@
+//Ordered, multiple correct answer variations
 {
     "_id":"c-30",
     "_parentId":"b-15",
@@ -39,8 +40,6 @@
       "remainingAttemptsText": "attempts remaining",
       "remainingAttemptText": "final attempt"
     },
-    "_answers": [
-    ],
     "_feedback": {
         "correct": "This feedback will appear if you answered the question correctly.",
         "_incorrect": {
@@ -81,4 +80,89 @@
             "placeholder": "Enter answer here"
         }
     ]
+}
+
+//Unordered, single correct answer variations
+{
+    "_id": "c-35",
+    "_parentId": "b-25",
+    "_type": "component",
+    "_component": "textinput",
+    "_classes": "",
+    "_layout": "left",
+    "title": "Greek alphabet",
+    "displayTitle": "Greek alphabet",
+    "body": "Type Greek alphabet in any order (alpha, beta, gamma and delta).",
+    "instruction": "Fill in your answers below.",
+    "_attempts": 2,
+    "_allowsAnyCase": true,
+    "_allowsPunctuation": true,
+    "_questionWeight": 10,
+    "_buttons": {
+      "_submit": {
+        "buttonText": "Submit",
+        "ariaLabel": "Select here to submit your answer."
+      },
+      "_reset": {
+        "buttonText": "Reset",
+        "ariaLabel": ""
+      },
+      "_showCorrectAnswer": {
+        "buttonText": "Correct answer",
+        "ariaLabel": ""
+      },
+      "_hideCorrectAnswer": {
+        "buttonText": "My answer",
+        "ariaLabel": ""
+      },
+      "_showFeedback": {
+        "buttonText": "Show feedback",
+        "ariaLabel": ""
+      },
+      "remainingAttemptsText": "attempts remaining",
+      "remainingAttemptText": "final attempt",
+      "disabledAriaLabel": "This button is disabled at the moment"
+    },
+    "_feedback": {
+      "correct": "This feedback will appear if you answered the question correctly.",
+      "_incorrect": {
+        "notFinal": "",
+        "final": "This feedback will appear if you answered the question incorrectly."
+      },
+      "_partlyCorrect": {
+        "notFinal": "",
+        "final": "This feedback will appear if you answered part of the question correctly."
+      }
+    },
+    "_answers": [
+      ["alpha"],
+      ["beta"],
+      ["gamma"],
+      ["delta"]
+    ],
+    "_items": [
+      {
+        "prefix": "",
+        "suffix": "",
+        "placeholder": "Enter answer here"
+      },
+      {
+        "prefix": "",
+        "suffix": "",
+        "placeholder": "Enter answer here"
+      },
+      {
+        "prefix": "",
+        "suffix": "",
+        "placeholder": "Enter answer here"
+      },
+      {
+        "prefix": "",
+        "suffix": "",
+        "placeholder": "Enter answer here"
+      }
+    ],
+    "_pageLevelProgress": {
+      "_isEnabled": true
+    }
 }
