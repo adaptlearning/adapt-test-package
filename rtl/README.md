@@ -1,1 +1,1 @@
-RTL test packing coming soon.
+RTL test package coming soon.
