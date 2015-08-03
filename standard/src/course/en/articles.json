@@ -30,7 +30,7 @@
 			"_id": "a-15",
 			"_isPercentageBased": true,
 			"_scoreToPass": 70,
-			"_postScoreToLms": true,
+			"_includeInTotalScore": true,
 			"_assessmentWeight": 1,
 			"_banks": {
 				"_isEnabled": false,
@@ -39,7 +39,8 @@
 			},
 			"_questions": {
 				"_resetType": "hard",
-				"_canShowFeedback": false
+				"_canShowFeedback": false,
+				"_canShowMarking": true
 			},
 			"_isResetOnRevisit": true,
 			"_attempts": "infinite"
