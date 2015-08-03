@@ -58,24 +58,5 @@
 		"_pageLevelProgress": {
 			"_isEnabled": true
 		}
-	},
-	{
-		"_id": "co-20",
-		"_parentId": "course",
-		"_type": "page",
-		"_classes": "",
-		"title": "Alternative layouts of core components",
-		"displayTitle": "Alternative layouts of core components",
-		"body": "For testing layouts and configurations.",
-		"_graphic": {
-			"src": "course/en/images/t20.jpg",
-			"alt": ""
-		},
-		"linkText": "View",
-		"durationLabel": "Duration:",
-		"duration": "2 mins",
-		"_pageLevelProgress": {
-			"_isEnabled": true
-		}
 	}
 ]
