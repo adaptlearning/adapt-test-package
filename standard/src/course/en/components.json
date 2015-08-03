@@ -26,8 +26,8 @@
 		"body": "",
 		"instruction": "",
 		"_graphic": {
-			"large": "course/en/images/c-10.jpg",
-			"small": "course/en/images/c-10.jpg",
+			"large": "course/en/images/single_width.jpg",
+			"small": "course/en/images/single_width.jpg",
 			"alt": "Multiple devices running an Adapt course",
 			"attribution": ""
 		}
@@ -68,8 +68,8 @@
 		"body": "This is the graphic component body. You can introduce your graphic or you may just want to let the graphics do the talking.<br><br>Component can either be single or spanned.",
 		"instruction": "",
 		"_graphic": {
-			"large": "course/en/images/c-25.jpg",
-			"small": "course/en/images/c-25.jpg",
+			"large": "course/en/images/full_width.jpg",
+			"small": "course/en/images/full_width.jpg",
 			"alt": "Person using a tablet holding a pen",
 			"attribution": ""
 		},
@@ -97,7 +97,7 @@
 				"title": "Narrative item 1",
 				"body": "Narratives are particularly good for showing dialogue between two or more characters, with each step of the conversation being accompanied by an image. This photo story approach can be used to provide context for the learning about to follow, to illustrate real world application of the learning or to show the impact on people when the learning hasn’t been applied correctly.",
 				"_graphic": {
-					"src": "course/en/images/c-30-1.jpg",
+					"src": "course/en/images/single_width_small.jpg",
 					"alt": "2 business men talking holding a tablet"
 				},
 				"strapline": "Narrative item 1"
@@ -106,7 +106,7 @@
 				"title": "Narrative item 2",
 				"body": "Narratives can also be used to present case studies, where the different displays are used to set the scene, show the key events and then the outcome.",
 				"_graphic": {
-					"src": "course/en/images/c-30-2.jpg",
+					"src": "course/en/images/single_width_small.jpg",
 					"alt": "Beach telescope"
 				},
 				"strapline": "Narrative item 2"
@@ -115,7 +115,7 @@
 				"title": "Narrative item 3",
 				"body": "The narrative can also be used when you want to illustrate the constituent steps that make up a larger process.",
 				"_graphic": {
-					"src": "course/en/images/c-30-3.jpg",
+					"src": "course/en/images/single_width_small.jpg",
 					"alt": "Female pointing to the word excellent"
 				},
 				"strapline": "Narrative item 3"
@@ -143,7 +143,7 @@
 		"instruction": "Select the icons to find out more.",
 		"mobileInstruction": "",
 		"_graphic": {
-			"src": "course/en/images/c-35.jpg",
+			"src": "course/en/images/full_width.jpg",
 			"alt": "Top down view of an office desk"
 		},
 		"_items": [
@@ -151,7 +151,7 @@
 				"title": "Hot graphic item 1",
 				"body": "This is display text 1 which we have associated with the tablet image on the desktop.",
 				"_graphic": {
-					"src": "course/en/images/c-35-1.jpg",
+					"src": "course/en/images/single_width_small.jpg",
 					"alt": "Tablet",
 					"_classes": ""
 				},
@@ -164,7 +164,7 @@
 				"title": "Hot graphic item 2",
 				"body": "This is display text 2 which we have linked to the smartphone image.",
 				"_graphic": {
-					"src": "course/en/images/c-35-2.jpg",
+					"src": "course/en/images/single_width_small.jpg",
 					"alt": "Smart phone",
 					"_classes": ""
 				},
@@ -177,7 +177,7 @@
 				"title": "Hot graphic item 3",
 				"body": "This is display text 3 which we’ve located over the laptop so you would expect the content to be about PCs.",
 				"_graphic": {
-					"src": "course/en/images/c-35-3.jpg",
+					"src": "course/en/images/single_width_small.jpg",
 					"alt": "Laptop",
 					"_classes": ""
 				},
@@ -245,7 +245,7 @@
 				"title": "Lists",
 				"body": "This is display text 1 and we’re using it to discuss lists.<br><br>If you need to present a list which can standalone as a piece of content, but which can also be explored in more detail, then accordions are a great choice.",
 				"_graphic": {
-					"src": "course/en/images/c-45-1.jpg",
+					"src": "course/en/images/accordion_full_width.jpg",
 					"alt": "Books on a shelf"
 				}
 			},
@@ -253,7 +253,7 @@
 				"title": "Steps in a process",
 				"body": "This is display text 2 and now we’re discussing how accordions can be great at presenting a process.<br><br>The headings can be used to present the high level stages in the process which once selected, provide a more extensive explanation of what happens at that specific point.",
 				"_graphic": {
-					"src": "course/en/images/c-45-2.jpg",
+					"src": "course/en/images/accordion_full_width.jpg",
 					"alt": "Stepping stone pebbles"
 				}
 			},
@@ -261,7 +261,7 @@
 				"title": "Recaps",
 				"body": "This is display text 3 and we’re now talking about using accordions to provide the learner with a summary.<br><br>Each accordion item corresponds to a key piece of learning presented on the page. When this item is selected a short summary of the learning point is provided.",
 				"_graphic": {
-					"src": "course/en/images/c-45-3.jpg",
+					"src": "course/en/images/accordion_full_width.jpg",
 					"alt": "Hand holding a smartphone"
 				}
 			}
@@ -327,8 +327,8 @@
 		"body": "",
 		"instruction": "",
 		"_graphic": {
-			"large": "course/en/images/c-55.jpg",
-			"small": "course/en/images/c-55.jpg",
+			"large": "course/en/images/single_width.jpg",
+			"small": "course/en/images/single_width.jpg",
 			"alt": "Question mark with a magnifying glass",
 			"attribution": ""
 		}
@@ -355,8 +355,8 @@
 				"text": "Option 1",
 				"_shouldBeSelected": false,
 				"_graphic": {
-					"large": "course/en/images/c-65-1.png",
-					"small": "course/en/images/c-65-1.png",
+					"large": "course/en/images/GMCQ_option.png",
+					"small": "course/en/images/GMCQ_option.png",
 					"alt": "Triangle with 3 equal sides."
 				}
 			},
@@ -364,8 +364,8 @@
 				"text": "Option 2",
 				"_shouldBeSelected": true,
 				"_graphic": {
-					"large": "course/en/images/c-65-2.png",
-					"small": "course/en/images/c-65-2.png",
+					"large": "course/en/images/GMCQ_option.png",
+					"small": "course/en/images/GMCQ_option.png",
 					"alt": "Triangle with 2 equal sides."
 				}
 			},
@@ -373,8 +373,8 @@
 				"text": "Option 3",
 				"_shouldBeSelected": false,
 				"_graphic": {
-					"large": "course/en/images/c-65-3.png",
-					"small": "course/en/images/c-65-3.png",
+					"large": "course/en/images/GMCQ_option.png",
+					"small": "course/en/images/GMCQ_option.png",
 					"alt": "Triangle with a right-angle."
 				}
 			}
@@ -454,8 +454,8 @@
 		"body": "",
 		"instruction": "",
 		"_graphic": {
-			"large": "course/en/images/c-55.jpg",
-			"small": "course/en/images/c-55.jpg",
+			"large": "course/en/images/single_width.jpg",
+			"small": "course/en/images/single_width.jpg",
 			"alt": "Question mark with a magnifying glass",
 			"attribution": ""
 		}
@@ -652,8 +652,8 @@
 		"body": "",
 		"instruction": "",
 		"_graphic": {
-			"large": "course/en/images/c-95.jpg",
-			"small": "course/en/images/c-95.jpg",
+			"large": "course/en/images/single_width.jpg",
+			"small": "course/en/images/single_width.jpg",
 			"alt": "Browser window showing a user scrolling the page",
 			"attribution": ""
 		}
@@ -686,8 +686,8 @@
 		"body": "",
 		"instruction": "",
 		"_graphic": {
-			"large": "course/en/images/c-98.jpg",
-			"small": "course/en/images/c-98.jpg",
+			"large": "course/en/images/single_width.jpg",
+			"small": "course/en/images/single_width.jpg",
 			"alt": "Water droplets",
 			"attribution": ""
 		}
@@ -757,8 +757,8 @@
 		"body": "",
 		"instruction": "",
 		"_graphic": {
-			"large": "course/en/images/c-105.jpg",
-			"small": "course/en/images/c-105.jpg",
+			"large": "course/en/images/single_width.jpg",
+			"small": "course/en/images/single_width.jpg",
 			"alt": "Electrical plug",
 			"attribution": ""
 		}
@@ -828,8 +828,8 @@
 		"body": "",
 		"instruction": "",
 		"_graphic": {
-			"large": "course/en/images/c-115.jpg",
-			"small": "course/en/images/c-115.jpg",
+			"large": "course/en/images/single_width.jpg",
+			"small": "course/en/images/single_width.jpg",
 			"alt": "Book",
 			"attribution": ""
 		}
@@ -895,8 +895,8 @@
 		"body": "",
 		"instruction": "",
 		"_graphic": {
-			"large": "course/en/images/c-125.jpg",
-			"small": "course/en/images/c-125.jpg",
+			"large": "course/en/images/single_width.jpg",
+			"small": "course/en/images/single_width.jpg",
 			"alt": "Multiple devices",
 			"attribution": ""
 		}
@@ -962,8 +962,8 @@
 		"body": "",
 		"instruction": "",
 		"_graphic": {
-			"large": "course/en/images/c-135.jpg",
-			"small": "course/en/images/c-135.jpg",
+			"large": "course/en/images/single_width.jpg",
+			"small": "course/en/images/single_width.jpg",
 			"alt": "Compass icon",
 			"attribution": ""
 		}
@@ -1029,8 +1029,8 @@
 		"body": "",
 		"instruction": "",
 		"_graphic": {
-			"large": "course/en/images/c-145.jpg",
-			"small": "course/en/images/c-145.jpg",
+			"large": "course/en/images/single_width.jpg",
+			"small": "course/en/images/single_width.jpg",
 			"alt": "Computer mouse",
 			"attribution": ""
 		}
