@@ -13,7 +13,7 @@ This extension provides course tracking functionality (hence the name). Currentl
 As one of Adapt's *[core extensions](https://github.com/adaptlearning/adapt_framework/wiki/Core-Plug-ins-in-the-Adapt-Learning-Framework#extensions),* **Spoor** is included with the [installation of the Adapt framework](https://github.com/adaptlearning/adapt_framework/wiki/Manual-installation-of-the-Adapt-framework#installation) and the [installation of the Adapt authoring tool](https://github.com/adaptlearning/adapt_authoring/wiki/Installing-Adapt-Origin).
 
 * If **Spoor** has been uninstalled from the Adapt framework, it may be reinstalled.
-With the [Adapt CLI](https://github.com/cajones/adapt-cli) installed, run the following from the command line:  
+With the [Adapt CLI](https://github.com/adaptlearning/adapt-cli) installed, run the following from the command line:  
 `adapt install adapt-contrib-spoor`
 
     Alternatively, this component can also be installed by adding the following line of code to the *adapt.json* file:  
@@ -106,7 +106,7 @@ Currently (officially) only supports SCORM 1.2
 ----------------------------
 **Version number:**  2.0   <a href="https://community.adaptlearning.org/ target="_blank"><img src="https://github.com/adaptlearning/documentation/blob/master/04_wiki_assets/plug-ins/images/adapt-logo-mrgn-lft.jpg" alt="adapt learning logo" align="right"></a> 
 **Framework versions:**  2.0     
-**Author / maintainer:** Adapt Core Team  
+**Author / maintainer:** Adapt Core Team with [contributors](https://github.com/adaptlearning/adapt-contrib-spoor/graphs/contributors) 
 **Accessibility support:** n/a   
 **RTL support:** n/a  
 **Cross-platform coverage:** Chrome, Chrome for Android, Firefox (ESR + latest version), IE 11, IE10, IE9, IE8, IE Mobile 11, Safari for iPhone (iOS 7+8), Safari for iPad (iOS 7+8), Safari 8, Opera    
