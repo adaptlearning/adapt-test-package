@@ -14,15 +14,15 @@
             "ariaLabel": "Reset the question by clicking here."
         },
         "_showCorrectAnswer": {
-            "buttonText": "Correct Answer",
+            "buttonText": "Correct answer",
             "ariaLabel": "Show the correct answer by clicking here."
         },
         "_hideCorrectAnswer": {
-            "buttonText": "My Answer",
+            "buttonText": "My answer",
             "ariaLabel": "Show the answer you gave by clicking here."
         },
         "_showFeedback": {
-            "buttonText": "Show Feedback",
+            "buttonText": "Show feedback",
             "ariaLabel": "View the question feedback again by clicking here."
         },
         "remainingAttemptsText": "attempts remaining",
@@ -80,6 +80,11 @@
                 "instruction": ""
             }
         },
+        "_extensions": {
+            "_pageLevelProgress": {
+                "optionalContent": "Optional Content"
+            }
+        },
         "_accessibility": {
             "_accessibilityToggleTextOn": "Turn accessibility on?",
             "_accessibilityToggleTextOff": "Turn accessibility off?",
@@ -92,10 +97,10 @@
                 "navigation": "Course navigation bar",
                 "menuLoaded": "Menu Loaded.",
                 "menu": "Menu",
-                "menuItem": "Menu item. Select to view.",
+                "menuItem": "Menu item.",
                 "menuViewButton": "Select here to enter.",
                 "menuEnd": "You have reached the end of the menu.",
-                "page": "",
+                "page": "Page",
                 "pageLoaded": "Page Loaded.",
                 "pageEnd": "You have reached the end of the page.",
                 "previous": "Back",
@@ -112,8 +117,9 @@
                 "done": "Done",
                 "complete": "Completed",
                 "incomplete": "Incomplete",
-                "incorrect": "incorrect",
-                "correct": "correct",
+                "incorrect": "Incorrect",
+                "correct": "Correct",
+                "locked": "Locked",
                 "accessibilityToggleButton": "By selecting this button you can set whether accessibility is turned on or off",
                 "sliderHandle": "Slider handle. Use the left and right arrow keys to move the slider and give your answer. Then tab to the submit button below and press enter.",
                 "hotgraphicPopUp": "Hotgraphic popup.",
