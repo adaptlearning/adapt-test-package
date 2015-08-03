@@ -12,11 +12,11 @@
     "adapt-component"
   ],
   "license": "GPLv3",
-  "_release": "e7f95d4927",
+  "_release": "605c02cf7a",
   "_resolution": {
     "type": "branch",
     "branch": "develop",
-    "commit": "e7f95d4927361e67966516c2b7959275ce8fcc4a"
+    "commit": "605c02cf7abdc6b403ecb9fafeef91aa31452e6a"
   },
   "_source": "git://github.com/adaptlearning/adapt-contrib-text.git",
   "_target": "develop",

@@ -12,11 +12,11 @@
     "adapt-component"
   ],
   "license": "GPLv3",
-  "_release": "caba5a4081",
+  "_release": "5ccc6bbdea",
   "_resolution": {
     "type": "branch",
     "branch": "develop",
-    "commit": "caba5a4081b4e5327de8726bbd0ea0bc57a0456f"
+    "commit": "5ccc6bbdeabb3f7ec676755169bd9cd1c38fc00b"
   },
   "_source": "git://github.com/adaptlearning/adapt-contrib-accordion.git",
   "_target": "develop",

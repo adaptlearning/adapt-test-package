@@ -16,11 +16,11 @@
     "adapt-component"
   ],
   "license": "GPLv3",
-  "_release": "4b790893be",
+  "_release": "1bfb12b89f",
   "_resolution": {
     "type": "branch",
     "branch": "develop",
-    "commit": "4b790893be309205ee53323962d21a6173005ea1"
+    "commit": "1bfb12b89fb8dfb6ae472f0bb3686b8daa17ecde"
   },
   "_source": "git://github.com/adaptlearning/adapt-contrib-graphic.git",
   "_target": "develop",

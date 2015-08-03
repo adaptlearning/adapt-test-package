@@ -13,11 +13,11 @@
   ],
   "license": "GPLv3",
   "targetAttribute": "_tutor",
-  "_release": "873540ff99",
+  "_release": "7de34e97b9",
   "_resolution": {
     "type": "branch",
     "branch": "develop",
-    "commit": "873540ff9946a81b303561d21082bb086621f404"
+    "commit": "7de34e97b978a19ac4a2e803f661f2f1bb087ce6"
   },
   "_source": "git://github.com/adaptlearning/adapt-contrib-tutor.git",
   "_target": "develop",

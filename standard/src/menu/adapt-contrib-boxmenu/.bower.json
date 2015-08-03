@@ -13,11 +13,11 @@
   ],
   "license": "GPLv3",
   "targetAttribute": "_boxMenu",
-  "_release": "d2f9af88ca",
+  "_release": "07cb425864",
   "_resolution": {
     "type": "branch",
     "branch": "develop",
-    "commit": "d2f9af88ca8e804c249fdaf6723072d79dc27429"
+    "commit": "07cb42586451bfa04ff115583d0ee177703bf8df"
   },
   "_source": "git://github.com/adaptlearning/adapt-contrib-boxmenu.git",
   "_target": "develop",

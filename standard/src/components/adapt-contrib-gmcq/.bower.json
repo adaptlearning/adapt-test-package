@@ -16,11 +16,11 @@
     "adapt-component"
   ],
   "license": "GPLv3",
-  "_release": "4e75d4788d",
+  "_release": "a3e48dbb54",
   "_resolution": {
     "type": "branch",
     "branch": "develop",
-    "commit": "4e75d4788d93f1e768f6d5b6680b34afcf53967b"
+    "commit": "a3e48dbb543f8b8e25f5622c27358e13da0615fb"
   },
   "_source": "git://github.com/adaptlearning/adapt-contrib-gmcq.git",
   "_target": "develop",
