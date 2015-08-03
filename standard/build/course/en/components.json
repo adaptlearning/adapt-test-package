@@ -28,7 +28,7 @@
 		"_graphic": {
 			"large": "course/en/images/single_width.jpg",
 			"small": "course/en/images/single_width.jpg",
-			"alt": "Multiple devices running an Adapt course",
+			"alt": "Placeholder graphic.",
 			"attribution": ""
 		}
 	},
@@ -70,7 +70,7 @@
 		"_graphic": {
 			"large": "course/en/images/full_width.jpg",
 			"small": "course/en/images/full_width.jpg",
-			"alt": "Person using a tablet holding a pen",
+			"alt": "Placeholder graphic.",
 			"attribution": ""
 		},
 		"_pageLevelProgress": {
@@ -98,7 +98,7 @@
 				"body": "Narratives are particularly good for showing dialogue between two or more characters, with each step of the conversation being accompanied by an image. This photo story approach can be used to provide context for the learning about to follow, to illustrate real world application of the learning or to show the impact on people when the learning hasn’t been applied correctly.",
 				"_graphic": {
 					"src": "course/en/images/single_width_small.jpg",
-					"alt": "2 business men talking holding a tablet"
+					"alt": "Placeholder graphic."
 				},
 				"strapline": "Narrative item 1"
 			},
@@ -107,7 +107,7 @@
 				"body": "Narratives can also be used to present case studies, where the different displays are used to set the scene, show the key events and then the outcome.",
 				"_graphic": {
 					"src": "course/en/images/single_width_small.jpg",
-					"alt": "Beach telescope"
+					"alt": "Placeholder graphic."
 				},
 				"strapline": "Narrative item 2"
 			},
@@ -116,7 +116,7 @@
 				"body": "The narrative can also be used when you want to illustrate the constituent steps that make up a larger process.",
 				"_graphic": {
 					"src": "course/en/images/single_width_small.jpg",
-					"alt": "Female pointing to the word excellent"
+					"alt": "Placeholder graphic."
 				},
 				"strapline": "Narrative item 3"
 			}
@@ -144,7 +144,7 @@
 		"mobileInstruction": "",
 		"_graphic": {
 			"src": "course/en/images/full_width.jpg",
-			"alt": "Top down view of an office desk"
+			"alt": "Placeholder graphic."
 		},
 		"_items": [
 			{
@@ -152,7 +152,7 @@
 				"body": "This is display text 1 which we have associated with the tablet image on the desktop.",
 				"_graphic": {
 					"src": "course/en/images/single_width_small.jpg",
-					"alt": "Tablet",
+					"alt": "Placeholder graphic.",
 					"_classes": ""
 				},
 				"strapline": "Hot graphic item 1",
@@ -165,7 +165,7 @@
 				"body": "This is display text 2 which we have linked to the smartphone image.",
 				"_graphic": {
 					"src": "course/en/images/single_width_small.jpg",
-					"alt": "Smart phone",
+					"alt": "Placeholder graphic.",
 					"_classes": ""
 				},
 				"strapline": "Hot graphic item 2",
@@ -178,7 +178,7 @@
 				"body": "This is display text 3 which we’ve located over the laptop so you would expect the content to be about PCs.",
 				"_graphic": {
 					"src": "course/en/images/single_width_small.jpg",
-					"alt": "Laptop",
+					"alt": "Placeholder graphic.",
 					"_classes": ""
 				},
 				"strapline": "Hot graphic item 3",
@@ -246,7 +246,7 @@
 				"body": "This is display text 1 and we’re using it to discuss lists.<br><br>If you need to present a list which can standalone as a piece of content, but which can also be explored in more detail, then accordions are a great choice.",
 				"_graphic": {
 					"src": "course/en/images/accordion_full_width.jpg",
-					"alt": "Books on a shelf"
+					"alt": "Placeholder graphic."
 				}
 			},
 			{
@@ -254,7 +254,7 @@
 				"body": "This is display text 2 and now we’re discussing how accordions can be great at presenting a process.<br><br>The headings can be used to present the high level stages in the process which once selected, provide a more extensive explanation of what happens at that specific point.",
 				"_graphic": {
 					"src": "course/en/images/accordion_full_width.jpg",
-					"alt": "Stepping stone pebbles"
+					"alt": "Placeholder graphic."
 				}
 			},
 			{
@@ -262,7 +262,7 @@
 				"body": "This is display text 3 and we’re now talking about using accordions to provide the learner with a summary.<br><br>Each accordion item corresponds to a key piece of learning presented on the page. When this item is selected a short summary of the learning point is provided.",
 				"_graphic": {
 					"src": "course/en/images/accordion_full_width.jpg",
-					"alt": "Hand holding a smartphone"
+					"alt": "Placeholder graphic."
 				}
 			}
 		],
@@ -329,7 +329,7 @@
 		"_graphic": {
 			"large": "course/en/images/single_width.jpg",
 			"small": "course/en/images/single_width.jpg",
-			"alt": "Question mark with a magnifying glass",
+			"alt": "Placeholder graphic.",
 			"attribution": ""
 		}
 	},
@@ -357,7 +357,7 @@
 				"_graphic": {
 					"large": "course/en/images/GMCQ_option.png",
 					"small": "course/en/images/GMCQ_option.png",
-					"alt": ""
+					"alt": "Placeholder graphic."
 				}
 			},
 			{
@@ -366,7 +366,7 @@
 				"_graphic": {
 					"large": "course/en/images/GMCQ_option.png",
 					"small": "course/en/images/GMCQ_option.png",
-					"alt": ""
+					"alt": "Placeholder graphic."
 				}
 			},
 			{
@@ -375,7 +375,7 @@
 				"_graphic": {
 					"large": "course/en/images/GMCQ_option.png",
 					"small": "course/en/images/GMCQ_option.png",
-					"alt": ""
+					"alt": "Placeholder graphic."
 				}
 			}
 		],
@@ -456,7 +456,7 @@
 		"_graphic": {
 			"large": "course/en/images/single_width.jpg",
 			"small": "course/en/images/single_width.jpg",
-			"alt": "Question mark with a magnifying glass",
+			"alt": "Placeholder graphic.",
 			"attribution": ""
 		}
 	},
@@ -654,7 +654,7 @@
 		"_graphic": {
 			"large": "course/en/images/single_width.jpg",
 			"small": "course/en/images/single_width.jpg",
-			"alt": "Browser window showing a user scrolling the page",
+			"alt": "Placeholder graphic.",
 			"attribution": ""
 		}
 	},
@@ -688,7 +688,7 @@
 		"_graphic": {
 			"large": "course/en/images/single_width.jpg",
 			"small": "course/en/images/single_width.jpg",
-			"alt": "Water droplets",
+			"alt": "Placeholder graphic.",
 			"attribution": ""
 		}
 	},
@@ -759,7 +759,7 @@
 		"_graphic": {
 			"large": "course/en/images/single_width.jpg",
 			"small": "course/en/images/single_width.jpg",
-			"alt": "Electrical plug",
+			"alt": "Placeholder graphic.",
 			"attribution": ""
 		}
 	},
@@ -830,7 +830,7 @@
 		"_graphic": {
 			"large": "course/en/images/single_width.jpg",
 			"small": "course/en/images/single_width.jpg",
-			"alt": "Book",
+			"alt": "Placeholder graphic.",
 			"attribution": ""
 		}
 	},
@@ -897,7 +897,7 @@
 		"_graphic": {
 			"large": "course/en/images/single_width.jpg",
 			"small": "course/en/images/single_width.jpg",
-			"alt": "Multiple devices",
+			"alt": "Placeholder graphic.",
 			"attribution": ""
 		}
 	},
@@ -964,7 +964,7 @@
 		"_graphic": {
 			"large": "course/en/images/single_width.jpg",
 			"small": "course/en/images/single_width.jpg",
-			"alt": "Compass icon",
+			"alt": "Placeholder graphic.",
 			"attribution": ""
 		}
 	},
@@ -1031,7 +1031,7 @@
 		"_graphic": {
 			"large": "course/en/images/single_width.jpg",
 			"small": "course/en/images/single_width.jpg",
-			"alt": "Computer mouse",
+			"alt": "Placeholder graphic.",
 			"attribution": ""
 		}
 	},
