@@ -40,7 +40,7 @@
 			"_questions": {
 				"_resetType": "hard",
 				"_canShowFeedback": false,
-				"_canShowMarking": true
+				"_canShowMarking": false
 			},
 			"_isResetOnRevisit": true,
 			"_attempts": "infinite"
