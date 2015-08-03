@@ -2,9 +2,7 @@
   "name": "adapt-contrib-media",
   "framework": "^2.0.0",
   "homepage": "https://github.com/adaptlearning/adapt-contrib-media",
-  "authors": [
-    "Chris Steele <chris.steele@kineo.com>"
-  ],
+  "issues": "https://adaptlearning.atlassian.net/secure/CreateIssueDetails!init.jspa?pid=10100&issuetype=1&priority=6&components=10519",
   "displayName": "Media",
   "component": "media",
   "assetFields": [
@@ -19,11 +17,11 @@
     "adapt-component"
   ],
   "license": "GPLv3",
-  "_release": "bc4af07c81",
+  "_release": "27f8cf20c3",
   "_resolution": {
     "type": "branch",
     "branch": "develop",
-    "commit": "bc4af07c8165f6906d560362bfc2b908d9b63efb"
+    "commit": "27f8cf20c3b6aa566811e7d65efa1b8ca1b29613"
   },
   "_source": "git://github.com/adaptlearning/adapt-contrib-media.git",
   "_target": "develop",

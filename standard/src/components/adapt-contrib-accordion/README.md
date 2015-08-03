@@ -1,67 +1,71 @@
-#adapt-contrib-accordion
+# adapt-contrib-accordion  
 
+<img src="https://github.com/adaptlearning/documentation/blob/master/04_wiki_assets/plug-ins/images/accordion01.gif" alt="accordion in action" align="right">  **Accordion** is a *presentation component* bundled with the [Adapt framework](https://github.com/adaptlearning/adapt_framework).  
 
-An Adapt core contributed accordion component that displays clickable titles, which reveal display text.
+The component displays a vertically stacked list of headings. Each heading is associated with a collapsible content panel. Clicking a heading toggles the visibility of its content panel. Content panels may contain text and/or an image. 
+
+[Visit the **Accordion** wiki](https://github.com/adaptlearning/adapt-contrib-accordion/wiki) for more information about its functionality and for explanations of key properties. 
 
 ##Installation
 
-First, be sure to install the [Adapt Command Line Interface](https://github.com/adaptlearning/adapt-cli), then from the command line run:-
+As one of Adapt's *[core components](https://github.com/adaptlearning/adapt_framework/wiki/Core-Plug-ins-in-the-Adapt-Learning-Framework#components),* **Accordion** is included with the [installation of the Adapt framework](https://github.com/adaptlearning/adapt_framework/wiki/Manual-installation-of-the-Adapt-framework#installation) and the [installation of the Adapt authoring tool](https://github.com/adaptlearning/adapt_authoring/wiki/Installing-Adapt-Origin).
 
-        adapt install adapt-contrib-accordion
+* If **Accordion** has been uninstalled from the Adapt framework, it may be reinstalled.
+With the [Adapt CLI](https://github.com/adaptlearning/adapt-cli) installed, run the following from the command line:  
+`adapt install adapt-contrib-accordion`
 
-This component can also be installed by adding the component to the adapt.json file before running `adapt install`:
+    Alternatively, this component can also be installed by adding the following line of code to the *adapt.json* file:  
+    `"adapt-contrib-accordion": "*"`  
+    Then running the command:  
+    `adapt install`  
+    (This second method will reinstall all plug-ins listed in *adapt.json*.)  
 
-        "adapt-contrib-accordion": "*"
+* If **Accordion** has been uninstalled from the Adapt authoring tool, it may be reinstalled using the [Plug-in Manager](https://github.com/adaptlearning/adapt_authoring/wiki/Plugin-Manager).  
+<div float align=right><a href="#top">Back to Top</a></div>
 
-##Usage
+## Settings Overview
 
-Once installed, the component can be used to create an accordion comprised of collapsible content panels containing display text.
-Clickable title items are used to toggle the visibility of these content panels.
+The attributes listed below are used in *components.json* to configure **Accordion**, and are properly formatted as JSON in [*example.json*](https://github.com/adaptlearning/adapt-contrib-accordion/blob/master/example.json). Visit the [**Accordion** wiki](https://github.com/adaptlearning/adapt-contrib-accordion/wiki) for more information about how they appear in the [authoring tool](https://github.com/adaptlearning/adapt_authoring/wiki). 
+
+### Attributes
+
+[**core model attributes**](https://github.com/adaptlearning/adapt_framework/wiki/Core-model-attributes): These are inherited by every Adapt component. [Read more](https://github.com/adaptlearning/adapt_framework/wiki/Core-model-attributes).
+
+**_component** (string): This value must be: `accordion`.
+
+**_classes** (string): CSS class name to be applied to **Accordion**’s containing div. The class must be predefined in one of the Less files. Separate multiple classes with a space.
+
+**_layout** (string): This defines the horizontal position of the component in the block. Acceptable values are `full`, `left` or `right`.  
+
+**instruction** (string): This optional text appears above the component. It is frequently used to
+guide the learner’s interaction with the component.  
+
+**_items** (array): Multiple items may be created. Each _item_ represents one element of the accordion and contains values for **title**, **body**, and **_graphic**.  
+
+>**title** (string): This text is displayed as the element's header. It is displayed at all times, even when the **body** has been collapsed.
+
+>**body** (string): This content will be displayed when the learner opens this accordion element. It may contain HTML.  
+
+>**_graphic** (object): An optional image which is displayed below the item body when the learner opens this accordion element. It contains values for **src** and **alt**.
+
+>>**src** (string): File name (including path) of the image. Path should be relative to the *src* folder (e.g., *course/en/images/c-45-1.jpg*).
+
+>>**alt** (string): This text becomes the image’s `alt` attribute. 
+
+### Accessibility
+**Accordion** has been assigned a label using the [aria-label](https://github.com/adaptlearning/adapt_framework/wiki/Aria-Labels) attribute: **ariaRegion**. This label is not a visible element. It is utilized by assistive technology such as screen readers. Should the region's text need to be customised, it can be found within the **globals** object in [*properties.schema*](https://github.com/adaptlearning/adapt-contrib-accordion/blob/master/properties.schema).   
+<div float align=right><a href="#top">Back to Top</a></div> 
 
 
-##Settings overview
+## Limitations
 
-For example JSON format, see [example.json](https://github.com/adaptlearning/adapt-contrib-textInput/blob/master/example.json). A description of the core settings can be found at: [Core model attributes](https://github.com/adaptlearning/adapt_framework/wiki/Core-model-attributes)
-
-The following explains further settings for the accordion component:
-
-####_component
-
-This value must be: `accordion`
+Body graphics are displayed only when `"layout": "full"`. On a mobile device, a fully spanned **Accordion** will be reduced to single-width. At this smaller size the graphic will not be displayed.  
 
 
-####_classes
-
-You can use this setting to add custom classes to your template and LESS file.
-
-####_layout
-
-This defines the position of the component in the block. Values can be `full`, `left` or `right`. 
-
-####_items
-
-Each item represents one element of the accordion. Text values can be entered for `alt`, `title` and `body` for each element.
-
-####alt
-
-The alt setting provides alternative information for the image.
-
-####title
-
-Enter a title value for this accordion element. This text is displayed at all times.
-
-####body
-
-The text entered for the body will be shown when the reader opens this accordion element.
-
-####_graphic
-
-This renders a graphic inside of the item body which is shown when the reader opens this accordion element. Both a `src` and `alt` value are required.
-
-##Limitations
- 
-To be completed.
- 
-##Browser spec
- 
-This component has been tested to the standard Adapt browser specification.
+----------------------------
+**Version number:**  2.0   <a href="https://community.adaptlearning.org/ target="_blank"><img src="https://github.com/adaptlearning/documentation/blob/master/04_wiki_assets/plug-ins/images/adapt-logo-mrgn-lft.jpg" alt="adapt learning logo" align="right"></a> 
+**Framework versions:** 2.0  
+**Author / maintainer:** Adapt Core Team  
+**Accessibility support:** WAI AA   
+**RTL support:** yes  
+**Cross-platform coverage:** Chrome, Chrome for Android, Firefox (ESR + latest version), IE 11, IE10, IE9, IE8, IE Mobile 11, Safari for iPhone (iOS 7+8), Safari for iPad (iOS 7+8), Safari 8, Opera    

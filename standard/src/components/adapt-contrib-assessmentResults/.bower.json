@@ -2,22 +2,21 @@
   "name": "adapt-contrib-assessmentResults",
   "framework": "^2.0.0",
   "homepage": "https://github.com/adaptlearning/adapt-contrib-assessmentResults",
-  "authors": [
-    "Dan Ghost <danielghost@kineo.com>",
-    "Oliver Foster <oliver.foster@kineo.com>"
-  ],
-  "description": "A simple core contributed text component",
+  "issues": "https://adaptlearning.atlassian.net/secure/CreateIssueDetails!init.jspa?pid=10100&issuetype=1&priority=6&components=10505",
+  "displayName": "Assessment Results",
+  "component": "assessmentResults",
+  "description": "A component used to display a single assessment's results",
   "main": "/js/adapt-contrib-assessmentResults.js",
   "keywords": [
     "adapt-plugin",
     "adapt-component"
   ],
   "license": "GPLv3",
-  "_release": "dab939fcae",
+  "_release": "ee6e724c4d",
   "_resolution": {
     "type": "branch",
     "branch": "develop",
-    "commit": "dab939fcaee423e84598276284c6bf493dd8a6ea"
+    "commit": "ee6e724c4dc90d52e89191df9bbb9a2df75c5e42"
   },
   "_source": "git://github.com/adaptlearning/adapt-contrib-assessmentResults.git",
   "_target": "develop",

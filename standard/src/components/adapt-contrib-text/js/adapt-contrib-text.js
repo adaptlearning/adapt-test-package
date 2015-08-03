@@ -1,8 +1,3 @@
-/*
- * adapt-contrib-text
- * License - http://github.com/adaptlearning/adapt_framework/blob/master/LICENSE
- * Maintainers - Daryl Hedley <darylhedley@hotmail.com>, Brian Quinn <brian@learningpool.com>
- */
 define(function(require) {
 
     var ComponentView = require('coreViews/componentView');

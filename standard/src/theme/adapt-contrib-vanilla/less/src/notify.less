@@ -61,9 +61,19 @@
 
     .notify-popup-title {
         margin-bottom: @notify-title-padding-bottom;
+        padding-right: 60px;
+        .dir-rtl & {
+            padding-right: inherit;
+            padding-left: 60px;
+        }
     }
 
     .notify-popup-body {
+        padding-right: 60px;
+        .dir-rtl & {
+            padding-right: inherit;
+            padding-left: 60px;
+        }
         a {
           text-decoration: underline;
           color: @notify-text-color;
@@ -77,10 +87,17 @@
             width: 60px;
             color: @notify-icon-color;
         }
+        right: 0px;
+        left: inherit;
+        .dir-rtl & {
+            right: inherit;
+            left: 0px;
+        }
     }
 
     .notify-popup-buttons {
         text-align: center;
+        margin-top: @button-margin-top;
     }
 
     .notify-popup-button {
@@ -139,7 +156,6 @@
 
 .notify-push {
     position:fixed;
-    top:(@navigation-height + 20px);
     right:20px;
     width:380px;
     background-color: @notify-color;
@@ -160,7 +176,6 @@
     @media all and (max-width:@device-width-medium) {
         width:90%;
         max-width:380px;
-        top:(@navigation-height-mobile + 20px);
         right:5%;
 
 	    .dir-rtl & {

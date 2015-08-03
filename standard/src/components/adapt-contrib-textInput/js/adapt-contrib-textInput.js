@@ -1,9 +1,3 @@
-/*
- * adapt-contrib-textInput
- * License - https://github.com/adaptlearning/adapt-contrib-textInput/blob/master/LICENSE
- * Maintainers - Kev Adsett <kev.adsett@gmail.com>, Daryl Hedley <darylhedley@hotmail.com>, Himanshu Rajotia <himanshu.rajotia@credipoint.com>
- */
-
 define(function(require) {
     var QuestionView = require('coreViews/questionView');
     var Adapt = require('coreJS/adapt');
@@ -147,7 +141,7 @@ define(function(require) {
         // Return a boolean based upon whether question is correct or not
         isCorrect: function() {
             if(this.model.get('_answers')) this.markGenericAnswers();
-            this.markSpecificAnswers();
+            else this.markSpecificAnswers();
             // do we have any _isCorrect == false?
             return !_.contains(_.pluck(this.model.get("_items"),"_isCorrect"), false);
         },
@@ -179,7 +173,6 @@ define(function(require) {
             var numberOfSpecificAnswers = 0;
             _.each(this.model.get('_items'), function(item, index) {
                 if(!item._answers) return;
-                //var userAnswer = this.$(".textinput-item-textbox").eq(index).val();
                 var userAnswer = item.userAnswer || ""; 
                 if (this.checkAnswerIsCorrect(item["_answers"], userAnswer)) {
                     numberOfCorrectAnswers++;
@@ -196,7 +189,12 @@ define(function(require) {
         },
 
         checkAnswerIsCorrect: function(possibleAnswers, userAnswer) {
-            var answerIsCorrect = _.contains(possibleAnswers, this.cleanupUserAnswer(userAnswer));
+            var uAnswer = this.cleanupUserAnswer(userAnswer);
+            var matched = _.filter(possibleAnswers, function(cAnswer){
+                return this.cleanupUserAnswer(cAnswer) == uAnswer;
+            }, this);
+            
+            var answerIsCorrect = matched && matched.length > 0;
             if (answerIsCorrect) this.model.set('_hasAtLeastOneCorrectSelection', true);
             return answerIsCorrect;
         },
@@ -207,6 +205,8 @@ define(function(require) {
             }
             if (this.model.get('_allowsPunctuation')) {
                 userAnswer = userAnswer.replace(/[\.,-\/#!$£%\^&\*;:{}=\-_`~()]/g, "");
+                //remove any orphan double spaces and replace with single space (B & Q)->(B  Q)->(B Q)
+                userAnswer = userAnswer.replace(/(  +)+/g, " ");
             }
             // removes whitespace from beginning/end (leave any in the middle)
             return $.trim(userAnswer);
@@ -258,9 +258,20 @@ define(function(require) {
 
         // Used by the question to display the correct answer to the user
         showCorrectAnswer: function() {
-            _.each(this.model.get('_items'), function(item, index) {
-                this.$(".textinput-item-textbox").eq(index).val(item._answers[0]);
-            }, this);
+            
+            if(this.model.get('_answers'))  {
+                
+                var correctAnswers = this.model.get('_answers');
+                _.each(this.model.get('_items'), function(item, index) {
+                    this.$(".textinput-item-textbox").eq(index).val(correctAnswers[index][0]);
+                }, this);
+                
+            } else {
+                _.each(this.model.get('_items'), function(item, index) {
+                    this.$(".textinput-item-textbox").eq(index).val(item._answers[0]);
+                }, this);
+            }
+            
         },
 
         // Used by the question to display the users answer and

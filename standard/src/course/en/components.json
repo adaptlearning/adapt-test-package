@@ -1165,7 +1165,7 @@
 			"mp3": "course/en/audio/c-167.mp3"
 		},
 		"_transcript": {
-			"_inlineTranscript": false,
+			"_inlineTranscript": true,
 			"_externalTranscript": false,
 			"inlineTranscriptButton": "Transcript",
 			"inlineTranscriptCloseButton": "Close Transcript",

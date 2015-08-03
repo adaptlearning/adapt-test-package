@@ -1,8 +1,3 @@
-/*
- * adapt-contrib-blank
- * License - http://github.com/adaptlearning/adapt_framework/blob/master/LICENSE
- * Maintainers - Kevin Corry <kevinc@learningpool.com>
- */
 define(function(require) {
 
     var ComponentView = require('coreViews/componentView');

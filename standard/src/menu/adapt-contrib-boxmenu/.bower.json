@@ -2,10 +2,7 @@
   "name": "adapt-contrib-boxMenu",
   "framework": "^2.0.0",
   "homepage": "https://github.com/adaptlearning/adapt-contrib-boxmenu",
-  "authors": [
-    "Daryl Hedley <darylhedley@hotmail.com>",
-    "Himanshu Rajotia <himanshu.rajotia@exultcorp.com>"
-  ],
+  "issues": "https://adaptlearning.atlassian.net/secure/CreateIssueDetails!init.jspa?pid=10100&issuetype=1&priority=6&components=10514",
   "displayName": "Box menu",
   "menu": "boxmenu",
   "description": "A core bundled menu",
@@ -16,11 +13,11 @@
   ],
   "license": "GPLv3",
   "targetAttribute": "_boxMenu",
-  "_release": "7346229e45",
+  "_release": "07cb425864",
   "_resolution": {
     "type": "branch",
     "branch": "develop",
-    "commit": "7346229e452601ff68cd5f19d96c81726f1317ad"
+    "commit": "07cb42586451bfa04ff115583d0ee177703bf8df"
   },
   "_source": "git://github.com/adaptlearning/adapt-contrib-boxmenu.git",
   "_target": "develop",

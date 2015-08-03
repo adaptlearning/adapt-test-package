@@ -1,8 +1,3 @@
-/*
- * adapt-contrib-narrative
- * License - http://github.com/adaptlearning/adapt_framework/blob/master/LICENSE
- * Maintainers - Brian Quinn <brian@learningpool.com>, Daryl Hedley <darylhedley@hotmail.com>
- */
 define(function(require) {
 
     var ComponentView = require('coreViews/componentView');
@@ -79,6 +74,17 @@ define(function(require) {
                 this.replaceInstructions();
             }
             this.setupEventListeners();
+            
+            // if hasNavigationInTextArea set margin left 
+            var hasNavigationInTextArea = this.model.get('_hasNavigationInTextArea');
+            if (hasNavigationInTextArea == true) {
+                var indicatorWidth = this.$('.narrative-indicators').width();
+                var marginLeft = indicatorWidth / 2;
+                
+                this.$('.narrative-indicators').css({
+                    marginLeft: '-' + marginLeft + 'px'
+                });
+            }
         },
 
         calculateWidths: function() {
@@ -138,8 +144,9 @@ define(function(require) {
             
             var model = this.prepareHotgraphicModel();
             var newHotgraphic = new Hotgraphic({ model: model });
+            var $container = $(".component-container", $("." + this.model.get("_parentId")));
 
-            $("." + this.model.get("_parentId")).append(newHotgraphic.$el);
+            $container.append(newHotgraphic.$el);
             this.remove();
             _.defer(function() {
                 Adapt.trigger('device:resize');

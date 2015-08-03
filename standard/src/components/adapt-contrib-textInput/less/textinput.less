@@ -19,13 +19,15 @@
     color: @item-text-color;
 }
 
-.textinput-item-prefix {
+.textinput-item-prefix,
+.textinput-item-suffix {
     width: 20%;
 }
 
 .textinput-item-textbox {
+    box-sizing: border-box;
     padding: 0 5px;
-    width: 54%;
+    width: 100%;
     float: left;
     .dir-rtl & {
         float: right;
@@ -36,8 +38,27 @@
     }
 }
 
-.textinput-item-suffix {
-    width: 10%;
+.textinput-item {
+    &.prefix,
+    &.suffix {
+        .textinput-item-textbox {
+            width: 80%
+        }
+    }
+    &.prefix.suffix {
+        .textinput-item-textbox {
+            width: 60%
+        }
+    }
+    &.suffix {
+        .textinput-item-state {
+            margin-right: 20%;
+            .dir-rtl & {
+                margin-right: inherit;
+                margin-left: 20%;
+            }
+        }
+    }
 }
 
 .textinput-widget {

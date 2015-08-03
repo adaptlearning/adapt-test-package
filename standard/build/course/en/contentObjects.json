@@ -9,15 +9,15 @@
 		"pageBody": "<strong>Scroll down to see what presentation components are available as part of the Version 2.0 core bundle.</strong>",
 		"body": "Find out what presentation components are available within the core bundle and how you might consider using them within your courses. ",
 		"_graphic": {
-			"alt": "",
-			"src": "course/en/images/t05.jpg"
+			"src": "course/en/images/t05.jpg",
+			"alt": ""
 		},
 		"linkText": "View",
-		"durationLabel":"Duration:",
+		"durationLabel": "Duration:",
 		"duration": "2 mins",
 		"_pageLevelProgress": {
-            "_isEnabled": true
-        }
+			"_isEnabled": true
+		}
 	},
 	{
 		"_id": "co-10",
@@ -29,15 +29,15 @@
 		"pageBody": "We can’t easily measure whether learners are meeting the intended course objectives, provide guidance and feedback if they’re not or give them opportunities to practice and rehearse in a ‘safe environment’ without a range of question components.<br><br>Discover what question components are available within the framework, along with some tips on how to use them.<br><br><strong>Scroll down to see what question components are available as part of the Version 2.0 core bundle.</strong>",
 		"body": "Discover what question components are available within the framework, along with some tips on how to use them.",
 		"_graphic": {
-			"alt": "",
-			"src": "course/en/images/t10.jpg"
+			"src": "course/en/images/t10.jpg",
+			"alt": ""
 		},
 		"linkText": "View",
-		"durationLabel":"Duration:",
+		"durationLabel": "Duration:",
 		"duration": "2 mins",
 		"_pageLevelProgress": {
-            "_isEnabled": true
-        }
+			"_isEnabled": true
+		}
 	},
 	{
 		"_id": "co-15",
@@ -49,15 +49,15 @@
 		"pageBody": "We’ve put together a very short quiz to demonstrate the new assessment functionality. In this simple example there are two banks that each contain three questions with two being taken from each bank at random. The order in which the questions are presented is then also randomised, as is the order of each questions options.<br><br><strong>Think you can get a perfect score? Scroll down to attempt the first question.</strong>",
 		"body": "Find out more about the new assessment functionality in V2.0, including randomised banks and an improved results feature.",
 		"_graphic": {
-			"alt": "",
-			"src": "course/en/images/t15.jpg"
+			"src": "course/en/images/t15.jpg",
+			"alt": ""
 		},
 		"linkText": "View",
-		"durationLabel":"Duration:",
+		"durationLabel": "Duration:",
 		"duration": "2 mins",
 		"_pageLevelProgress": {
-            "_isEnabled": true
-        }
+			"_isEnabled": true
+		}
 	},
 	{
 		"_id": "co-20",
@@ -68,14 +68,14 @@
 		"displayTitle": "Alternative layouts of core components",
 		"body": "For testing layouts and configurations.",
 		"_graphic": {
-			"alt": "",
-			"src": "course/en/images/t20.jpg"
+			"src": "course/en/images/t20.jpg",
+			"alt": ""
 		},
 		"linkText": "View",
-		"durationLabel":"Duration:",
+		"durationLabel": "Duration:",
 		"duration": "2 mins",
 		"_pageLevelProgress": {
-            "_isEnabled": true
-        }
+			"_isEnabled": true
+		}
 	}
 ]

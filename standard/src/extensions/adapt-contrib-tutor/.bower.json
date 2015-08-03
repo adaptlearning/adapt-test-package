@@ -2,11 +2,7 @@
   "name": "adapt-contrib-tutor",
   "framework": "^2.0.0",
   "homepage": "https://github.com/adaptlearning/adapt-contrib-tutor",
-  "authors": [
-    "Kevin Corry <kevinc@learningpool.com>",
-    "Daryl Hedley <darylhedley@hotmail.com>",
-    "Himanshu Rajotia <himanshu.rajotia@exultcorp.com>"
-  ],
+  "issues": "https://adaptlearning.atlassian.net/secure/CreateIssueDetails!init.jspa?pid=10100&issuetype=1&priority=6&components=10521",
   "displayName": "Tutor",
   "extension": "tutor",
   "description": "An extension which provides a basic feedback overlay for question components",
@@ -17,11 +13,11 @@
   ],
   "license": "GPLv3",
   "targetAttribute": "_tutor",
-  "_release": "f882a22fbf",
+  "_release": "7de34e97b9",
   "_resolution": {
     "type": "branch",
     "branch": "develop",
-    "commit": "f882a22fbfb965237a74151fe03c84930ab1cc47"
+    "commit": "7de34e97b978a19ac4a2e803f661f2f1bb087ce6"
   },
   "_source": "git://github.com/adaptlearning/adapt-contrib-tutor.git",
   "_target": "develop",

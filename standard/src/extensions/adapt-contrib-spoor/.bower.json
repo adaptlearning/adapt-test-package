@@ -2,10 +2,7 @@
   "name": "adapt-contrib-spoor",
   "framework": "^2.0.0",
   "homepage": "https://github.com/adaptlearning/adapt-contrib-spoor",
-  "authors": [
-    "Kevin Corry <kevinc@learningpool.com>",
-    "Kev Adsett <kev.adsett@kineo.com>"
-  ],
+  "issues": "https://adaptlearning.atlassian.net/secure/CreateIssueDetails!init.jspa?pid=10100&issuetype=1&priority=6&components=10520",
   "displayName": "Spoor",
   "extension": "spoor",
   "description": "An extension which allows basic SCORM tracking",
@@ -16,11 +13,11 @@
   ],
   "license": "GPLv3",
   "targetAttribute": "_spoor",
-  "_release": "ef534ff292",
+  "_release": "281577abba",
   "_resolution": {
     "type": "branch",
     "branch": "develop",
-    "commit": "ef534ff2920b4047e78fbb336f227e3213e820fc"
+    "commit": "281577abba9c1d68ab335685713d8012c74c9a6b"
   },
   "_source": "git://github.com/adaptlearning/adapt-contrib-spoor.git",
   "_target": "develop",

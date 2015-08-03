@@ -2,10 +2,7 @@
   "name": "adapt-contrib-trickle",
   "framework": "^2.0.0",
   "homepage": "https://github.com/adaptlearning/adapt-contrib-trickle",
-  "authors": [
-    "Kevin Corry <kevinc@learningpool.com>",
-    "Oliver Foster <oliver.foster@kineo.com>"
-  ],
+  "issues": "https://adaptlearning.atlassian.net/secure/CreateIssueDetails!init.jspa?pid=10100&issuetype=1&priority=6&components=10513",
   "displayName": "Trickle",
   "extension": "trickle",
   "description": "A vertical locking extension",
@@ -16,11 +13,11 @@
   ],
   "license": "GPLv3",
   "targetAttribute": "_trickle",
-  "_release": "b5b2a0208c",
+  "_release": "111d3475ac",
   "_resolution": {
     "type": "branch",
     "branch": "develop",
-    "commit": "b5b2a0208cb3bf3a814d0a3e4b0471e6e47d1d81"
+    "commit": "111d3475ac5aa36fa8ccbe3dbaac141c42986769"
   },
   "_source": "git://github.com/adaptlearning/adapt-contrib-trickle.git",
   "_target": "develop",

@@ -2,10 +2,7 @@
   "name": "adapt-contrib-gmcq",
   "framework": "^2.0.0",
   "homepage": "https://github.com/adaptlearning/adapt-contrib-gmcq",
-  "authors": [
-    "Daryl Hedley <darylhedley@hotmail.com>",
-    "Himanshu Rajotia <himanshu.rajotia@credipoint.com>"
-  ],
+  "issues": "https://adaptlearning.atlassian.net/secure/CreateIssueDetails!init.jspa?pid=10100&issuetype=1&priority=6&components=10508",
   "displayName": "Graphical Multiple Choice Question",
   "component": "gmcq",
   "assetFields": [
@@ -19,11 +16,11 @@
     "adapt-component"
   ],
   "license": "GPLv3",
-  "_release": "b825287571",
+  "_release": "a3e48dbb54",
   "_resolution": {
     "type": "branch",
     "branch": "develop",
-    "commit": "b8252875712010559b260797d9ae57d70bcd9cbe"
+    "commit": "a3e48dbb543f8b8e25f5622c27358e13da0615fb"
   },
   "_source": "git://github.com/adaptlearning/adapt-contrib-gmcq.git",
   "_target": "develop",

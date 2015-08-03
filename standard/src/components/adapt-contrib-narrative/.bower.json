@@ -2,10 +2,7 @@
   "name": "adapt-contrib-narrative",
   "framework": "^2.0.0",
   "homepage": "https://github.com/adaptlearning/adapt-contrib-narrative",
-  "authors": [
-    "Brian Quinn <brian@learningpool.com>",
-    "Daryl Hedley <darylhedley@hotmail.com>"
-  ],
+  "issues": "https://adaptlearning.atlassian.net/secure/CreateIssueDetails!init.jspa?pid=10100&issuetype=1&priority=6&components=10512",
   "displayName": "Narrative",
   "component": "narrative",
   "assetFields": [
@@ -18,11 +15,11 @@
     "adapt-component"
   ],
   "license": "GPLv3",
-  "_release": "011b1a868b",
+  "_release": "04a0c630ab",
   "_resolution": {
     "type": "branch",
     "branch": "develop",
-    "commit": "011b1a868b6f308375ff540a20806b41b27f1e60"
+    "commit": "04a0c630abfeffca1ce7533f392cfa4fc2bb5664"
   },
   "_source": "git://github.com/adaptlearning/adapt-contrib-narrative.git",
   "_target": "develop",
