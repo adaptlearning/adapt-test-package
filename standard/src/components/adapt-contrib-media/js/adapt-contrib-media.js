@@ -1,8 +1,12 @@
 define(function(require) {
 
-    var mep = require('components/adapt-contrib-media/js/mediaelement-and-player.min');
+    var mep = require('components/adapt-contrib-media/js/mediaelement-and-player');
+    require('components/adapt-contrib-media/js/mediaelement-and-player-accessible-captions');
+    
     var ComponentView = require('coreViews/componentView');
     var Adapt = require('coreJS/adapt');
+
+    var froogaloopAdded = false;
 
     var Media = ComponentView.extend({
 
@@ -24,28 +28,83 @@ define(function(require) {
 
 
         setupPlayer: function() {
-            if(!this.model.get('_playerOptions')) this.model.set('_playerOptions', {});
+            if (!this.model.get('_playerOptions')) this.model.set('_playerOptions', {});
 
             var modelOptions = this.model.get('_playerOptions');
 
-            if(modelOptions.pluginPath === undefined) modelOptions.pluginPath = 'assets/';
-            if(modelOptions.features === undefined) modelOptions.features = ['playpause','progress','current','duration'];
-            if(modelOptions.clickToPlayPause === undefined) modelOptions.clickToPlayPause = true;
+            if (modelOptions.pluginPath === undefined) modelOptions.pluginPath = 'assets/';
+            if(modelOptions.features === undefined) {
+                modelOptions.features = ['playpause','progress','current','duration'];
+                if (this.model.get('_useClosedCaptions')) {
+                    modelOptions.features.unshift('tracks');
+                }
+                if (this.model.get("_allowFullScreen") && !$("html").is(".ie9")) {
+                    modelOptions.features.push('fullscreen');
+                }
+            }
+
             modelOptions.success = _.bind(this.onPlayerReady, this);
 
-            var hasAccessibility = Adapt.config.has('_accessibility') && Adapt.config.get('_accessibility')._isEnabled
+            if (this.model.get('_useClosedCaptions')) {
+                modelOptions.startLanguage = this.model.get('_startLanguage') === undefined ? 'en' : this.model.get('_startLanguage');
+            }
+
+            var hasAccessibility = Adapt.config.has('_accessibility') && Adapt.config.get('_accessibility')._isActive
                 ? true
                 : false;
 
-            if (hasAccessibility) modelOptions.alwaysShowControls = true;
+            if (hasAccessibility) {
+                modelOptions.alwaysShowControls = true;
+                modelOptions.hideVideoControlsOnLoad = false;
+            }
+            
+            if (modelOptions.alwaysShowControls === undefined) {
+                modelOptions.alwaysShowControls = false;
+            }
+            if (modelOptions.hideVideoControlsOnLoad === undefined) {
+                modelOptions.hideVideoControlsOnLoad = true;
+            }
 
-            // create the player
-            this.$('audio, video').mediaelementplayer(modelOptions);
+            this.addMediaTypeClass();
 
-            // We're streaming - set ready now, as success won't be called above
-            if (this.model.get('_media').source) {
-                this.$('.media-widget').addClass('external-source');
-                this.setReadyStatus();
+            this.addThirdPartyFixes(modelOptions, _.bind(function createPlayer() {
+                // create the player
+                this.$('audio, video').mediaelementplayer(modelOptions);
+
+                // We're streaming - set ready now, as success won't be called above
+                if (this.model.get('_media').source) {
+                    this.$('.media-widget').addClass('external-source');
+                    this.setReadyStatus();
+                }
+            }, this));
+        },
+
+        addMediaTypeClass: function() {
+            var media = this.model.get("_media");
+            if (media.type) {
+                var typeClass = media.type.replace(/\//, "-");
+                this.$(".media-widget").addClass(typeClass);
+            }
+        },
+
+        addThirdPartyFixes: function(modelOptions, callback) {
+            var media = this.model.get("_media");
+            switch (media.type) {
+            case "video/vimeo":
+                modelOptions.alwaysShowControls = false;
+                modelOptions.hideVideoControlsOnLoad = true;
+                modelOptions.features = [];
+                if (froogaloopAdded) return callback();
+                Modernizr.load({
+                    load: "assets/froogaloop.js", 
+                    complete: function() {
+                        froogaloopAdded = true;
+                        callback();
+                    }
+                }); 
+                break;
+            default:
+                callback();
             }
         },
 
@@ -64,7 +123,7 @@ define(function(require) {
             // bit sneaky, but we don't have a this.mediaElement.player ref on iOS devices
             var player = this.mediaElement.player;
 
-            if(!player) {
+            if (!player) {
                 console.log("Media.setupPlayPauseToggle: OOPS! there's no player reference.");
                 return;
             }
@@ -114,11 +173,11 @@ define(function(require) {
         remove: function() {
             if ($("html").is(".ie8")) {
                 var obj = this.$("object")[0];
-                if(obj) {
+                if (obj) {
                     obj.style.display = "none";
                 }
             }
-            if(this.mediaElement) {
+            if (this.mediaElement) {
                 $(this.mediaElement.pluginElement).remove();
                 delete this.mediaElement;
             }
@@ -142,13 +201,11 @@ define(function(require) {
             this.mediaElement = mediaElement;
 
             if (!this.mediaElement.player) {
-                this.mediaElement.player =  mejs.players[$('.mejs-container').attr('id')];
+                this.mediaElement.player =  mejs.players[this.$('.mejs-container').attr('id')];
             }
 
-            this.showControls();
-
             var hasTouch = mejs.MediaFeatures.hasTouch;
-            if(hasTouch) {
+            if (hasTouch) {
                 this.setupPlayPauseToggle();
             }
 
@@ -169,7 +226,7 @@ define(function(require) {
             var $transcriptBodyContainer = this.$(".media-inline-transcript-body-container");
             var $button = this.$(".media-inline-transcript-button");
 
-            if  ($transcriptBodyContainer.hasClass("inline-transcript-open")) {
+            if ($transcriptBodyContainer.hasClass("inline-transcript-open")) {
                 $transcriptBodyContainer.slideUp();
                 $transcriptBodyContainer.removeClass("inline-transcript-open");
                 $button.html(this.model.get("_transcript").inlineTranscriptButton);
@@ -177,11 +234,14 @@ define(function(require) {
                 $transcriptBodyContainer.slideDown().a11y_focus();
                 $transcriptBodyContainer.addClass("inline-transcript-open");
                 $button.html(this.model.get("_transcript").inlineTranscriptCloseButton);
+                if (this.model.get('_transcript')._setCompletionOnView !== false) {
+                    this.setCompletionStatus();
+                }
             }
         },
 
         showControls: function() {
-            var hasAccessibility = Adapt.config.has('_accessibility') && Adapt.config.get('_accessibility')._isEnabled
+            var hasAccessibility = Adapt.config.has('_accessibility') && Adapt.config.get('_accessibility')._isActive
                 ? true
                 : false;
 
@@ -191,6 +251,7 @@ define(function(require) {
                 var player = this.mediaElement.player;
 
                 player.options.alwaysShowControls = true;
+                player.options.hideVideoControlsOnLoad = false;
                 player.enableControls();
                 player.showControls();
 

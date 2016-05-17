@@ -1,5 +1,6 @@
 {
   "name": "adapt-contrib-blank",
+  "version": "2.0.0",
   "framework": "^2.0.0",
   "homepage": "https://github.com/adaptlearning/adapt-contrib-blank",
   "issues": "https://adaptlearning.atlassian.net/secure/CreateIssueDetails!init.jspa?pid=10100&issuetype=1&priority=6&components=10503",
@@ -12,14 +13,14 @@
     "adapt-component"
   ],
   "license": "GPLv3",
-  "_release": "11df317093",
+  "_release": "2.0.0",
   "_resolution": {
-    "type": "branch",
-    "branch": "develop",
-    "commit": "11df3170933b5e561b9d27d6e21f90ec0c4c6009"
+    "type": "version",
+    "tag": "v2.0.0",
+    "commit": "f0877c1f6cfcba96dd4bbbd5908d24a3ed2dc490"
   },
   "_source": "git://github.com/adaptlearning/adapt-contrib-blank.git",
-  "_target": "develop",
+  "_target": "~2.0.0",
   "_originalSource": "adapt-contrib-blank",
   "_direct": true
 }

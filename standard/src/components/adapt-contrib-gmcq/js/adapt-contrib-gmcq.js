@@ -20,7 +20,6 @@ define(function(require) {
                 };
 
                 events = _.extend(events, ie8Events);
-
             }
 
             return events;
@@ -38,26 +37,37 @@ define(function(require) {
         },
 
         setupQuestion: function() {
-            // Radio button or checkbox
+            // if only one answer is selectable, we should display radio buttons not checkboxes
             this.model.set("_isRadio", (this.model.get("_selectable") == 1) );
 
             this.model.set('_selectedItems', []);
 
             this.setupQuestionItemIndexes();
+
+            this.setupRandomisation();
+
             this.restoreUserAnswers();
 
-            this.listenTo(Adapt, 'device:changed', this.resizeImage);
+            this.listenTo(Adapt, {
+                'device:changed': this.resizeImage,
+                'device:resize': this.onDeviceResize
+            });
 
         },
 
         onQuestionRendered: function() {
 
             this.resizeImage(Adapt.device.screenSize);
+            this.setUpColumns();
 
             this.$('label').imageready(_.bind(function() {
                 this.setReadyStatus();
             }, this));
 
+        },
+        
+        onDeviceResize: function() {
+            this.setUpColumns();
         },
 
         resizeImage: function(width) {
@@ -71,12 +81,29 @@ define(function(require) {
 
         },
 
+        setUpColumns: function() {
+            var columns = this.model.get('_columns');
+
+            if (!columns) return;
+
+            if (Adapt.device.screenSize === 'large') {
+                this.$el.addClass('gmcq-column-layout');
+                this.$('.gmcq-item').css('width', (100 / columns) + '%');
+            } else {
+                this.$el.removeClass('gmcq-column-layout');
+                this.$('.gmcq-item').css('width', '');
+            }
+        },
+
+        // hack for IE8
         forceChangeEvent: function(event) {
 
             $("#" + $(event.currentTarget).closest("label").attr("for")).change();
 
         }
 
+    }, {
+        template: 'gmcq'
     });
 
     Adapt.register("gmcq", Gmcq);

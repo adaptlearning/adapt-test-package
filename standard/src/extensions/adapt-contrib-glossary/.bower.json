@@ -1,0 +1,27 @@
+{
+  "name": "adapt-contrib-glossary",
+  "version": "2.0.0",
+  "framework": "^2.0.0",
+  "homepage": "https://github.com/adaptlearning/adapt-contrib-glossary",
+  "issues": "https://github.com/adaptlearning/adapt-contrib-glossary/issues",
+  "displayName": "Glossary",
+  "extension": "glossary",
+  "description": "An Adapt extension that allows a list of glossary terms",
+  "main": "/js/adapt-contrib-glossary.js",
+  "keywords": [
+    "adapt-plugin",
+    "adapt-extension"
+  ],
+  "license": "GPLv3",
+  "targetAttribute": "_glossary",
+  "_release": "2.0.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v2.0.0",
+    "commit": "015a0a1911424e2b90d33619d0a6b2e77f34224f"
+  },
+  "_source": "git://github.com/adaptlearning/adapt-contrib-glossary.git",
+  "_target": "~2.0.0",
+  "_originalSource": "adapt-contrib-glossary",
+  "_direct": true
+}

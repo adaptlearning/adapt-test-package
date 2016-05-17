@@ -14,6 +14,13 @@
     "pageLevelProgressIndicatorBar": {
       "type": "string",
       "required": true,
+      "default": "Progress bar. Select here to view your current progress, and select an item to navigate to it. You have completed ",
+      "inputType": "Text",
+      "validators": []
+    },
+    "pageLevelProgressMenuBar": {
+      "type": "string",
+      "required": true,
       "default": "You have completed ",
       "inputType": "Text",
       "validators": []
@@ -22,6 +29,13 @@
       "type": "string",
       "required": true,
       "default": "You have reached the end of the list of page sections.",
+      "inputType": "Text",
+      "validators": []
+    },
+    "optionalContent": {
+      "type": "string",
+      "required": true,
+      "default": "Optional Content",
       "inputType": "Text",
       "validators": []
     }
@@ -50,6 +64,15 @@
                   "inputType": {"type": "Boolean", "options": [true, false]},
                   "validators": [],
                   "help": "If set to 'false', Page Level Progress will be disabled on all components, pages, and menus"
+                },
+                "_showPageCompletion": {
+                  "type": "boolean",
+                  "required":true,
+                  "default": true,
+                  "title": "Show page completion",
+                  "inputType": {"type": "Boolean", "options": [true, false]},
+                  "validators": [],
+                  "help": "If set to 'false', Page Level Progress will not represent page completion in progress bar"
                 }
               }
             }
@@ -71,6 +94,15 @@
                   "inputType": {"type": "Boolean", "options": [true, false]},
                   "validators": [],
                   "help": "If set to 'true', a progress bar will be displayed"
+                },
+                "_showPageCompletion": {
+                  "type": "boolean",
+                  "required":true,
+                  "default": true,
+                  "title": "Show page completion",
+                  "inputType": {"type": "Boolean", "options": [true, false]},
+                  "validators": [],
+                  "help": "If set to 'false', Page Level Progress will not represent page completion in progress bar"
                 }
               }
             }

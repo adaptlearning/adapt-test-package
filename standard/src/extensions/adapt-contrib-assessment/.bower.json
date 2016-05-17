@@ -1,8 +1,9 @@
 {
   "name": "adapt-contrib-assessment",
+  "version": "2.0.5",
   "framework": "^2.0.0",
   "homepage": "https://github.com/adaptlearning/adapt-contrib-assessment",
-  "issues": "https://adaptlearning.atlassian.net/secure/CreateIssueDetails!init.jspa?pid=10100&issuetype=1&priority=6&components=10504",
+  "issues": "https://github.com/adaptlearning/adapt_framework/issues/new?title=contrib-assessment%3A%20please%20enter%20a%20brief%20summary%20of%20the%20issue%20here&body=please%20provide%20a%20full%20description%20of%20the%20problem,%20including%20steps%20on%20how%20to%20replicate,%20what%20browser(s)/device(s)%20the%20problem%20occurs%20on%20and,%20where%20helpful,%20screenshots.",
   "displayName": "Assessment",
   "extension": "assessment",
   "description": "An extension which attaches to an article object to group various question components and provide a score with feedback",
@@ -13,14 +14,14 @@
   ],
   "license": "GPLv3",
   "targetAttribute": "_assessment",
-  "_release": "72472128e2",
+  "_release": "2.0.5",
   "_resolution": {
-    "type": "branch",
-    "branch": "develop",
-    "commit": "72472128e2722848853af8863b489d5dc2fadc9f"
+    "type": "version",
+    "tag": "v2.0.5",
+    "commit": "75115198ff0f0d2917d3c5cc98c45e7f6b3501b8"
   },
   "_source": "git://github.com/adaptlearning/adapt-contrib-assessment.git",
-  "_target": "develop",
+  "_target": "~2.0.5",
   "_originalSource": "adapt-contrib-assessment",
   "_direct": true
 }

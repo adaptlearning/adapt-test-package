@@ -1,4 +1,8 @@
+//https://github.com/adaptlearning/jquery.a11y 2015-08-13
+
 (function($, window) {
+    
+    var iOS = /iPad|iPhone|iPod/.test(navigator.platform);
     
     // JQUERY FILTERS FOR ELEMENTS
         var domFilters = {
@@ -20,7 +24,7 @@
             "wrapIgnoreElements": "a,button,input,select,textarea,br",
             "wrapStyleElements": "b,i,abbr,strong",
             "globalTabIndexElements": 'a,button,input,select,textarea,[tabindex]',
-            "focusableElements": "a,button,input,select,textarea,[tabindex]",
+            "focusableElements": "a,button,input,select,textarea,[tabindex],label",
             "focusableElementsAccessible": ":not(a,button,input,select,textarea)[tabindex]",
             "hideableElements": ".a11y-hideable",
             "ariaLabelElements": "div[aria-label], span[aria-label]",
@@ -28,9 +32,9 @@
 
     // JQUERY INJECTED ELEMENTS
         var domInjectElements = {
-            "focuser": '<a id="a11y-focuser" href="#" class="prevent-default a11y-ignore" tabindex="-1"></a>',
-            "focusguard": '<a id="a11y-focusguard" class="a11y-ignore a11y-ignore-focus" tabindex="0" role="button"></a>',
-            "selected": '<a id="a11y-selected" href="#" class="prevent-default a11y-ignore" tabindex="-1"></a>',
+            "focuser": '<a id="a11y-focuser" href="#" class="prevent-default a11y-ignore" tabindex="-1" role="region">&nbsp;</a>',
+            "focusguard": '<a id="a11y-focusguard" class="a11y-ignore a11y-ignore-focus" tabindex="0" role="button">&nbsp;</a>',
+            "selected": '<a id="a11y-selected" href="#" class="prevent-default a11y-ignore" tabindex="-1">&nbsp;</a>',
             "arialabel": "<span class='aria-label prevent-default' tabindex='0' role='region'></span>"
         };
 
@@ -41,12 +45,12 @@
         }
         stringTrim.regex = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
 
-        function defer(func, that) {
+        function defer(func, that, t) {
             var thisHandle = that || this;
             var args = arguments;
-            setTimeout(function() {
+            return setTimeout(function() {
                 func.apply(thisHandle, args);
-            },0);
+            }, t||0);
         }
 
         function preventDefault(event) {
@@ -62,7 +66,10 @@
 
             if (state.scrollDisabledElements && state.scrollDisabledElements.length > 0) {
                 var scrollingParent = getScrollingParent(event);
-                if (scrollingParent.filter(state.scrollDisabledElements).length === 0) return;    
+                if (scrollingParent.filter(state.scrollDisabledElements).length === 0) {
+                    $(window).scroll(); 
+                    return; 
+                }
             }
 
             if (options.isDebug) console.log("preventScroll2")
@@ -75,6 +82,8 @@
         function preventScrollKeys(event) {
             var state = $.a11y.state;
             var options = $.a11y.options;
+
+            if ($(event.target).is( domSelectors.nativeTabElements )) return;
 
             if (options.isDebug) console.log("preventScroll1")
 
@@ -313,9 +322,11 @@
             if (!$element) return false;
 
             if ($element.css("position") == "fixed") return true;
+            if ($element.is(".fixed")) return true;
             var parents = $element.parents();
             for (var i = 0, l = parents.length; i < l; i++) {
                 if ($(parents[i]).css("position") == "fixed") return true;
+                if ($(parents[i]).is(".fixed")) return true;
             }
             return false;
         };
@@ -343,15 +354,32 @@
 
             var scrollBottomWithTopOffset = scrollTopWithTopOffset + windowAvailableHeight
 
-            var isElementTopOutOfView = (elementTop < scrollTopWithTopOffset || elementTop > scrollBottomWithTopOffset);
-            if (!isElementTopOutOfView) return;
-
-            var scrollToPosition = elementTop - topOffset;
+            var scrollToPosition = elementTop - topOffset - (windowAvailableHeight / 2);
             if (scrollToPosition < 0) scrollToPosition = 0;
 
+            var isElementTopOutOfView = (elementTop < scrollTopWithTopOffset || elementTop > scrollBottomWithTopOffset);
+
+            if (!isElementTopOutOfView) {
+                if ($element.is("select, input[type='text'], textarea") && iOS) { //ios 9.0.4 bugfix for keyboard and picker input
+                    defer(function(){
+                        if (options.isDebug) console.log("limitedScrollTo select fix", this.scrollToPosition);
+                        $.scrollTo(this.scrollToPosition, { duration: 0 });
+                    }, {scrollToPosition:scrollToPosition}, 1000);
+                }
+                return;
+            };
+
+            if ($element.is("select, input[type='text'], textarea") && iOS) {  //ios 9.0.4 bugfix for keyboard and picker input
+                defer(function(){
+                    if (options.isDebug) console.log("limitedScrollTo select fix", this.scrollToPosition);
+                    $.scrollTo(this.scrollToPosition, { duration: 0 });
+                }, {scrollToPosition:scrollToPosition}, 1000);
+            } else {
+                if (options.isDebug) console.log("limitedScrollTo", scrollToPosition);
             defer(function() {
-                $.scrollTo(scrollToPosition, { duration: 0 });
-            });
+                    $.scrollTo(this.scrollToPosition, { duration: 0 });
+                }, {scrollToPosition:scrollToPosition});
+            }
 
             return this;
         };
@@ -362,33 +390,64 @@
 
             defer(function() {
                 var options = $.a11y.options;
-                if (options.isDebug) console.log("focusNoScroll", this);
+                if (options.isDebug) console.log("focusNoScroll", this[0]);
 
                 var y = $(window).scrollTop();
+                try {
                 this[0].focus();
+                } catch(e){}
                 window.scrollTo(null, y);
             }, this);
             return this; //chainability
         };
 
-        $.fn.focusOrNext = function() {
+        $.fn.focusOrNext = function(returnOnly) {
             if (this.length === 0) return this;
 
             var $element = $(this[0]);
 
-            //if the element is not focusable, find the next focusable element in section
-            if (!$element.is(domFilters.focusableElementsFilter)) {
-                var element = $element.nextAll(domSelectors.focusableElements).filter(domFilters.focusableElementsFilter)[0];
-                $element = $(element);
+            var isSpecialElement = $element.is(domSelectors.focuser) || $element.is(domSelectors.focusguard) || $element.is(domSelectors.selected); 
+            var isTabbable = $element.is(domSelectors.focusableElements) && $element.is(domFilters.focusableElementsFilter);
+
+            if (!isSpecialElement && !isTabbable) {
+                //if the element is not focusable, find the next focusable element in section
+                //light processing
+                var $nextElement = $element.nextAll(domSelectors.focusableElements);
+                //filter enabled+visible
+                var $nextElementFiltered = $nextElement.filter(domFilters.focusableElementsFilter);
+                if ($nextElement.length === 0 || $nextElementFiltered.length === 0) {
+                    //if next element isn't focusable find next element in document
+                    //heavy processing
+                    //fetch all parents subsequent siblings
+                    var $parents = $element.parents();
+                    var $nextSiblings = $parents.nextAll();
+                    //filter siblings for focusable
+                    var $nextAllElements = $nextSiblings.find(domSelectors.focusableElements);
+                    //filter enabled+visible focusable items
+                    var $nextAllElementsFiltered = $nextAllElements.filter(domFilters.focusableElementsFilter);
+                    //if none found throw error
+                    if ($nextAllElementsFiltered.length === 0) throw "jquery.a11y: Could not find the next focusable element";
+                    
+                    //return first found element
+                    $element = $($nextAllElementsFiltered[0]);
+
+                } else {
+
+                    //return first found element
+                    $element = $($nextElementFiltered[0]);
+                }
             }
 
             var options = $.a11y.options;
-            if (options.isDebug) console.log("focusNoScroll", $element);
+            if (options.isDebug) console.log("focusOrNext", $element[0]);
+            
+            if (returnOnly !== true) {
+                if (options.OS != "mac") $(domSelectors.focuser).focusNoScroll();
+                $element.focusNoScroll();
+            }
 
-            $(domSelectors.focuser).focusNoScroll();
-            $element.focusNoScroll();
-
-            return this;
+            //return element focused
+            return $element;
 
         };
 
@@ -462,8 +521,39 @@
             event.stopPropagation();
             var $element = $(event.target);
             
-            state.$activeElement = $(event.currentTarget);
-            if (options.isDebug) console.log("focusCapture", $element);
+            //search out intended click element
+            if (!$element.is(domSelectors.globalTabIndexElements)) {
+                //if element receiving click is not tabbable, search parents
+                var $parents = $element.parents();
+                var $tabbableParents = $parents.filter(domSelectors.globalTabIndexElements);
+                if ($tabbableParents.length === 0) {
+                    //if no tabbable parents, search for proxy elements
+                    var $proxyElements = $parents.filter("[for]");
+
+                    //if no proxy elements, ignore
+                    if ($proxyElements.length === 0) {
+                        //find next focusable element if no proxy element found
+                        $element = $element.focusOrNext(true);
+                    } else {
+                        //isolate proxy element by id
+                        var $proxyElement = $("#"+$proxyElements.attr("for"));
+                        if (!$proxyElement.is(domSelectors.globalTabIndexElements)) {
+                            //find next focusable element if no tabbable element found
+                            $element = $element.focusOrNext(true);
+                        } else {
+                            //use tabbable proxy
+                            $element = $proxyElement;
+                        }
+                    }
+                } else {
+                    
+                    //use tabbable parent
+                    $element = $($tabbableParents[0]);
+                }
+            }
+
+            state.$activeElement = $element;
+            if (options.isDebug) console.log("focusCapture", $element[0]);
         }
 
         function onFocus(event) {
@@ -472,7 +562,10 @@
 
             var $element = $(event.target);
 
-            if (options.isDebug) console.log("focus", $element);
+            if (!$element.is(domSelectors.globalTabIndexElements)) return;
+            a11y_triggerReadEvent($element);
+
+            if (options.isDebug) console.log("focus", $element[0]);
             
             state.$activeElement = $(event.currentTarget);
 
@@ -527,7 +620,7 @@
                 readText = label.attr("aria-label") || label.text();
             } else readText = $element.attr("aria-label") || $element.text();
 
-            $($.a11y).trigger("reading", stringTrim(readText));
+            $(document).trigger("reading", stringTrim(readText));
         }
 
         function a11y_reattachFocusGuard() {
@@ -538,7 +631,9 @@
                 $focusguard = $(domInjectElements.focusguard);
             }
 
-            $focusguard.remove().appendTo($('body')).attr("tabindex", 0);
+            var $currentFloor = $.a11y.state.floorStack[$.a11y.state.floorStack.length-1];
+
+            $focusguard.remove().appendTo($currentFloor).attr("tabindex", 0);
 
             $focusguard.off("click").off("focus");
 
@@ -578,11 +673,11 @@
         function a11y_setupFocusControlListeners() {
             var options = $.a11y.options;
             $("body")
-                .off("mousedown", domSelectors.focusableElements, onFocusCapture) //IPAD TOUCH-DOWN FOCUS FIX FOR BUTTONS
+                .off("mousedown touchstart", domSelectors.focusableElements, onFocusCapture) //IPAD TOUCH-DOWN FOCUS FIX FOR BUTTONS
                 .off("focus", domSelectors.globalTabIndexElements, onFocus);
 
             $("body")
-                .on("mousedown", domSelectors.focusableElements, onFocusCapture) //IPAD TOUCH-DOWN FOCUS FIX FOR BUTTONS
+                .on("mousedown touchstart", domSelectors.focusableElements, onFocusCapture) //IPAD TOUCH-DOWN FOCUS FIX FOR BUTTONS
                 .on("focus", domSelectors.globalTabIndexElements, onFocus);
         }
 
@@ -607,6 +702,51 @@
             });
         }
 
+        function a11y_iosFalseClickFix() {  //ios 9.0.4 bugfix for invalid clicks on input overlays
+            //with voiceover on, ios will allow clicks on :before and :after content text. this causes the first tabbable element to recieve focus
+            //redirect focus back to last item in this instance
+            var isPerformingRedirect = false;
+            var options = $.a11y.options;
+
+            $("body").on("click", "*", function(event) {
+                if (isPerformingRedirect) return;
+
+                onFocusCapture(event);
+
+                var $active = $.a11y.state.$activeElement;
+                if (!$active.is(domSelectors.globalTabIndexElements)) return;
+
+                if (options.isDebug) console.log("a11y_iosFalseClickFix", $active[0]);
+
+                isPerformingRedirect = true;
+
+                defer(function() {
+                    $active.focus();
+                    isPerformingRedirect = false;
+                }, 500);
+
+            });
+        }
+
+        function a11y_iosFixes() {
+
+            if ($.a11y.state.isIOSFixesApplied) return;
+
+            $.a11y.state.isIOSFixesApplied = true;
+            a11y_iosFalseClickFix();
+
+        }
+
+        function a11y_debug() {
+
+            if ($.a11y.state.isDebugApplied) return;
+
+            $.a11y.state.isDebugApplied = true;
+
+            $("body").on("focus blur click change", "*", function(event) {
+                console.log("a11y_debug", event.type, event.currentTarget);
+            });
+        }
         //TURN ON ACCESSIBILITY FEATURES
         $.a11y = function(isOn, options) {
             if ($.a11y.options.isDebug) console.log("$.a11y called", isOn, options )
@@ -630,10 +770,12 @@
             isScrollDisabledOnPopupEnabled: false,
             isSelectedAlertsEnabled: false,
             isAlertsEnabled: false,
+            isIOSFixesEnabled: true,
             isDebug: false
         };
         $.a11y.state = {
             $activeElement: null,
+            floorStack: [$("body")],
             focusStack: [],
             tabIndexes: {},
             elementUIDIndex: 0,
@@ -643,6 +785,8 @@
 
         $.a11y.ready = function() {
             var options = $.a11y.options;
+
+            if (iOS) options.OS = "mac";
 
             a11y_injectControlElements();
 
@@ -658,13 +802,22 @@
                 a11y_reattachFocusGuard();
             }
 
-            if (options.isDebug) console.log("a11y_ready");
+            if (iOS && options.isIOSFixesEnabled) {
+                a11y_iosFixes();
+            }
+
+            if (options.isDebug) {
+                console.log("a11y_ready");
+                a11y_debug();
+            }
 
         };
 
         //REAPPLY ON SIGNIFICANT VIEW CHANGES
         $.a11y_update = function() {
             var options = $.a11y.options;
+
+            if (iOS) options.OS = "mac";
 
             if (options.isRemoveNotAccessiblesEnabled) {
                 a11y_removeNotAccessibles();
@@ -711,6 +864,7 @@
 
             isOn = isOn === undefined ? true : isOn;
             if (isOn) {
+                $(domSelectors.focuser).focusNoScroll();
                 this.find(domSelectors.hideableElements).filter(domFilters.globalTabIndexElementFilter).attr("aria-hidden", "true").attr("tabindex", "-1").addClass("aria-hidden");
             } else {
                 this.find(domSelectors.hideableElements).filter(domFilters.globalTabIndexElementFilter).attr("aria-hidden", "false").removeAttr("tabindex").removeClass("aria-hidden");
@@ -802,7 +956,7 @@
         $.fn.a11y_text = function() {
             var options = $.a11y.options;
 
-            if (!options.isTabbableTextEnabled) return text;
+            if (!options.isTabbableTextEnabled) return this;
 
              for (var i = 0; i < this.length; i++) {
                 this[i].innerHTML = makeHTMLOrTextAccessible(this[i].innerHTML);
@@ -814,7 +968,7 @@
 
     //MAKE SELECTED
 
-        $.fn.a11y_selected = function(isOn) {
+        $.fn.a11y_selected = function(isOn, noFocus) {
             if (this.length === 0) return this;
 
             var options = $.a11y.options;
@@ -826,15 +980,15 @@
                 switch ($.a11y.options.OS) {
                 case "mac":
                     //ANNOUNCES SELECTION ON A MAC BY ADDING A SPAN AND SHIFTING FOCUS
-                    $("#a11y-selected").focusNoScroll();
+                    if (noFocus !== true) $("#a11y-selected").focusNoScroll();
                     _.delay(function() {
                         selected.prepend($("<span class='a11y-selected aria-label'>selected </span>"))
-                        $(selected).focusNoScroll();
+                        if (noFocus !== true) $(selected).focusNoScroll();
                     },250);
                     break;
                 default:
                     //ANOUNCES THE SELECTION ON TABLETS AND PCS
-                    $.a11y_alert("selected " + selected.text());
+                    if (noFocus !== true) $.a11y_alert("selected " + selected.text());
                     selected.attr( "aria-label", "selected " + selected.text()).addClass("a11y-selected");
                     break;
                 }
@@ -861,13 +1015,19 @@
             var options = $.a11y.options;
             if (!options.isAlertsEnabled) return this;
 
-            var $alert = $('<div role="alert" aria-label="'+text+'">');
+            var $alert = $('<div role="alert">'+text+'</div>');
 
             $($.a11y).trigger("reading", text);
-            $("#a11y-selected").append($alert).attr("role","alert");
-            
+            switch(options.OS) {
+            case "mac":
+                $("#a11y-selected").append($alert);
+                break;
+            default:
             $alert.css("visibility","hidden");
+                $("#a11y-selected").append($alert);
             $alert.css("visibility","visible");
+            }
+            
             setTimeout(function() {
                 $alert.remove();
             }, 20000);
@@ -901,10 +1061,10 @@
                 var $item = $(item);
                 
                 var elementUID;
-                if ($item.a11y_uid == undefined) {
-                    $item.a11y_uid = "UID" + ++state.elementUIDIndex;
+                if (item.a11y_uid == undefined) {
+                    item.a11y_uid = "UID" + ++state.elementUIDIndex;
                 }
-                elementUID = $item.a11y_uid;
+                elementUID = item.a11y_uid;
 
                 if (storeLastTabIndex) {
                     if (state.tabIndexes[elementUID] === undefined) state.tabIndexes[elementUID] = [];
@@ -935,6 +1095,8 @@
 
             var options = $.a11y.options;
 
+            $.a11y.state.floorStack.push(this);
+
             this.a11y_only(container, true);
 
             if (this.length > 0) $(this[0]).limitedScrollTo();
@@ -956,16 +1118,18 @@
             var options = $.a11y.options;
             var state = $.a11y.state;
 
+            $.a11y.state.floorStack.pop();
+
             $(domSelectors.globalTabIndexElements).filter(domFilters.globalTabIndexElementFilter).each(function(index, item) {
                 var $item = $(item);
                 var previousTabIndex = 0;
 
                 var elementUID;
-                if ($item.a11y_uid == undefined) {
+                if (item.a11y_uid == undefined) {
                     //assign element a unique id
-                    $item.a11y_uid = "UID" + ++state.elementUIDIndex;
+                    item.a11y_uid = "UID" + ++state.elementUIDIndex;
                 }
-                elementUID = $item.a11y_uid;
+                elementUID = item.a11y_uid;
 
 
                 if (state.tabIndexes[elementUID] !== undefined && state.tabIndexes[elementUID].length !== 0) {
@@ -990,7 +1154,7 @@
                 }
             });
 
-            state.$activeElement = state.focusStack.pop();
+            var $activeElement = state.$activeElement = state.focusStack.pop();
 
             $.a11y_update();
 
@@ -1002,12 +1166,17 @@
                 });
             }
 
-            if (state.$activeElement) {
-                state.$activeElement.focusOrNext();
-                state.$activeElement.limitedScrollTo();
-            } else {
-                $.a11y_focus();
-            }
+            defer(function() {
+
+                if ($activeElement) {
+                    state.$activeElement = $activeElement;
+                    //scroll to focused element
+                    state.$activeElement.focusOrNext().limitedScrollTo();
+                } else {
+                    $.a11y_focus();
+                }
+
+            }, this, 500);
 
             return this;
         };

@@ -13,11 +13,13 @@
         "_duration": 400
     },
     "_spoor": {
-		"_isEnabled": true,
+        "_isEnabled": true,
         "_tracking": {
             "_requireCourseCompleted": true,
             "_requireAssessmentPassed": true,
-            "_shouldSubmitScore": false
+            "_shouldSubmitScore": false,
+            "_shouldStoreResponses": false,
+            "_shouldRecordInteractions": true
         },
         "_reporting": {
             "_comment": "Your options here are 'completed', 'passed', 'failed', and 'incomplete'",
@@ -25,5 +27,7 @@
             "_onAssessmentFailure": "incomplete"
         }
     },
-    "_showIds": true
+    "_disableAnimationFor": [".ie8", ".iPhone.version-7\\.0"],
+    "build": {
+    }
 }

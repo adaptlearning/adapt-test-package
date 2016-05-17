@@ -7,7 +7,8 @@ define(function(require) {
 
         events: {
             'click .narrative-strapline-title': 'openPopup',
-            'click .narrative-controls': 'onNavigationClicked'
+            'click .narrative-controls': 'onNavigationClicked',
+            'click .narrative-indicators .narrative-progress': 'onProgressClicked'
         },
 
         preRender: function() {
@@ -48,13 +49,14 @@ define(function(require) {
                 this.model.set({_stage: 0});
 
                 _.each(this.model.get('_items'), function(item) {
-                    item.visited = false;
+                    item._isVisited = false;
                 });
             }
         },
 
         setupNarrative: function() {
             this.setDeviceSize();
+            if(!this.model.has('_items') || !this.model.get('_items').length) return;
             this.model.set('_marginDir', 'left');
             if (Adapt.config.get('_defaultDirection') == 'rtl') {
                 this.model.set('_marginDir', 'right');
@@ -93,7 +95,6 @@ define(function(require) {
             var marginRight = this.$('.narrative-slider-graphic').css('margin-right');
             var extraMargin = marginRight === '' ? 0 : parseInt(marginRight);
             var fullSlideWidth = (slideWidth + extraMargin) * slideCount;
-            var iconWidth = this.$('.narrative-popup-open').outerWidth();
 
             this.$('.narrative-slider-graphic').width(slideWidth);
             this.$('.narrative-strapline-header').width(slideWidth);
@@ -112,8 +113,9 @@ define(function(require) {
         },
 
         resizeControl: function() {
+            var wasDesktop = this.model.get('_isDesktop');
             this.setDeviceSize();
-            this.replaceInstructions();
+            if (wasDesktop != this.model.get('_isDesktop')) this.replaceInstructions();
             this.calculateWidths();
             this.evaluateNavigation();
         },
@@ -132,9 +134,9 @@ define(function(require) {
 
         replaceInstructions: function() {
             if (Adapt.device.screenSize === 'large') {
-                this.$('.narrative-instruction-inner').html(this.model.get('instruction'));
+                this.$('.narrative-instruction-inner').html(this.model.get('instruction')).a11y_text();
             } else if (this.model.get('mobileInstruction') && !this.model.get('_wasHotgraphic')) {
-                this.$('.narrative-instruction-inner').html(this.model.get('mobileInstruction'));
+                this.$('.narrative-instruction-inner').html(this.model.get('mobileInstruction')).a11y_text();
             }
         },
 
@@ -148,6 +150,7 @@ define(function(require) {
 
             $container.append(newHotgraphic.$el);
             this.remove();
+            $.a11y_update();
             _.defer(function() {
                 Adapt.trigger('device:resize');
             });
@@ -165,7 +168,7 @@ define(function(require) {
             var extraMargin = parseInt(this.$('.narrative-slider-graphic').css('margin-right'));
             var movementSize = this.$('.narrative-slide-container').width() + extraMargin;
             var marginDir = {};
-            if (animate) {
+            if (animate && !Adapt.config.get('_disableAnimation')) {
                 marginDir['margin-' + this.model.get('_marginDir')] = -(movementSize * itemIndex);
                 this.$('.narrative-slider').velocity("stop", true).velocity(marginDir);
                 this.$('.narrative-strapline-header-inner').velocity("stop", true).velocity(marginDir, {complete:callback});
@@ -179,11 +182,10 @@ define(function(require) {
 
         setStage: function(stage, initial) {
             this.model.set('_stage', stage);
-
             if (this.model.get('_isDesktop')) {
                 // Set the visited attribute for large screen devices
                 var currentItem = this.getCurrentItem(stage);
-                currentItem.visited = true;
+                currentItem._isVisited = true;
             }
 
             this.$('.narrative-progress:visible').removeClass('selected').eq(stage).addClass('selected');
@@ -199,7 +201,7 @@ define(function(require) {
                 if (this.model.get('_isDesktop')) {
                     if (!initial) this.$('.narrative-content-item').eq(stage).a11y_focus();
                 } else {
-                    if (!initial) this.$('.narrative-popup-open').a11y_focus();
+                    if (!initial) this.$('.narrative-strapline-title').a11y_focus();
                 }
             }, this));
         },
@@ -229,7 +231,7 @@ define(function(require) {
             var currentStage = this.model.get('_stage');
             var itemCount = this.model.get('_itemCount');
             if (currentStage == 0) {
-                this.$('.narrative-control-left').addClass('narrative-hidden');
+                this.$('.narrative-controls').addClass('narrative-hidden');
 
                 if (itemCount > 1) {
                     this.$('.narrative-control-right').removeClass('narrative-hidden');
@@ -268,7 +270,7 @@ define(function(require) {
 
         getVisitedItems: function() {
             return _.filter(this.model.get('_items'), function(item) {
-                return item.visited;
+                return item._isVisited;
             });
         },
 
@@ -295,7 +297,7 @@ define(function(require) {
             };
 
             // Set the visited attribute for small and medium screen devices
-            currentItem.visited = true;
+            currentItem._isVisited = true;
 
             Adapt.trigger('notify:popup', popupObject);
         },
@@ -315,6 +317,12 @@ define(function(require) {
             }
             stage = (stage + numberOfItems) % numberOfItems;
             this.setStage(stage);
+        },
+        
+        onProgressClicked: function(event) {
+            event.preventDefault();
+            var clickedIndex = $(event.target).index();
+            this.setStage(clickedIndex);
         },
 
         inview: function(event, visible, visiblePartX, visiblePartY) {
@@ -344,7 +352,7 @@ define(function(require) {
 
         setupEventListeners: function() {
             this.completionEvent = (!this.model.get('_setCompletionOn')) ? 'allItems' : this.model.get('_setCompletionOn');
-            if (this.completionEvent !== 'inview') {
+            if (this.completionEvent !== 'inview' && this.model.get('_items').length > 1) {
                 this.on(this.completionEvent, _.bind(this.onCompletion, this));
             } else {
                 this.$('.component-widget').on('inview', _.bind(this.inview, this));

@@ -111,34 +111,46 @@ define(function(require) {
 
         // Used to setup either global or local button text
         setupButtonSettings: function() {
-            var globButtons = Adapt.course.get("_buttons");
+            var globalButtons = Adapt.course.get("_buttons");
 
             // Checks if local _buttons exists and if not use global
             if (!this.model.has("_buttons")) {
-                this.model.set("_buttons", globButtons);
+                this.model.set("_buttons", globalButtons);
             } else {
                 // check all the components buttons
                 // if they are empty use the global default
-                var compButtons = this.model.get("_buttons");
+                var componentButtons = this.model.get("_buttons");
 
-                if (typeof compButtons.submit == 'undefined') {
-                    for (var key in compButtons) {
-                        if(!compButtons[key].buttonText) compButtons[key].buttonText = globButtons[key].buttonText
-                        if(!compButtons[key].ariaLabel) compButtons[key].ariaLabel = globButtons[key].ariaLabel
+                if (typeof componentButtons.submit == 'undefined') {
+                    for (var key in componentButtons) {
+                        if (typeof componentButtons[key] == 'object') {
+                          // ARIA labels
+                          if (!componentButtons[key].buttonText && globalButtons[key].buttonText) {
+                            componentButtons[key].buttonText = globalButtons[key].buttonText;
+                          }
+
+                          if (!componentButtons[key].ariaLabel && globalButtons[key].ariaLabel) {
+                            componentButtons[key].ariaLabel = globalButtons[key].ariaLabel;
+                          }
+                        }
+
+                        if (!componentButtons[key] && globalButtons[key]) {
+                            componentButtons[key] = globalButtons[key];
+                        }
                     }
                 } else {
                     // Backwards compatibility with v1.x
                     var buttons = [];
 
-                    for (var key in compButtons) {
+                    for (var key in componentButtons) {
                         var index = '_' + key;
 
-                        if (!compButtons[key]) {
-                            buttons[index] = globButtons[index];
+                        if (!componentButtons[key]) {
+                            buttons[index] = globalButtons[index];
                         } else {
                             buttons[index] = {
-                                buttonText: compButtons[key],
-                                ariaLabel: compButtons[key]
+                                buttonText: componentButtons[key],
+                                ariaLabel: componentButtons[key]
                             };
                         }
                     }
@@ -160,7 +172,6 @@ define(function(require) {
             if (!this.model.has("_questionWeight")) {
                 this.model.set("_questionWeight", Adapt.config.get("_questionWeight"));
             }
-
         },
 
         // Left blank for question setup - should be used instead of preRender
@@ -231,12 +242,14 @@ define(function(require) {
             // Triggers setCompletionStatus and adds class to widget
             this.checkQuestionCompletion();
 
+            this.recordInteraction();
+
             // Used to setup the feedback by checking against
             // question isCorrect or isPartlyCorrect
             this.setupFeedback();
 
-			// Used to update buttonsView based upon question state
-			// Update buttons happens before showFeedback to preserve tabindexes and after setupFeedback to allow buttons to use feedback attribute
+            // Used to update buttonsView based upon question state
+            // Update buttons happens before showFeedback to preserve tabindexes and after setupFeedback to allow buttons to use feedback attribute
             this.updateButtons();
             // Used to trigger an event so plugins can display feedback
             this.showFeedback();
@@ -249,7 +262,8 @@ define(function(require) {
 
         // Adds a validation error class when the canSubmit returns false
         showInstructionError: function() {
-            this.$(".component-instruction-inner").addClass("validation-error").a11y_focus();
+            this.$(".component-instruction-inner").addClass("validation-error");
+            this.$el.a11y_focus();
         },
 
         // Blank method for question to fill out when the question cannot be submitted
@@ -320,6 +334,12 @@ define(function(require) {
 
         },
 
+        recordInteraction:function() {
+            if (this.model.get('_recordInteraction') === true || !this.model.has('_recordInteraction')) {
+                Adapt.trigger('questionView:recordInteraction', this);
+            }
+        },
+
         // Updates buttons based upon question state by setting
         // _buttonState on the model which buttonsView listens to
         updateButtons: function() {
@@ -328,22 +348,23 @@ define(function(require) {
             var isCorrect = this.model.get('_isCorrect');
             var isEnabled = this.model.get('_isEnabled');
             var buttonState = this.model.get('_buttonState');
-            var canShowModuleAnswer = this.model.get('_canShowModelAnswer');
+            var canShowModelAnswer = this.model.get('_canShowModelAnswer');
 
             if (isInteractionComplete) {
 
-                if (isCorrect || !canShowModuleAnswer) {
-					//use correct instead of complete to signify button state
+                if (isCorrect || !canShowModelAnswer) {
+                    // Use correct instead of complete to signify button state
                     this.model.set('_buttonState', 'correct');
 
                 } else {
 
-                    switch(buttonState) {
-                    case "submit": case "hideCorrectAnswer":
-                        this.model.set('_buttonState', 'showCorrectAnswer');
-                        break;
-                    default:
-                        this.model.set('_buttonState', 'hideCorrectAnswer');
+                    switch (buttonState) {
+                      case "submit":
+                      case "hideCorrectAnswer":
+                          this.model.set('_buttonState', 'showCorrectAnswer');
+                          break;
+                      default:
+                          this.model.set('_buttonState', 'hideCorrectAnswer');
                     }
 
                 }
@@ -380,38 +401,46 @@ define(function(require) {
 
             this.model.set({
                 feedbackTitle: this.model.get('title'),
-                feedbackMessage: this.model.get("_feedback").correct
+                feedbackMessage: this.model.get("_feedback") ? this.model.get("_feedback").correct : ""
             });
 
         },
 
         setupPartlyCorrectFeedback: function() {
 
-            if (this.model.get('_attemptsLeft') === 0 || !this.model.get('_feedback')._partlyCorrect.notFinal) {
-                this.model.set({
-                    feedbackTitle: this.model.get('title'),
-                    feedbackMessage: this.model.get('_feedback')._partlyCorrect.final
-                });
+            if (this.model.get("_feedback") && this.model.get('_feedback')._partlyCorrect) {
+                if (this.model.get('_attemptsLeft') === 0 || !this.model.get('_feedback')._partlyCorrect.notFinal) {
+                    if (this.model.get('_feedback')._partlyCorrect.final) {
+                        this.model.set({
+                            feedbackTitle: this.model.get('title'),
+                            feedbackMessage: this.model.get("_feedback") ? this.model.get('_feedback')._partlyCorrect.final : ""
+                        });
+                    } else {
+                        this.setupIncorrectFeedback();
+                    }
+                } else {
+                    this.model.set({
+                        feedbackTitle: this.model.get('title'),
+                        feedbackMessage: this.model.get("_feedback") ? this.model.get('_feedback')._partlyCorrect.notFinal : ""
+                    });
+                }
             } else {
-                this.model.set({
-                    feedbackTitle: this.model.get('title'),
-                    feedbackMessage: this.model.get('_feedback')._partlyCorrect.notFinal
-                });
+                this.setupIncorrectFeedback();
             }
 
         },
 
         setupIncorrectFeedback: function() {
 
-            if (this.model.get('_attemptsLeft') === 0 || !this.model.get('_feedback')._incorrect.notFinal) {
+            if (this.model.get('_attemptsLeft') === 0 || this.model.get('_feedback') && !this.model.get('_feedback')._incorrect.notFinal) {
                 this.model.set({
                     feedbackTitle: this.model.get('title'),
-                    feedbackMessage: this.model.get('_feedback')._incorrect.final
+                    feedbackMessage: this.model.get("_feedback") ? this.model.get('_feedback')._incorrect.final : ""
                 });
             } else {
                 this.model.set({
                     feedbackTitle: this.model.get('title'),
-                    feedbackMessage: this.model.get('_feedback')._incorrect.notFinal
+                    feedbackMessage: this.model.get("_feedback") ? this.model.get('_feedback')._incorrect.notFinal : ""
                 });
             }
 
@@ -433,6 +462,13 @@ define(function(require) {
             this.updateButtons();
             this.resetUserAnswer();
             this.resetQuestion();
+            if (this.model.get("_isReady")) {
+                //if the model is already rendered, focus on the first tabbable element
+                //onResetClicked is called as part of the checkIfResetOnRevisit function and as a button click
+                _.defer(_.bind(function(){
+                    this.$el.a11y_focus();
+                }, this));
+            }
         },
 
         setQuestionAsReset: function() {
@@ -441,6 +477,14 @@ define(function(require) {
                 _isSubmitted: false
             });
             this.$(".component-widget").removeClass("submitted");
+            
+            // Attempt to get the current page location
+            var currentModel = Adapt.findById(Adapt.location._currentId);
+            if (currentModel && currentModel.get("_isReady")) {
+                //if the page is ready, focus on the first tabbable item
+                //otherwise will try to set focus as page loads and components are rendered
+                this.$el.a11y_focus();
+            }
         },
 
         // Used by the question view to reset the stored user answer
@@ -482,7 +526,18 @@ define(function(require) {
         // Used by the question to display the users answer and
         // hide the correct answer
         // Should use the values stored in storeUserAnswer
-        hideCorrectAnswer: function() {}
+        hideCorrectAnswer: function() {},
+
+        // Time elapsed between the time the interaction was made available to the learner for response and the time of the first response
+        getLatency:function() {
+            return null;
+        },
+
+        // a string detailing how the user answered the question
+        getResponse:function() {},
+
+        // a string describing the type of interaction: "choice" and "matching" supported (see scorm wrapper)
+        getResponseType:function() {}
 
     }, {
         _isQuestionType: true

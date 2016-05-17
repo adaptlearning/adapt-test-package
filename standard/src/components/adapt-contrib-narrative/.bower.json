@@ -1,8 +1,9 @@
 {
   "name": "adapt-contrib-narrative",
+  "version": "2.0.4",
   "framework": "^2.0.0",
   "homepage": "https://github.com/adaptlearning/adapt-contrib-narrative",
-  "issues": "https://adaptlearning.atlassian.net/secure/CreateIssueDetails!init.jspa?pid=10100&issuetype=1&priority=6&components=10512",
+  "issues": "https://github.com/adaptlearning/adapt_framework/issues/new?title=contrib-narrative%3A%20please%20enter%20a%20brief%20summary%20of%20the%20issue%20here&body=please%20provide%20a%20full%20description%20of%20the%20problem,%20including%20steps%20on%20how%20to%20replicate,%20what%20browser(s)/device(s)%20the%20problem%20occurs%20on%20and,%20where%20helpful,%20screenshots.",
   "displayName": "Narrative",
   "component": "narrative",
   "assetFields": [
@@ -15,14 +16,14 @@
     "adapt-component"
   ],
   "license": "GPLv3",
-  "_release": "04a0c630ab",
+  "_release": "2.0.4",
   "_resolution": {
-    "type": "branch",
-    "branch": "develop",
-    "commit": "04a0c630abfeffca1ce7533f392cfa4fc2bb5664"
+    "type": "version",
+    "tag": "v2.0.4",
+    "commit": "c3f4c7deb50bfd654f7159dda8f6d41e497808fa"
   },
   "_source": "git://github.com/adaptlearning/adapt-contrib-narrative.git",
-  "_target": "develop",
+  "_target": "~2.0.4",
   "_originalSource": "adapt-contrib-narrative",
   "_direct": true
 }

@@ -1,5 +1,6 @@
 {
   "name": "adapt-contrib-hotgraphic",
+  "version": "2.0.4",
   "framework": "^2.0.0",
   "homepage": "https://github.com/adaptlearning/adapt-contrib-hotgraphic",
   "issues": "https://adaptlearning.atlassian.net/secure/CreateIssueDetails!init.jspa?pid=10100&issuetype=1&priority=6&components=10501",
@@ -16,14 +17,14 @@
     "adapt-component"
   ],
   "license": "GPLv3",
-  "_release": "74f0e0fa94",
+  "_release": "2.0.4",
   "_resolution": {
-    "type": "branch",
-    "branch": "develop",
-    "commit": "74f0e0fa94b2bc52191bd74cd3d3c69ddfcdba0f"
+    "type": "version",
+    "tag": "v2.0.4",
+    "commit": "440ecfdc7f6f0a80bcc9da16bef07e10bd3c06b5"
   },
   "_source": "git://github.com/adaptlearning/adapt-contrib-hotgraphic.git",
-  "_target": "develop",
+  "_target": "v2.0.4",
   "_originalSource": "adapt-contrib-hotgraphic",
   "_direct": true
 }

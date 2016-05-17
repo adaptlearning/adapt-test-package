@@ -76,13 +76,15 @@ The following attributes are appended to a particular article within *articles.j
 
 >>**_blockCount** (number): The number of blocks to present to the learner. (Questions are presented by blocks. If one component occupies a block, it will be presented alone. If multiple components occupy a block, they will always appear together.) 
 
->**_questions** (object): Contains attributes for overriding question component behaviours. Contains values for **_resetType**, **_canShowFeedback** and **_canShowMarking**.
+>**_questions** (object): Contains attributes for overriding question component behaviours. Contains values for **_resetType**, **_canShowFeedback**, **_canShowMarking** and **_canShowModelAnswer**.
 
 >>**_resetType** (string): Determines whether the question component will register as completed when reset. When assigned a value of `soft`, the learner may continue to interact with it, but the component's `_isComplete` attribute remains set to `true`. When assigned `hard`, `_isComplete` is set to `false`, and the learner will be forced to complete it again if it is reset. Other plug-ins, such as [Page Level  Progress](https://github.com/adaptlearning/adapt-contrib-pageLevelProgress) and [Trickle](https://github.com/adaptlearning/adapt-contrib-trickle), base their behavior on the value of a component's `_isComplete` attribute. Acceptable values are `hard` or `soft`.
 
->>**_canShowFeedback** (boolean): Determines whether a question component within the assessment will be permitted to show its feedback. Acceptable values are `true` or `false`.
+>>**_canShowFeedback** (boolean): Determines whether question components within the assessment will be permitted to show its feedback. Acceptable values are `true` or `false`.
 
->>**_canShowMarking** (boolean): Determines whether a question component within the assessment will show the marking after the user has answered. Acceptable values are `true` or `false`.
+>>**_canShowMarking** (boolean): Determines whether question components within the assessment will show the marking after the user has answered. Acceptable values are `true` or `false`.
+
+>>**_canShowModelAnswer** (boolean): Determines whether question components within the assessment will show the [**_showCorrectAnswer** button](https://github.com/adaptlearning/adapt_framework/wiki/Core-Buttons) or not if the user answers incorrectly. Acceptable values are `true` or `false`.
 
 >**_assessmentWeight** (number): If there are multiple assessments in the course, this value controls the proportion of the LMS score which is attributed to this assessment. 1 = 100%.    
 
@@ -93,8 +95,10 @@ The following attributes are appended to a particular article within *articles.j
 <div float align=right><a href="#top">Back to Top</a></div>
 
 #### *blocks.json*  
+**_assessment** (object): The Assessment object that contains a value for **_quizBankID**.
 
-**_quizBankID** (string): Add the **_quizBankID** attribute to your assessment blocks in order to organize them into question banks/buckets. IDs are coordinated with positions in the **_split** attribute. Quiz bank IDs are a 1-based index. The first position in the list corresponds to `"_quizBankID": 1`, the second position corresponds to `"_quizBankID": 2`, and so on. A value of '2,1' in **_split** would pick 2 questions from `"_quizBankID": 1` and one question from `"_quizBankID": 2`.  
+>**_quizBankID** (string): Add the **_quizBankID** attribute to your assessment blocks in order to organize them into question banks/buckets. IDs are coordinated with positions in the **_split** attribute. Quiz bank IDs are a 1-based index. The first position in the list corresponds to `"_quizBankID": 1`, the second position corresponds to `"_quizBankID": 2`, and so on. A value of '2,1' in **_split** would pick 2 questions from `"_quizBankID": 1` and one question from `"_quizBankID": 2`.  
+
 <div float align=right><a href="#top">Back to Top</a></div>
 
 ### Events
@@ -156,7 +160,7 @@ A description of the stateObject returned by the assessment:complete event is as
 If data is required to be passed to a SCORM conformant LMS, the [Spoor](https://github.com/adaptlearning/adapt-contrib-spoor) extension must be enabled. If [question components](https://github.com/adaptlearning/adapt_framework/wiki/Core-Plug-ins-in-the-Adapt-Learning-Framework#question-components) are required to display feedback after attempts, the [Tutor](https://github.com/adaptlearning/adapt-contrib-tutor) extension must be enabled. And if it is appropriate to display performance results to the learner, a separate component such as [Assessment Results](https://github.com/adaptlearning/adapt-contrib-assessmentResults) is required.  
 
 ----------------------------
-**Version number:**  2.0   <a href="https://community.adaptlearning.org/ target="_blank"><img src="https://github.com/adaptlearning/documentation/blob/master/04_wiki_assets/plug-ins/images/adapt-logo-mrgn-lft.jpg" alt="adapt learning logo" align="right"></a> 
+**Version number:**  2.0   <a href="https://community.adaptlearning.org/" target="_blank"><img src="https://github.com/adaptlearning/documentation/blob/master/04_wiki_assets/plug-ins/images/adapt-logo-mrgn-lft.jpg" alt="adapt learning logo" align="right"></a> 
 **Framework versions:** 2.0  
 **Author / maintainer:** Adapt Core Team with [contributors](https://github.com/adaptlearning/adapt-contrib-assessment/graphs/contributors)    
 **Accessibility support:** WAI AA   

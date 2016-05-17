@@ -11,26 +11,27 @@ define([
 		_sessionID: null,
 		_config: null,
 		_shouldStoreResponses: false,
+		_shouldRecordInteractions: true,
 
 	//Session Begin
 		initialize: function() {
 			this.getConfig();
-			this.checkSaveState();
+			this.restoreSessionState();
 			this.assignSessionId();
 			this.setupEventListeners();
 		},
 
 		getConfig: function() {
-			this._config = Adapt.config.get('_spoor');
+			this._config = Adapt.config.has('_spoor')
+				? Adapt.config.get('_spoor')
+				: false;
+			
 			this._shouldStoreResponses = (this._config && this._config._tracking && this._config._tracking._shouldStoreResponses);
-		},
-
-		checkSaveState: function() {
-			var sessionPairs = Adapt.offlineStorage.get();
-			var hasNoPairs = _.keys(sessionPairs).length === 0;
-
-			if (hasNoPairs) this.saveSessionState();
-			else this.restoreSessionState();
+			
+			// default should be to record interactions, so only avoid doing that if _shouldRecordInteractions is set to false
+			if (this._config && this._config._tracking && this._config._tracking._shouldRecordInteractions === false) {
+				this._shouldRecordInteractions = false;
+			}
 		},
 
 		saveSessionState: function() {
@@ -40,13 +41,13 @@ define([
 
 		restoreSessionState: function() {
 			var sessionPairs = Adapt.offlineStorage.get();
+			var hasNoPairs = _.keys(sessionPairs).length === 0;
 
-			if (sessionPairs.questions && this._shouldStoreResponses ) questions.deserialize(sessionPairs.questions);
+			if (hasNoPairs) return;
 
 			if (sessionPairs.completion) serializer.deserialize(sessionPairs.completion);
-
+			if (sessionPairs.questions && this._shouldStoreResponses) questions.deserialize(sessionPairs.questions);
 			if (sessionPairs._isCourseComplete) Adapt.course.set('_isComplete', sessionPairs._isCourseComplete);
-			
 			if (sessionPairs._isAssessmentPassed) Adapt.course.set('_isAssessmentPassed', sessionPairs._isAssessmentPassed);
 		},
 
@@ -73,6 +74,10 @@ define([
 				this.listenTo(Adapt.components, 'change:_isInteractionComplete', this.onQuestionComponentComplete);
 			}
 
+			if(this._shouldRecordInteractions) {
+				this.listenTo(Adapt, 'questionView:recordInteraction', this.onQuestionRecordInteraction);
+			}
+
 			this.listenTo(Adapt.blocks, 'change:_isComplete', this.onBlockComplete);
 			this.listenTo(Adapt.course, 'change:_isComplete', this.onCompletion);
 			this.listenTo(Adapt, 'assessment:complete', this.onAssessmentComplete);
@@ -86,11 +91,14 @@ define([
 
 		onQuestionComponentComplete: function(component) {
 			if (!component.get("_isQuestionType")) return;
+
 			this.saveSessionState();
 		},
 
 		onCompletion: function() {
 			if (!this.checkTrackingCriteriaMet()) return;
+
+			this.saveSessionState();
 			
 			Adapt.offlineStorage.set("status", this._config._reporting._onTrackingCriteriaMet);
 		},
@@ -104,19 +112,33 @@ define([
 
 			if (stateModel.isPass) {
 				this.onCompletion();
-			} else if(this._config._tracking._requireAssessmentPassed) {
+			} else if (this._config && this._config._tracking._requireAssessmentPassed) {
 				this.submitAssessmentFailed();
 			}
 		},
 
+		onQuestionRecordInteraction:function(questionView) {
+			var responseType = questionView.getResponseType();
+
+			// if responseType doesn't contain any data, assume that the question component hasn't been set up for cmi.interaction tracking
+			if(_.isEmpty(responseType)) return;
+
+			var id = questionView.model.get('_id');
+			var response = questionView.getResponse();
+			var result = questionView.isCorrect();
+			var latency = questionView.getLatency();
+			
+			Adapt.offlineStorage.set("interaction", id, response, result, latency, responseType);
+		},
+
 		submitScore: function(score) {
-			if (!this._config._tracking._shouldSubmitScore) return;
+			if (this._config && !this._config._tracking._shouldSubmitScore) return;
 			
 			Adapt.offlineStorage.set("score", score, 0, 100);
 		},
 
 		submitAssessmentFailed: function() {
-			if(this._config._reporting.hasOwnProperty("_onAssessmentFailure")) {
+			if (this._config && this._config._reporting.hasOwnProperty("_onAssessmentFailure")) {
 				var onAssessmentFailure = this._config._reporting._onAssessmentFailure;
 				if (onAssessmentFailure === "") return;
 					
@@ -129,13 +151,17 @@ define([
 		},
 
 		onQuestionReset: function(questionView) {
-			if(this._sessionID !== questionView.model.get('_sessionID')) {
+			if (this._sessionID !== questionView.model.get('_sessionID')) {
 				questionView.model.set('_isEnabledOnRevisit', true);
 			}
 		},
 		
 		checkTrackingCriteriaMet: function() {
 			var criteriaMet = false;
+
+			if (!this._config) {
+				return false;
+			}
 
 			if (this._config._tracking._requireCourseCompleted && this._config._tracking._requireAssessmentPassed) { // user must complete all blocks AND pass the assessment
 				criteriaMet = (Adapt.course.get('_isComplete') && Adapt.course.get('_isAssessmentPassed'));

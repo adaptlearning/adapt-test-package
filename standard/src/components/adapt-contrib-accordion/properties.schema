@@ -76,6 +76,15 @@
                 "help": "Optional image which will be rendered with the item body text"
               }
             }
+        },
+          "_classes": {
+            "type":"string",
+            "required": false,
+            "default": "",
+            "title": "Classes",
+            "inputType": "Text",
+            "validators": [],
+            "help": "Classes that are applied to the Accordion Item"
           }
         }
       }

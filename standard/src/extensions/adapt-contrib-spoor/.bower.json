@@ -1,8 +1,9 @@
 {
   "name": "adapt-contrib-spoor",
+  "version": "2.0.10",
   "framework": "^2.0.0",
   "homepage": "https://github.com/adaptlearning/adapt-contrib-spoor",
-  "issues": "https://adaptlearning.atlassian.net/secure/CreateIssueDetails!init.jspa?pid=10100&issuetype=1&priority=6&components=10520",
+  "issues": "https://github.com/adaptlearning/adapt_framework/issues/new?title=contrib-spoor%3A%20please%20enter%20a%20brief%20summary%20of%20the%20issue%20here&body=please%20provide%20a%20full%20description%20of%20the%20problem,%20including%20steps%20on%20how%20to%20replicate,%20what%20browser(s)/device(s)%20the%20problem%20occurs%20on%20and,%20where%20helpful,%20the%20contents%20of%20the%20SCORM%20debug%20window.",
   "displayName": "Spoor",
   "extension": "spoor",
   "description": "An extension which allows basic SCORM tracking",
@@ -13,14 +14,14 @@
   ],
   "license": "GPLv3",
   "targetAttribute": "_spoor",
-  "_release": "281577abba",
+  "_release": "2.0.10",
   "_resolution": {
-    "type": "branch",
-    "branch": "develop",
-    "commit": "281577abba9c1d68ab335685713d8012c74c9a6b"
+    "type": "version",
+    "tag": "v2.0.10",
+    "commit": "a52d7b72a22a45ba423dc640e58624eea70849d5"
   },
   "_source": "git://github.com/adaptlearning/adapt-contrib-spoor.git",
-  "_target": "develop",
+  "_target": "~2.0.10",
   "_originalSource": "adapt-contrib-spoor",
   "_direct": true
 }

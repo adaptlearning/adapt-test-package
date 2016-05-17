@@ -1,8 +1,9 @@
 {
   "name": "adapt-contrib-trickle",
-  "framework": "^2.0.0",
+  "version": "2.1.1",
+  "framework": "^2.0.6",
   "homepage": "https://github.com/adaptlearning/adapt-contrib-trickle",
-  "issues": "https://adaptlearning.atlassian.net/secure/CreateIssueDetails!init.jspa?pid=10100&issuetype=1&priority=6&components=10513",
+  "issues": "https://github.com/adaptlearning/adapt_framework/issues/new?title=contrib-trickle%3A%20please%20enter%20a%20brief%20summary%20of%20the%20issue%20here&body=please%20provide%20a%20full%20description%20of%20the%20problem,%20including%20steps%20on%20how%20to%20replicate,%20what%20browser(s)/device(s)%20the%20problem%20occurs%20on%20and,%20where%20helpful,%20screenshots.",
   "displayName": "Trickle",
   "extension": "trickle",
   "description": "A vertical locking extension",
@@ -13,14 +14,14 @@
   ],
   "license": "GPLv3",
   "targetAttribute": "_trickle",
-  "_release": "111d3475ac",
+  "_release": "2.1.1",
   "_resolution": {
-    "type": "branch",
-    "branch": "develop",
-    "commit": "111d3475ac5aa36fa8ccbe3dbaac141c42986769"
+    "type": "version",
+    "tag": "v2.1.1",
+    "commit": "6222b77dc35ade323f25738302bda45009920959"
   },
   "_source": "git://github.com/adaptlearning/adapt-contrib-trickle.git",
-  "_target": "develop",
+  "_target": "~2.1.1",
   "_originalSource": "adapt-contrib-trickle",
   "_direct": true
 }

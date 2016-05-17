@@ -2,20 +2,24 @@
     {{> component this}}
     <div class="accordion-widget component-widget">
         {{#each _items}}
-        <div class="accordion-item">
-            <a href="#" role="button" class="accordion-item-title {{#if _isVisited}}visited{{/if}}" aria-expanded="false" aria-label="{{{title}}}">
+        <div class="accordion-item {{_classes}}">
+            <button role="button" class="base accordion-item-title {{#if _isVisited}}visited{{/if}}" aria-expanded="false" aria-label="{{{title}}}">
               <div class="accordion-item-title-inner">
                 <div class="accordion-item-title-icon icon icon-plus h5"></div>
                       {{{title}}}
               </div>
-            </a>
+            </button>
             <div class="accordion-item-body">
                 <div class="accordion-item-body-inner">
-                    {{{a11y_text body}}}
-                    {{#if _graphic}}
-                    <div class="accordion-item-graphic">
-                        <img src="{{_graphic.src}}" alt="{{_graphic.alt}}" tabindex="0">     
+                    <div class="accordion-item-text">
+                        {{{a11y_text body}}}
                     </div>
+                    {{#if _graphic}}
+                    {{#if _graphic.src}}
+                    <div class="accordion-item-graphic">
+                        <img src="{{_graphic.src}}" aria-label="{{_graphic.alt}}" tabindex="0">
+                    </div>
+                    {{/if}}
                     {{/if}}
                 </div>
             </div>

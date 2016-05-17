@@ -1,0 +1,17 @@
+{
+  "name": "adapt-contrib-glossary",
+  "version": "2.0.0",
+  "framework": "^2.0.0",
+  "homepage": "https://github.com/adaptlearning/adapt-contrib-glossary",
+  "issues": "https://github.com/adaptlearning/adapt-contrib-glossary/issues",
+  "displayName" : "Glossary",
+  "extension" : "glossary",
+  "description": "An Adapt extension that allows a list of glossary terms",
+  "main": "/js/adapt-contrib-glossary.js",
+  "keywords": [
+    "adapt-plugin",
+    "adapt-extension"
+  ],
+  "license": "GPLv3",
+  "targetAttribute": "_glossary"
+}

@@ -1,8 +1,6 @@
-define(function(require) {
-
-    var Backbone = require('backbone');
-    var Handlebars = require('handlebars');
-    var Adapt = require('coreJS/adapt');
+define([
+    'coreJS/adapt'
+], function(Adapt) {
 
     var AdaptView = Backbone.View.extend({
 
@@ -48,10 +46,24 @@ define(function(require) {
                 var model = models[i];
                 if (model.get('_isAvailable')) {
                     nthChild ++;
-                    var ChildView = this.constructor.childView || Adapt.componentStore[model.get("_component")];
-                    var $parentContainer = this.$(this.constructor.childContainer);
-                    model.set("_nthChild", nthChild);
-                    $parentContainer.append(new ChildView({model:model}).$el);
+
+                    var ChildView;
+                    var ViewModelObject = this.constructor.childView || Adapt.componentStore[model.get("_component")];
+
+                    //use view+model object
+                    if (ViewModelObject.view) ChildView = ViewModelObject.view;
+                    //use view only object
+                    else ChildView = ViewModelObject;
+
+                    if (ChildView) {
+                        var $parentContainer = this.$(this.constructor.childContainer);
+                        model.set("_nthChild", nthChild);
+                        $parentContainer.append(new ChildView({model:model}).$el);
+                    } else {
+                        throw 'The component \'' + models[i].attributes._id + '\'' +
+                              ' (\'' + models[i].attributes._component + '\')' +
+                              ' has not been installed, and so is not available in your project.';
+                    }
                 }
             }
         },

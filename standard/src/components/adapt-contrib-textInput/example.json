@@ -14,6 +14,8 @@
     "_shouldDisplayAttempts": false,
     "_questionWeight":10,
     "_isRandom":false,
+    "_canShowModelAnswer": true,
+    "_recordInteraction": true,
     "_allowsAnyCase": true,
     "_allowsPunctuation": true,
     "_buttons": {

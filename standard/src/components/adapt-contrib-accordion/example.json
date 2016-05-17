@@ -16,7 +16,8 @@
       "_graphic": {
         "src": "course/en/images/example.jpg",
         "alt": "accordion item 1 graphic alt text here."
-      }
+      },
+      "_classes": "image-left"
     },
     {
       "title": "Heading 2",
@@ -24,7 +25,8 @@
       "_graphic": {
         "src": "course/en/images/example.jpg",
         "alt": "accordion item 2 graphic alt text here."
-      }
+      },
+      "_classes": ""
     },
     {
       "title": "Heading 3",
@@ -32,7 +34,8 @@
       "_graphic": {
         "src": "course/en/images/example.jpg",
         "alt": "accordion item 3 graphic alt text here."
-      }
+      },
+      "_classes": "image-right"
     }
   ]
 }

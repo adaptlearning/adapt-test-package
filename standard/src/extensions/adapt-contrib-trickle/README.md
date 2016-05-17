@@ -30,7 +30,11 @@ With the [Adapt CLI](https://github.com/adaptlearning/adapt-cli) installed, run 
 
 ## Settings Overview
 
-**Trickle** may be configured on two levels: article (*articles.json*) and block (*blocks.json*). The **_onChildren** attribute determines whether the configuration applies only to the article or to the article's blocks. Attributes set in a child block override those set by its parent article. The attributes listed below are properly formatted as JSON in [*example.json*](https://github.com/adaptlearning/adapt-contrib-trickle/blob/master/example.json). _(**Trickle** may also be added to_ course.json _as a simple switch to enable/disable **Trickle** during development. Its attributes will not be inherited by its child elements.)_ Visit the [**Trickle** wiki](https://github.com/adaptlearning/adapt-contrib-trickle/wiki) for more information about how they appear in the [authoring tool](https://github.com/adaptlearning/adapt_authoring/wiki).
+- **Trickle** may be configured on two levels: article (*articles.json*) and block (*blocks.json*). The **_onChildren** attribute determines whether the configuration applies only to the article or to the article's blocks. Attributes set in a child block override those set by its parent article.  
+- The default value of **_completionAttribute** may be overridden on _config.json_.  
+- _**Trickle** may also be added to_ course.json _as a simple switch to enable/disable **Trickle** during development. Its attributes will not be inherited by its child elements._
+
+The attributes listed below are properly formatted as JSON in [*example.json*](https://github.com/adaptlearning/adapt-contrib-trickle/blob/master/example.json).  Visit the [**Trickle** wiki](https://github.com/adaptlearning/adapt-contrib-trickle/wiki) for more information about how they appear in the [authoring tool](https://github.com/adaptlearning/adapt_authoring/wiki).
 
 ### Attributes
 
@@ -50,7 +54,7 @@ With the [Adapt CLI](https://github.com/adaptlearning/adapt-cli) installed, run 
  
 >**_onChildren** (boolean):  Determines whether the Trickle settings should be applied to the article alone or if it should apply to its blocks. When set to `true` on an article, the article's Trickle settings do not apply to the article; rather, the settings act as the default Trickle settings for all the blocks contained by the article. When set to `false`, the settings act on the article itself. The default is `true`. (N.B. this attribute is ignored if set on a block.)   
   
->**_button** (object): The button that releases the lock on hidden elements is commonly called the Trickle button. This `_button` attributes group stores the properties for the Trickle button. It contains values for **_isEnabled**, **_styleBeforeCompletion**, **_styleAfterClick**, **_isFullWidth**, **_autoHide**, **_className**, **text**, **finalText**, and **_component**.  
+>**_button** (object): The button that releases the lock on hidden elements is commonly called the Trickle button. This `_button` attributes group stores the properties for the Trickle button. It contains values for **_isEnabled**, **_styleBeforeCompletion**, **_styleAfterClick**, **_isFullWidth**, **_autoHide**, **_className**, **text**, **startText**, **finalText**, and **_component**.  
   
 >>**_isEnabled** (boolean):  If set to `false`, no button is displayed, so step-locking is triggered by component completion only. The page will scroll to the specified destination if **_autoScroll** is set to `true`. The default is `true`.  
   
@@ -65,6 +69,8 @@ With the [Adapt CLI](https://github.com/adaptlearning/adapt-cli) installed, run 
 >>**_className** (string):  Will add a class to the button container. Available option: `"trickle-round-arrow"`. `"trickle-round-arrow"` displays a round button with an arrow and no text instead of the classic square button with text. The default is `""`.  
   
 >>**text** (string):  Defines the default button text. The default is `"Continue"`.  
+
+>>**startText** (string):  Defines the first item button text when set on the article with **_onChildren** set to `true`. The default is `"Begin"`.  
   
 >>**finalText** (string):  Defines the last item button text when set on the article with **_onChildren** set to `true`. The default is `"Finish"`.  
 
@@ -77,15 +83,19 @@ With the [Adapt CLI](https://github.com/adaptlearning/adapt-cli) installed, run 
 >>**_isCompletionRequired** (boolean):  Forces the user to complete the block/article before the step is unlocked. If the block/article is reset on a page revisit, the lock will be reapplied. The default is `true`.  
   
 >>**_isLockedOnRevisit** (boolean):  On every page revisit the step will be relocked. The default is `false`.  
+  
+The following attribute can be added to *config.json* to overide which completion data attribute is used to test when the trickle button should be displayed.  
+  
+>**_completionAttribute** (string): Defines which completion attribute is used to test when the trickle button should be displayed. By default this is `_isInteractionComplete` but can be changed to the core data attribute `_isComplete`.  
 
 ## Limitations
 
 No known limitations.  
 
 ----------------------------
-**Version number:**  2.0   <a href="https://community.adaptlearning.org/ target="_blank"><img src="https://github.com/adaptlearning/documentation/blob/master/04_wiki_assets/plug-ins/images/adapt-logo-mrgn-lft.jpg" alt="adapt learning logo" align="right"></a> 
+**Version number:**  2.1.1   <a href="https://community.adaptlearning.org/" target="_blank"><img src="https://github.com/adaptlearning/documentation/blob/master/04_wiki_assets/plug-ins/images/adapt-logo-mrgn-lft.jpg" alt="adapt learning logo" align="right"></a> 
 **Framework versions:**  2.0     
 **Author / maintainer:** Adapt Core Team with [contributors](https://github.com/adaptlearning/adapt-contrib-trickle/graphs/contributors)    
 **Accessibility support:** WAI AA   
 **RTL support:** yes  
-**Cross-platform coverage:** Chrome, Chrome for Android, Firefox (ESR + latest version), IE 11, IE10, IE9, IE8, IE Mobile 11, Safari for iPhone (iOS 7+8), Safari for iPad (iOS 7+8), Safari 8, Opera    
+**Cross-platform coverage:** Chrome, Chrome for Android, Firefox (ESR + latest version), Edge 12, IE 11, IE10, IE9, IE8, IE Mobile 11, Safari for iPhone (iOS 8+9), Safari for iPad (iOS 8+9), Safari 8, Opera    

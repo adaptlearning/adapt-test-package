@@ -8,28 +8,21 @@
             </div>
             <div class="slider-scale-numbers clearfix">
                 {{#each _items}}
-                    <a href="#" tabindex="0" role="button" class="slider-scale-number" data-id="{{value}}">{{value}}</a>
+                    <button tabindex="0" role="button" class="base slider-scale-number" data-id="{{value}}">{{value}}</button>
                 {{/each}}
             </div>
-            <div class="slider-scaler component-item-color">
-                <div class="slider-modelranges"></div>
-                <div class="slider-markers"></div>
-                <div class="slider-answer component-item-color component-item-text-color"></div>
-                <div class="slider-scale-marker component-item-color component-item-text-color a11y-ignore" aria-hidden="true" tabindex="-1"></div>
-            </div>
+            <div class="slider-scaler-wrapper clearfix">
+               <div class="slider-scaler component-item-color">
+                  <div class="slider-modelranges"></div>
+                  <div class="slider-markers"></div>
+                  <div class="slider-answer component-item-color component-item-text-color"></div>
+                  <div class="slider-scale-marker component-item-color component-item-text-color a11y-ignore" aria-hidden="true" tabindex="-1"></div>
+              </div>
+          </div>
+
             <div class="slider-background">
                 <div class="slider-item component-item {{#unless _isEnabled}}{{#if _isCorrect}}correct{{else}}incorrect{{/if}}{{/unless}}">
-                    <div class="slider-sliderange">
-                        <a href="#" class="slider-handle component-item-color component-item-text-color a11y-ignore" tabindex="-1" aria-hidden="true"></a>
-                        <div class="slider-bar component-item-color"></div>
-                    </div>
-                    <div class="slider-outer-bar">
-                    <div class="slider-item-state">
-                        <div class="slider-icon slider-correct-icon icon icon-tick"></div>
-                        <div class="slider-icon slider-incorrect-icon icon icon-cross"></div>
-                    </div>
-                    </div>
-
+                  <input type="range" name="" value="{{#if _userAnswer}}{{_userAnswer}}{{else}}{{_scaleStart}}{{/if}}" min="{{_scaleStart}}" max="{{_scaleEnd}}" {{#unless _isEnabled}} disabled{{/unless}}>
                 </div>
             </div>
         </div>

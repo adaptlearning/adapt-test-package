@@ -11,34 +11,45 @@ define(function(require) {
         },
 
         preRender: function () {
+            if (this.model.setLocking) this.model.setLocking("_isVisible", false);
+
+            this.saveOriginalTexts();
+
             this.setupEventListeners();
             this.setupModelResetEvent();
             this.checkIfComplete();
             this.checkIfVisible();
         },
 
+        saveOriginalTexts: function() {
+            this.model.set({
+                "originalTitle": this.model.get("title"),
+                "originalBody": this.model.get("body"),
+                "originalInstruction": this.model.get("instruction")
+            });
+        },
+
         checkIfVisible: function() {
 
-            var wasVisible = this.model.get("_isVisible");
             var isVisibleBeforeCompletion = this.model.get("_isVisibleBeforeCompletion") || false;
+            var isVisible = false;
 
-            var isVisible = wasVisible && isVisibleBeforeCompletion;
+            var wasVisible = this.model.get("_isVisible");
 
-            if (!isVisibleBeforeCompletion) {
+            var assessmentModel = Adapt.assessment.get(this.model.get("_assessmentId"));
+            if (!assessmentModel || assessmentModel.length === 0) return;
 
-                var assessmentModel = Adapt.assessment.get(this.model.get("_assessmentId"));
-                if (!assessmentModel || assessmentModel.length === 0) return;
+            var state = assessmentModel.getState();
+            var isComplete = state.isComplete;
+            var isAttemptInProgress = state.attemptInProgress;
+            var attemptsSpent = state.attemptsSpent;
+            var hasHadAttempt = (!isAttemptInProgress && attemptsSpent > 0);
+            
+            isVisible = (isVisibleBeforeCompletion && !isComplete) || hasHadAttempt;
 
-                var state = assessmentModel.getState();
-                var isComplete = state.isComplete;
-                var isAttemptInProgress = state.attemptInProgress;
-                var attemptsSpent = state.attemptsSpent;
-                
-                isVisible = isVisible || isComplete || (!isAttemptInProgress && attemptsSpent > 0);
+            if (!wasVisible && isVisible) isVisible = false;
 
-            }
-
-            this.model.set('_isVisible', isVisible);
+            this.model.set('_isVisible', isVisible, {pluginName: "assessmentResults"});
         },
 
         checkIfComplete: function() {
@@ -84,21 +95,30 @@ define(function(require) {
                 this.model.get("_assessmentId") != state.id) return;
 
             this.model.set("_state", state);
-            this.setFeedback();
-
-            //show feedback component
-            this.render();
-            if(!this.model.get('_isVisible')) this.model.set('_isVisible', true);
             
+            var feedbackBand = this.getFeedbackBand();
+            
+            this.setFeedback(feedbackBand);
+            
+            this.addClassesToArticle(feedbackBand);
+
+            this.render();
+            
+            this.show();
         },
 
         onAssessmentComplete: function(state) {
             this.model.set("_state", state);
-            this.setFeedback();
+            
+            var feedbackBand = this.getFeedbackBand();
+            
+            this.setFeedback(feedbackBand);
+            
+            this.addClassesToArticle(feedbackBand);
 
-             //show feedback component
-            if(!this.model.get('_isVisible')) this.model.set('_isVisible', true);
             this.render();
+            
+            this.show();
         },
 
         onInview: function(event, visible, visiblePartX, visiblePartY) {
@@ -123,13 +143,28 @@ define(function(require) {
             var state = this.model.get("_state");
             var assessmentModel = Adapt.assessment.get(state.id);
 
+            this.restoreOriginalTexts();
+
             assessmentModel.reset();
         },
 
-        setFeedback: function() {
+        restoreOriginalTexts: function() {
+            this.model.set({
+                "title": this.model.get("originalTitle"),
+                "body": this.model.get("originalBody"),
+                "instruction": this.model.get("originalInstruction")
+            });
+        },
+        
+        show: function() {
+             if(!this.model.get('_isVisible')) {
+                 this.model.set('_isVisible', true, {pluginName: "assessmentResults"});
+             }
+        },
+
+        setFeedback: function(feedbackBand) {
 
             var completionBody = this.model.get("_completionBody");
-            var feedbackBand = this.getFeedbackBand();
 
             var state = this.model.get("_state");
             state.feedbackBand = feedbackBand;
@@ -142,15 +177,25 @@ define(function(require) {
             this.model.set("body", completionBody);
 
         },
+        
+        /**
+         * If there are classes specified for the feedback band, apply them to the containing article
+         * This allows for custom styling based on the band the user's score falls into
+         */
+        addClassesToArticle: function(feedbackBand) {
+            
+            if(!feedbackBand.hasOwnProperty('_classes')) return;
+            
+            this.$el.parents('.article').addClass(feedbackBand._classes);
+        },
 
         getFeedbackBand: function() {
             var state = this.model.get("_state");
 
-            var bands = this.model.get("_bands");
-            var scoreAsPercent = state.scoreAsPercent;
+            var bands = _.sortBy(this.model.get("_bands"), '_score');
             
             for (var i = (bands.length - 1); i >= 0; i--) {
-                if (scoreAsPercent >= bands[i]._score) {
+                if (state.scoreAsPercent >= bands[i]._score) {
                     return bands[i];
                 }
             }
@@ -216,6 +261,8 @@ define(function(require) {
         },
 
         onRemove: function() {
+            if (this.model.unsetLocking) this.model.unsetLocking("_isVisible");
+
             this.removeEventListeners();
         }
         

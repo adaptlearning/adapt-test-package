@@ -1,5 +1,6 @@
 {
   "name": "adapt-contrib-media",
+  "version": "2.0.4",
   "framework": "^2.0.0",
   "homepage": "https://github.com/adaptlearning/adapt-contrib-media",
   "issues": "https://adaptlearning.atlassian.net/secure/CreateIssueDetails!init.jspa?pid=10100&issuetype=1&priority=6&components=10519",
@@ -17,14 +18,14 @@
     "adapt-component"
   ],
   "license": "GPLv3",
-  "_release": "27f8cf20c3",
+  "_release": "2.0.4",
   "_resolution": {
-    "type": "branch",
-    "branch": "develop",
-    "commit": "27f8cf20c3b6aa566811e7d65efa1b8ca1b29613"
+    "type": "version",
+    "tag": "v2.0.4",
+    "commit": "175fcb32260d8b7f679be37333d04716a788bec8"
   },
   "_source": "git://github.com/adaptlearning/adapt-contrib-media.git",
-  "_target": "develop",
+  "_target": "~2.0.4",
   "_originalSource": "adapt-contrib-media",
   "_direct": true
 }

@@ -51,17 +51,25 @@ guide the learner’s interaction with the component.
 
 **_shouldDisplayAttempts** (boolean): Determines whether or not the text set in **remainingAttemptText** and **remainingAttemptsText** will be displayed. These two attributes are part of the [core buttons](https://github.com/adaptlearning/adapt_framework/wiki/Core-Buttons) attribute group. The default is `false`.  
 
-**_isRandom** (boolean): Setting this value to `true` will cause the **_items** to appear in a random order each time the component is loaded. The default is `true`.   
+**_isRandom** (boolean): Setting this value to `true` will cause the **_items** to appear in a random order each time the component is loaded. The default is `false`.   
 
 **_questionWeight** (number): A number which reflects the significance of the question in relation to the other questions in the course. This number is used in calculations of the final score reported to the LMS.
 
 **_selectable** (number): Defines the number of **_items**, or answers, that can be selected. If the value of **_selectable** is `1`, **_items** will be presented with HTML radio buttons. If the value is greater than `1`, they will be presented with HTML checkboxes. This number must match the number of **_items** whose **_shouldBeSelected** is set to `true`. The default is `1`.
+
+**_canShowModelAnswer** (boolean): Setting this to `false` prevents the [**_showCorrectAnswer** button](https://github.com/adaptlearning/adapt_framework/wiki/Core-Buttons) from being displayed. The default is `true`.
+
+**_recordInteraction** (boolean) Determines whether or not the learner's answers will be recorded to the LMS via cmi.interactions. Default is `true`. For further information, see the entry for `_shouldRecordInteractions` in the README for [adapt-contrib-spoor](https://github.com/adaptlearning/adapt-contrib-spoor).
+
+**_columns** (number): Defines the number of columns wide the **_items** are displayed in. If the value of **_numberOfColumns** is `2`, each **_items** will be 50% wide. Similarly, if the value of **_numberOfColumns** is `3`, each **_items** will be 33.3% wide. In mobile view, the width of each **_items** is 100%.
 
 **_items** (array): Each *item* represents one choice for the multiple choice question and contains values for **_graphic**, **text**, and **_shouldBeSelected**.  
 
 >**text** (string): Optional text that is displayed as part of the multiple choice option.  
 
 >**_shouldBeSelected** (boolean): Value can be `true` or `false`. Use `true` for items that must be selected for a correct answer. The value of **_selectable** must correspond to the number of **_items** where **_shouldBeSelected** is set to `true`. 
+
+>**feedback** (string): This attribute is used only when the value for **_selectable** is set to `1` (i.e., radio button style questions). This text will be shown if the learner selects this item, and it is an incorrect answer. 
 
 >**_graphic** (object): The image that appears as a possible answer. It contains values for **large**, **small**, **alt**, and **title**. 
 
@@ -72,7 +80,7 @@ guide the learner’s interaction with the component.
 >>**alt** (string): This text becomes the image’s `alt` attribute.  
 
 **_feedback** (object): If the [**Tutor** extension](https://github.com/adaptlearning/adapt-contrib-tutor) is enabled, these various texts will be displayed depending on the submitted answer. **_feedback**
-contains values for three types of answers: **correct**, **_incorrect**, and **_partlyCorrect**.
+contains values for three types of answers: **correct**, **_incorrect**, and **_partlyCorrect**. Some attributes are optional. If they are not supplied, the default that is noted below will be used.
 
 >**correct** (string): Text that will be displayed when the submitted answer is correct.  
 
@@ -80,13 +88,13 @@ contains values for three types of answers: **correct**, **_incorrect**, and **_
 
 >>**final** (string): Text that will be displayed when the submitted answer is incorrect and no more attempts are permitted. 
 
->>**notFinal** (string): Text that will be displayed when the submitted answer is incorrect while more attempts are permitted.  
+>>**notFinal** (string): Text that will be displayed when the submitted answer is incorrect while more attempts are permitted. This is optional&mdash;if you do not supply it, the **_incorrect.final** feedback will be shown instead. 
 
 >**_partlyCorrect** (object): Texts that will be displayed when the submitted answer is partially correct. It contains values that are displayed under differing conditions: **final** and **notFinal**.  
 
->>**final** (string): Text that will be displayed when the submitted answer is partly correct and no more attempts are permitted. 
+>>**final** (string): Text that will be displayed when the submitted answer is partly correct and no more attempts are permitted. This is optional&mdash;if you do not supply it, the **_incorrect.final** feedback will be shown instead.  
 
->>**notFinal** (string): Text that will be displayed when the submitted answer is partly correct while more attempts are permitted.   
+>>**notFinal** (string): Text that will be displayed when the submitted answer is partly correct while more attempts are permitted. This is optional&mdash;if you do not supply it, the **_incorrect.notFinal** feedback will be shown instead.  
 
 ### Accessibility
 **Graphical Multiple Choice Question** has been assigned a label using the [aria-label](https://github.com/adaptlearning/adapt_framework/wiki/Aria-Labels) attribute: **ariaRegion**. This
@@ -98,9 +106,9 @@ label is not a visible element. It is utilized by assistive technology such as s
 No known limitations.   
 
 ----------------------------
-**Version number:**  2.0   <a href="https://community.adaptlearning.org/ target="_blank"><img src="https://github.com/adaptlearning/documentation/blob/master/04_wiki_assets/plug-ins/images/adapt-logo-mrgn-lft.jpg" alt="adapt learning logo" align="right"></a> 
+**Version number:**  2.0.3   <a href="https://community.adaptlearning.org/" target="_blank"><img src="https://github.com/adaptlearning/documentation/blob/master/04_wiki_assets/plug-ins/images/adapt-logo-mrgn-lft.jpg" alt="adapt learning logo" align="right"></a> 
 **Framework versions:** 2.0  
 **Author / maintainer:** Adapt Core Team with [contributors](https://github.com/adaptlearning/adapt-contrib-gmcq/graphs/contributors)  
 **Accessibility support:** WAI AA   
 **RTL support:** yes  
-**Cross-platform coverage:** Chrome, Chrome for Android, Firefox (ESR + latest version), IE 11, IE10, IE9, IE8, IE Mobile 11, Safari for iPhone (iOS 7+8), Safari for iPad (iOS 7+8), Safari 8, Opera    
+**Cross-platform coverage:** Chrome, Chrome for Android, Firefox (ESR + latest version), Edge 12, IE 11, IE10, IE9, IE8, IE Mobile 11, Safari for iPhone (iOS 8+9), Safari for iPad (iOS 8+9), Safari 8, Opera    

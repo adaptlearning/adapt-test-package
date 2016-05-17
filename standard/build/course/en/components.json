@@ -26,9 +26,9 @@
 		"body": "",
 		"instruction": "",
 		"_graphic": {
-			"large": "course/en/images/c-10.jpg",
-			"small": "course/en/images/c-10.jpg",
-			"alt": "Multiple devices running an Adapt course",
+			"large": "course/en/images/single_width.jpg",
+			"small": "course/en/images/single_width.jpg",
+			"alt": "Placeholder graphic.",
 			"attribution": ""
 		}
 	},
@@ -68,9 +68,9 @@
 		"body": "This is the graphic component body. You can introduce your graphic or you may just want to let the graphics do the talking.<br><br>Component can either be single or spanned.",
 		"instruction": "",
 		"_graphic": {
-			"large": "course/en/images/c-25.jpg",
-			"small": "course/en/images/c-25.jpg",
-			"alt": "Person using a tablet holding a pen",
+			"large": "course/en/images/full_width.jpg",
+			"small": "course/en/images/full_width.jpg",
+			"alt": "Placeholder graphic.",
 			"attribution": ""
 		},
 		"_pageLevelProgress": {
@@ -97,8 +97,8 @@
 				"title": "Narrative item 1",
 				"body": "Narratives are particularly good for showing dialogue between two or more characters, with each step of the conversation being accompanied by an image. This photo story approach can be used to provide context for the learning about to follow, to illustrate real world application of the learning or to show the impact on people when the learning hasn’t been applied correctly.",
 				"_graphic": {
-					"src": "course/en/images/c-30-1.jpg",
-					"alt": "2 business men talking holding a tablet"
+					"src": "course/en/images/single_width_small.jpg",
+					"alt": "Placeholder graphic."
 				},
 				"strapline": "Narrative item 1"
 			},
@@ -106,8 +106,8 @@
 				"title": "Narrative item 2",
 				"body": "Narratives can also be used to present case studies, where the different displays are used to set the scene, show the key events and then the outcome.",
 				"_graphic": {
-					"src": "course/en/images/c-30-2.jpg",
-					"alt": "Beach telescope"
+					"src": "course/en/images/single_width_small.jpg",
+					"alt": "Placeholder graphic."
 				},
 				"strapline": "Narrative item 2"
 			},
@@ -115,8 +115,8 @@
 				"title": "Narrative item 3",
 				"body": "The narrative can also be used when you want to illustrate the constituent steps that make up a larger process.",
 				"_graphic": {
-					"src": "course/en/images/c-30-3.jpg",
-					"alt": "Female pointing to the word excellent"
+					"src": "course/en/images/single_width_small.jpg",
+					"alt": "Placeholder graphic."
 				},
 				"strapline": "Narrative item 3"
 			}
@@ -143,16 +143,16 @@
 		"instruction": "Select the icons to find out more.",
 		"mobileInstruction": "",
 		"_graphic": {
-			"src": "course/en/images/c-35.jpg",
-			"alt": "Top down view of an office desk"
+			"src": "course/en/images/full_width.jpg",
+			"alt": "Placeholder graphic."
 		},
 		"_items": [
 			{
 				"title": "Hot graphic item 1",
 				"body": "This is display text 1 which we have associated with the tablet image on the desktop.",
 				"_graphic": {
-					"src": "course/en/images/c-35-1.jpg",
-					"alt": "Tablet",
+					"src": "course/en/images/single_width_small.jpg",
+					"alt": "Placeholder graphic.",
 					"_classes": ""
 				},
 				"strapline": "Hot graphic item 1",
@@ -164,8 +164,8 @@
 				"title": "Hot graphic item 2",
 				"body": "This is display text 2 which we have linked to the smartphone image.",
 				"_graphic": {
-					"src": "course/en/images/c-35-2.jpg",
-					"alt": "Smart phone",
+					"src": "course/en/images/single_width_small.jpg",
+					"alt": "Placeholder graphic.",
 					"_classes": ""
 				},
 				"strapline": "Hot graphic item 2",
@@ -177,8 +177,8 @@
 				"title": "Hot graphic item 3",
 				"body": "This is display text 3 which we’ve located over the laptop so you would expect the content to be about PCs.",
 				"_graphic": {
-					"src": "course/en/images/c-35-3.jpg",
-					"alt": "Laptop",
+					"src": "course/en/images/single_width_small.jpg",
+					"alt": "Placeholder graphic.",
 					"_classes": ""
 				},
 				"strapline": "Hot graphic item 3",
@@ -200,21 +200,21 @@
 		"_layout": "full",
 		"_comment": "_setCompletionOn = inview | play | ended",
 		"_setCompletionOn": "play",
-		"_useClosedCaptions": false,
+		"_useClosedCaptions": true,
+		"_allowFullScreen": true,
 		"title": "Media",
 		"displayTitle": "Media",
 		"body": "Sometimes we need to make use of rich media to really drive home a point, bring a complex subject to life or just let audio to literally do the talking. This is when the media component comes to the fore.<br><br>Component can be either single or spanned.",
 		"instruction": "Select the play button to start the video.",
 		"_media": {
 			"mp4": "course/en/video/c-40.mp4",
-			"ogv": "course/en/video/c-40.ogv",
 			"poster": "course/en/video/c-40.jpg",
 			"cc": [
 				{
-					"srclang": "",
-					"src": ""
+					"srclang": "en",
+					"src": "course/en/video/c-40.vtt"
 				}
-			]
+		    ]
 		},
 		"_transcript": {
 			"_inlineTranscript": true,
@@ -245,24 +245,24 @@
 				"title": "Lists",
 				"body": "This is display text 1 and we’re using it to discuss lists.<br><br>If you need to present a list which can standalone as a piece of content, but which can also be explored in more detail, then accordions are a great choice.",
 				"_graphic": {
-					"src": "course/en/images/c-45-1.jpg",
-					"alt": "Books on a shelf"
+					"src": "course/en/images/accordion_full_width.jpg",
+					"alt": "Placeholder graphic."
 				}
 			},
 			{
 				"title": "Steps in a process",
 				"body": "This is display text 2 and now we’re discussing how accordions can be great at presenting a process.<br><br>The headings can be used to present the high level stages in the process which once selected, provide a more extensive explanation of what happens at that specific point.",
 				"_graphic": {
-					"src": "course/en/images/c-45-2.jpg",
-					"alt": "Stepping stone pebbles"
+					"src": "course/en/images/accordion_full_width.jpg",
+					"alt": "Placeholder graphic."
 				}
 			},
 			{
 				"title": "Recaps",
 				"body": "This is display text 3 and we’re now talking about using accordions to provide the learner with a summary.<br><br>Each accordion item corresponds to a key piece of learning presented on the page. When this item is selected a short summary of the learning point is provided.",
 				"_graphic": {
-					"src": "course/en/images/c-45-3.jpg",
-					"alt": "Hand holding a smartphone"
+					"src": "course/en/images/accordion_full_width.jpg",
+					"alt": "Placeholder graphic."
 				}
 			}
 		],
@@ -272,43 +272,31 @@
 	},
 	{
 		"_id": "c-60",
-		"_parentId": "b-45",
+		"_parentId": "b-40",
 		"_type": "component",
-		"_component": "mcq",
+		"_component": "slider",
 		"_classes": "",
-		"_layout": "left",
+		"_layout": "full",
 		"_attempts": 1,
 		"_questionWeight": 1,
 		"_canShowModelAnswer": true,
 		"_shouldDisplayAttempts": false,
-		"_isRandom": true,
-		"_selectable": 1,
-		"title": "Multiple Choice Question",
-		"displayTitle": "Multiple Choice Question",
-		"body": "In what year was the first recorded instance of a large scale assessment that consists solely of multiple choice questions?",
-		"instruction": "Choose one or more options and select Submit.",
-		"_items": [
-			{
-				"text": "1917",
-				"_shouldBeSelected": true
-			},
-			{
-				"text": "1888",
-				"_shouldBeSelected": false
-			},
-			{
-				"text": "1953",
-				"_shouldBeSelected": false
-			},
-			{
-				"text": "1977",
-				"_shouldBeSelected": false
-			}
-		],
+		"_showNumber": true,
+		"_showScaleIndicator": true,
+		"_scaleStart": 0,
+		"_scaleEnd": 100,
+		"_scaleStep": 10,
+		"title": "Slider (stepped, single answer)",
+		"displayTitle": "Slider (stepped, single answer)",
+		"body": "Demonstration of the new <code>_scaleStep</code> feature of this component. The correct answer is <strong>70</strong> and you have <strong>one attempt</strong> to get it right.",
+		"instruction": "Drag the slider to make your choice and select Submit.",
+		"labelStart": "Bottom",
+		"labelEnd": "Top",
+		"_correctAnswer": "70",
 		"_feedback": {
-			"correct": "Correct feedback text.<br><br>That’s correct. The first large assessment to consist solely of the multiple choice question type was the Army Alpha test, used from <strong>1917</strong> to evaluate U.S. military recruits in the First World War.<br><br>Source: <a href='http://en.wikipedia.org/wiki/Multiple_choice' target='_blank'>Wikipedia</a><br><br><em>Component facts: <strong>Multiple Choice Questions (or MCQs)</strong> are a tried and tested method for presenting learners with a simple text-based question. Component is either single or spanned.</em>",
+			"correct": "Correct answer feedback.<br><br>Yes, that’s right.",
 			"_incorrect": {
-				"final": "Incorrect feedback text.<br><br>That’s not right. The first large assessment to consist solely of the multiple choice question type was the Army Alpha test, used from <strong>1917</strong> to evaluate U.S. military recruits in the First World War.<br><br>Source: <a href='http://en.wikipedia.org/wiki/Multiple_choice' target='_blank'>Wikipedia</a><br><br><em>Component facts: <strong>Multiple Choice Questions (or MCQs)</strong> are a tried and tested method for presenting learners with a simple text-based question. Component is either single or spanned.</em>"
+				"final": "Incorrect answer feedback.<br><br>Sorry, that’s not right. The correct answer is 70."
 			}
 		},
 		"_pageLevelProgress": {
@@ -316,73 +304,35 @@
 		}
 	},
 	{
-		"_id": "c-62",
+		"_id": "c-65",
 		"_parentId": "b-45",
 		"_type": "component",
-		"_component": "graphic",
+		"_component": "slider",
 		"_classes": "",
-		"_layout": "right",
-		"title": "c-62",
-		"displayTitle": "",
-		"body": "",
-		"instruction": "",
-		"_graphic": {
-			"large": "course/en/images/c-55.jpg",
-			"small": "course/en/images/c-55.jpg",
-			"alt": "Question mark with a magnifying glass",
-			"attribution": ""
-		}
-	},
-	{
-		"_id": "c-65",
-		"_parentId": "b-50",
-		"_type": "component",
-		"_component": "gmcq",
-		"_classes": "col-4",
 		"_layout": "full",
-		"_attempts": 1,
+		"_attempts": 2,
 		"_questionWeight": 1,
 		"_canShowModelAnswer": true,
-		"_shouldDisplayAttempts": false,
-		"_isRandom": true,
-		"_selectable": 1,
-		"title": "Graphical Multiple Choice Question",
-		"displayTitle": "Graphical Multiple Choice Question",
-		"body": "Which of the three images below shows the Adapt logo folded into an <strong>isosceles</strong> triangle?",
-		"instruction": "Choose an image and select Submit.",
-		"_items": [
-			{
-				"text": "Option 1",
-				"_shouldBeSelected": false,
-				"_graphic": {
-					"large": "course/en/images/c-65-1.png",
-					"small": "course/en/images/c-65-1.png",
-					"alt": "Triangle with 3 equal sides."
-				}
-			},
-			{
-				"text": "Option 2",
-				"_shouldBeSelected": true,
-				"_graphic": {
-					"large": "course/en/images/c-65-2.png",
-					"small": "course/en/images/c-65-2.png",
-					"alt": "Triangle with 2 equal sides."
-				}
-			},
-			{
-				"text": "Option 3",
-				"_shouldBeSelected": false,
-				"_graphic": {
-					"large": "course/en/images/c-65-3.png",
-					"small": "course/en/images/c-65-3.png",
-					"alt": "Triangle with a right-angle."
-				}
-			}
-		],
+		"_shouldDisplayAttempts": true,
+		"_showNumber": true,
+		"_showScaleIndicator": true,
+		"_scaleStart": 100,
+		"_scaleEnd": 1000,
+		"_scaleStep": 100,
+		"title": "Slider (stepped, answer range)",
+		"displayTitle": "Slider (stepped, answer range)",
+		"body": "Demonstration of the new <code>_scaleStep</code> feature of this component. Any answer in the range <strong>400 &dash; 700</strong> is correct and you have <strong>two attempts</strong> to get it right. The <code>_shouldDisplayAttempts</code> property is on.",
+		"instruction": "Drag the slider to make your choice and select Submit.",
+		"labelStart": "Bottom",
+		"labelEnd": "Top",
+		"_correctRange": {
+			"_bottom": 400,
+			"_top": 700
+		},
 		"_feedback": {
-			"correct": "Correct feedback text.<br><br>That’s correct. <strong>Triangle 2</strong> is the isosceles. Triangle 1 is an equilateral and Triangle 3 a right angle triangle. The isosceles triangle is identifiable by the fact it has two sides of the same length along with two identical internal angles.<br><br><em>Component facts: <strong>Graphical MCQs</strong> allow you to ask a question and present the options as graphics (with accompanying captions). This component is always spanned.</em>",
+			"correct": "Correct answer feedback.<br><br>Yes, that’s right.",
 			"_incorrect": {
-				"final": "Incorrect feedback text.<br><br>Sorry, that’s not right. In fact <strong>Triangle 2</strong> is the isosceles. Triangle 1 is an equilateral and Triangle 3 a right angle triangle. The isosceles triangle is identifiable by the fact it has two sides of the same length along with two identical internal angles.<br><br><em>Component facts: <strong>Graphical MCQs</strong> allow you to ask a question and present the options as graphics (with accompanying captions). This component is always spanned.</em>"
+				"final": "Incorrect answer feedback.<br><br>Sorry, that’s not right. Any value in the range 400 - 700 is correct."
 			}
 		},
 		"_pageLevelProgress": {
@@ -391,51 +341,30 @@
 	},
 	{
 		"_id": "c-70",
-		"_parentId": "b-55",
+		"_parentId": "b-50",
 		"_type": "component",
-		"_component": "textinput",
+		"_component": "slider",
 		"_classes": "",
 		"_layout": "left",
 		"_attempts": 1,
 		"_questionWeight": 1,
 		"_canShowModelAnswer": true,
 		"_shouldDisplayAttempts": false,
-		"_isRandom": true,
-		"_allowsAnyCase": true,
-		"_allowsPunctuation": true,
-		"title": "Text Input",
-		"displayTitle": "Text Input",
-		"body": "Can you name one of the three companies that established Adapt as a community led Open Source project?",
-		"instruction": "Input your answers and select Submit.",
-		"_answers": [
-			["City & Guilds Kineo", "Kineo"],
-			["Learning Pool"],
-			["Sponge"]
-		],
-		"_items": [
-			{
-				"prefix": "prefix",
-				"placeholder": "Enter answer here",
-				"suffix": "suffix"
-			},
-			{
-				"prefix": "",
-				"placeholder": "Enter answer here",
-				"suffix": ""
-			},
-			{
-				"prefix": "",
-				"placeholder": "Enter answer here",
-				"suffix": ""
-			}
-		],
+		"_showNumber": false,
+		"_showScaleIndicator": true,
+		"_scaleStart": 1,
+		"_scaleEnd": 10,
+		"title": "Slider (left layout test)",
+		"displayTitle": "Slider (left layout test)",
+		"body": "The correct answer is 7 and you have one attempts to get it right. The <code>_showNumber</code> property has been set to <code>false</code>",
+		"instruction": "Drag the slider to make your choice and select Submit.",
+		"labelStart": "Low",
+		"labelEnd": "High",
+		"_correctAnswer": 7,
 		"_feedback": {
-			"correct": "Correct answer feedback.<br><br>That’s correct. The Adapt Open Source project was established by City & Guilds Kineo, Learning Pool and Sponge. At the time of writing, there are a total of seven <a href='https://community.adaptlearning.org/mod/page/view.php?id=51' target='_blank'>official collaborators</a>.<br><br>Component facts: <strong>Text input</strong> components let learners enter their own answers, which is great for questions that require a bit more flexibility, like those with answers that could be written as both full words and numbers.",
-			"_partlyCorrect": {
-				"final": "Incorrect answer feedback.<br><br>Sorry, that’s not right. The Adapt Open Source project was established by City & Guilds Kineo, Learning Pool and Sponge. At the time of writing, there are a total of seven <a href='https://community.adaptlearning.org/mod/page/view.php?id=51' target='_blank'>official collaborators</a>.<br><br>Component facts: <strong>Text input</strong> components let learners enter their own answers, which is great for questions that require a bit more flexibility, like those with answers that could be written as both full words and numbers."
-			},
+			"correct": "Correct answer feedback.<br><br>Yes, that’s right.",
 			"_incorrect": {
-				"final": "Incorrect answer feedback.<br><br>Sorry, that’s not right. The Adapt Open Source project was established by City & Guilds Kineo, Learning Pool and Sponge. At the time of writing, there are a total of seven <a href='https://community.adaptlearning.org/mod/page/view.php?id=51' target='_blank'>official collaborators</a>.<br><br>Component facts: <strong>Text input</strong> components let learners enter their own answers, which is great for questions that require a bit more flexibility, like those with answers that could be written as both full words and numbers."
+				"final": "Incorrect answer feedback.<br><br>Sorry, that’s not right. The correct answer is 7."
 			}
 		},
 		"_pageLevelProgress": {
@@ -444,111 +373,64 @@
 	},
 	{
 		"_id": "c-72",
-		"_parentId": "b-55",
+		"_parentId": "b-50",
 		"_type": "component",
-		"_component": "graphic",
+		"_component": "slider",
 		"_classes": "",
 		"_layout": "right",
-		"title": "c-72",
-		"displayTitle": "",
-		"body": "",
-		"instruction": "",
-		"_graphic": {
-			"large": "course/en/images/c-55.jpg",
-			"small": "course/en/images/c-55.jpg",
-			"alt": "Question mark with a magnifying glass",
-			"attribution": ""
-		}
-	},
-	{
-		"_id": "c-75",
-		"_parentId": "b-60",
-		"_type": "component",
-		"_component": "matching",
-		"_classes": "",
-		"_layout": "full",
 		"_attempts": 1,
 		"_questionWeight": 1,
 		"_canShowModelAnswer": true,
 		"_shouldDisplayAttempts": false,
-		"_isRandom": true,
-		"title": "Matching",
-		"displayTitle": "Matching",
-		"body": "Can you identify some of the key facts and figures associated with the Adapt Open Source project?",
-		"instruction": "Choose an option from each drop down list and select Submit.",
-		"placeholder": "Select an option",
-		"_items": [
-			{
-				"text": "The Adapt open source project was formed in:",
-				"_options": [
-					{
-						"text": "2008",
-						"_isCorrect": false
-					},
-					{
-						"text": "2010",
-						"_isCorrect": false
-					},
-					{
-						"text": "2013",
-						"_isCorrect": true
-					},
-					{
-						"text": "2015",
-						"_isCorrect": false
-					}
-				]
-			},
-			{
-				"text": "Adapt adheres to the WCAG 2.0 guidelines to level AA, but when were these published?",
-				"_options": [
-					{
-						"text": "2008",
-						"_isCorrect": true
-					},
-					{
-						"text": "2010",
-						"_isCorrect": false
-					},
-					{
-						"text": "2013",
-						"_isCorrect": false
-					},
-					{
-						"text": "2015",
-						"_isCorrect": false
-					}
-				]
-			},
-			{
-				"text": "Which of these languages would benefit from using the recent addition of Right To Left (RTL) language support within Adapt?",
-				"_options": [
-					{
-						"text": "Portuguese",
-						"_isCorrect": false
-					},
-					{
-						"text": "Hebrew",
-						"_isCorrect": true
-					},
-					{
-						"text": "Finnish",
-						"_isCorrect": false
-					},
-					{
-						"text": "Esperanto",
-						"_isCorrect": false
-					}
-				]
-			}
-		],
+		"_showNumber": true,
+		"_showScaleIndicator": false,
+		"_scaleStart": 1,
+		"_scaleEnd": 10,
+		"title": "Slider (right layout test)",
+		"displayTitle": "Slider (right layout test)",
+		"body": "The correct answer is 7 and you have one attempts to get it right. The <code>_showScaleIndicator</code> property has been set to <code>false</code>",
+		"instruction": "Drag the slider to make your choice and select Submit.",
+		"labelStart": "Low",
+		"labelEnd": "High",
+		"_correctAnswer": 7,
 		"_feedback": {
-			"correct": "Correct answer feedback.<br><br>Yes, that’s right. Adapt was established as an Open Source project in 2013. The Web Accessibility Initiative (WAI) published the WCAG 2.0 guidelines in 2008 and Hebrew is the only language of the four shown which reads right to left.<br><br><em>Component facts: The <strong>matching</strong> component lets you match a series of questions or statements with the corresponding options from the dropdown box. Component is either single or spanned.</em>",
-			"_partlyCorrect": {
-				"final": "Partially correct answer feedback.<br><br>That’s partially correct. Adapt was established as an Open Source project in 2013. The Web Accessibility Initiative (WAI) published the WCAG 2.0 guidelines in 2008 and Hebrew is the only language of the four shown which reads right to left.<br><br><em>Component facts: The <strong>matching</strong> component lets you match a series of questions or statements with the corresponding options from the dropdown box. Component is either single or spanned.</em>"
-			},
+			"correct": "Correct answer feedback.<br><br>Yes, that’s right.",
 			"_incorrect": {
-				"final": "Incorrect answer feedback.<br><br>Sorry, that’s not right. Adapt was established as an Open Source project in 2013. The Web Accessibility Initiative (WAI) published the WCAG 2.0 guidelines in 2008 and Hebrew is the only language of the four shown which reads right to left.<br><br><em>Component facts: The <strong>matching</strong> component lets you match a series of questions or statements with the corresponding options from the dropdown box. Component is either single or spanned.</em>"
+				"final": "Incorrect answer feedback.<br><br>Sorry, that’s not right. The correct answer is 7."
+			}
+		},
+		"_pageLevelProgress": {
+			"_isEnabled": true
+		}
+	},
+	{
+		"_id": "c-75",
+		"_parentId": "b-55",
+		"_type": "component",
+		"_component": "slider",
+		"_classes": "no-marking",
+		"_layout": "full",
+		"_attempts": 2,
+		"_questionWeight": 1,
+		"_canShowModelAnswer": false,
+		"_shouldDisplayAttempts": false,
+		"_showNumber": true,
+		"_showScaleIndicator": false,
+		"_showScale": false,
+		"_scaleStart": 1,
+		"_scaleEnd": 10,
+		"title": "Slider (no scale/marking/model answer)",
+		"displayTitle": "Slider (no scale, marking or model answer)",
+		"body": "The correct answer is <strong>7</strong> and you have <strong>two attempts</strong> to get it right. The <code>_showScale</code> property has been set to <code>false</code> which will make it quite tricky to answer correctly!",
+		"instruction": "Drag the slider to make your choice and select Submit.",
+		"labelStart": "Low",
+		"labelEnd": "High",
+		"_correctAnswer": 7,
+		"_feedback": {
+			"correct": "Correct answer feedback.<br><br>Yes, that’s right.",
+			"_incorrect": {
+				"notFinal": "First attempt incorrect answer feedback.<br><br>Sorry, that’s not right. The correct answer is 7.<br><br>Have another go - and good luck!",
+				"final": "Incorrect answer feedback.<br><br>Sorry, that’s not right. The correct answer is 7."
 			}
 		},
 		"_pageLevelProgress": {
@@ -557,7 +439,7 @@
 	},
 	{
 		"_id": "c-80",
-		"_parentId": "b-65",
+		"_parentId": "b-60",
 		"_type": "component",
 		"_component": "slider",
 		"_classes": "",
@@ -571,20 +453,19 @@
 		"_scaleStart": 1,
 		"_scaleEnd": 10,
 		"title": "Slider",
-		"displayTitle": "Slider",
+		"displayTitle": "Slider (unstepped, answer range)",
 		"body": "Working memory is thought to be responsible for our ability to temporarily hold and manipulating information but according to a paper by Miller (1956) what ‘magic number’ describes its capacity?",
 		"instruction": "Drag the slider to make your choice and select Submit.",
 		"labelStart": "",
 		"labelEnd": "",
-		"_correctAnswer": "",
 		"_correctRange": {
-			"_bottom": 7,
-			"_top": 7
+			"_bottom": 5,
+			"_top": 9
 		},
 		"_feedback": {
-			"correct": "Correct answer feedback.<br><br>Yes, that’s right. According to Miller’s paper 7 +/- 2 chunks of information was the limited capacity of working memory. Various theories from the field of cognitive psychology such as Miller’s <a href='http://en.wikipedia.org/wiki/The_Magical_Number_Seven,_Plus_or_Minus_Two' target='_blank'>magical number</a>, <a href='http://en.wikipedia.org/wiki/Chunking_%28psychology%29#Chunking_as_the_learning_of_long-term_memory_structures' target='_blank'>chunking</a>, <a href='http://en.wikipedia.org/wiki/Forgetting_curve' target='_blank'>the forgetting curve</a> and <a href='http://en.wikipedia.org/wiki/Spaced_repetition' target='_blank'>spaced repetition</a> have all influenced learning theory over the last 50 years or so.<br><br><em>Component facts: The correct answer for a slider component can be an exact number or a range. In this instance the answer was set as 7 however we could have set the range as 5-9 as the correct option due to the correct answer being seven plus or minus two. Component is either single or spanned.</em>",
+			"correct": "Correct answer feedback.<br><br>Yes, that’s right. According to Miller’s paper 7 +/- 2 chunks of information was the limited capacity of working memory. Various theories from the field of cognitive psychology such as Miller’s <a href='http://en.wikipedia.org/wiki/The_Magical_Number_Seven,_Plus_or_Minus_Two' target='_blank'>magical number</a>, <a href='http://en.wikipedia.org/wiki/Chunking_%28psychology%29#Chunking_as_the_learning_of_long-term_memory_structures' target='_blank'>chunking</a>, <a href='http://en.wikipedia.org/wiki/Forgetting_curve' target='_blank'>the forgetting curve</a> and <a href='http://en.wikipedia.org/wiki/Spaced_repetition' target='_blank'>spaced repetition</a> have all influenced learning theory over the last 50 years or so.",
 			"_incorrect": {
-				"final": "Incorrect answer feedback.<br><br>Sorry, that’s not right. According to Miller’s paper 7 +/- 2 chunks of information was the limited capacity of working memory. Various theories from the field of cognitive psychology such as Miller’s <a href='http://en.wikipedia.org/wiki/The_Magical_Number_Seven,_Plus_or_Minus_Two' target='_blank'>magical number</a>, <a href='http://en.wikipedia.org/wiki/Chunking_%28psychology%29#Chunking_as_the_learning_of_long-term_memory_structures' target='_blank'>chunking</a>, <a href='http://en.wikipedia.org/wiki/Forgetting_curve' target='_blank'>the forgetting curve</a> and <a href='http://en.wikipedia.org/wiki/Spaced_repetition' target='_blank'>spaced repetition</a> have all influenced learning theory over the last 50 years or so.<br><br><em>Component facts: The correct answer for a slider component can be an exact number or a range. In this instance the answer was set as 7 however we could have set the range as 5-9 as the correct option due to the correct answer being seven plus or minus two. Component is either single or spanned.</em>"
+				"final": "Incorrect answer feedback.<br><br>Sorry, that’s not right. According to Miller’s paper 7 +/- 2 chunks of information was the limited capacity of working memory. Various theories from the field of cognitive psychology such as Miller’s <a href='http://en.wikipedia.org/wiki/The_Magical_Number_Seven,_Plus_or_Minus_Two' target='_blank'>magical number</a>, <a href='http://en.wikipedia.org/wiki/Chunking_%28psychology%29#Chunking_as_the_learning_of_long-term_memory_structures' target='_blank'>chunking</a>, <a href='http://en.wikipedia.org/wiki/Forgetting_curve' target='_blank'>the forgetting curve</a> and <a href='http://en.wikipedia.org/wiki/Spaced_repetition' target='_blank'>spaced repetition</a> have all influenced learning theory over the last 50 years or so."
 			}
 		},
 		"_pageLevelProgress": {
@@ -593,7 +474,7 @@
 	},
 	{
 		"_id": "c-90",
-		"_parentId": "b-75",
+		"_parentId": "b-70",
 		"_type": "component",
 		"_component": "mcq",
 		"_classes": "",
@@ -641,7 +522,7 @@
 	},
 	{
 		"_id": "c-95",
-		"_parentId": "b-75",
+		"_parentId": "b-70",
 		"_type": "component",
 		"_component": "graphic",
 		"_classes": "",
@@ -652,15 +533,15 @@
 		"body": "",
 		"instruction": "",
 		"_graphic": {
-			"large": "course/en/images/c-95.jpg",
-			"small": "course/en/images/c-95.jpg",
-			"alt": "Browser window showing a user scrolling the page",
+			"large": "course/en/images/single_width.jpg",
+			"small": "course/en/images/single_width.jpg",
+			"alt": "Placeholder graphic.",
 			"attribution": ""
 		}
 	},
 	{
 		"_id": "c-97",
-		"_parentId": "b-77",
+		"_parentId": "b-75",
 		"_type": "component",
 		"_component": "text",
 		"_classes": "",
@@ -675,7 +556,7 @@
 	},
 	{
 		"_id": "c-98",
-		"_parentId": "b-77",
+		"_parentId": "b-75",
 		"_type": "component",
 		"_component": "graphic",
 		"_classes": "",
@@ -686,9 +567,9 @@
 		"body": "",
 		"instruction": "",
 		"_graphic": {
-			"large": "course/en/images/c-98.jpg",
-			"small": "course/en/images/c-98.jpg",
-			"alt": "Water droplets",
+			"large": "course/en/images/single_width.jpg",
+			"small": "course/en/images/single_width.jpg",
+			"alt": "Placeholder graphic.",
 			"attribution": ""
 		}
 	},
@@ -757,9 +638,9 @@
 		"body": "",
 		"instruction": "",
 		"_graphic": {
-			"large": "course/en/images/c-105.jpg",
-			"small": "course/en/images/c-105.jpg",
-			"alt": "Electrical plug",
+			"large": "course/en/images/single_width.jpg",
+			"small": "course/en/images/single_width.jpg",
+			"alt": "Placeholder graphic.",
 			"attribution": ""
 		}
 	},
@@ -828,9 +709,9 @@
 		"body": "",
 		"instruction": "",
 		"_graphic": {
-			"large": "course/en/images/c-115.jpg",
-			"small": "course/en/images/c-115.jpg",
-			"alt": "Book",
+			"large": "course/en/images/single_width.jpg",
+			"small": "course/en/images/single_width.jpg",
+			"alt": "Placeholder graphic.",
 			"attribution": ""
 		}
 	},
@@ -895,9 +776,9 @@
 		"body": "",
 		"instruction": "",
 		"_graphic": {
-			"large": "course/en/images/c-125.jpg",
-			"small": "course/en/images/c-125.jpg",
-			"alt": "Multiple devices",
+			"large": "course/en/images/single_width.jpg",
+			"small": "course/en/images/single_width.jpg",
+			"alt": "Placeholder graphic.",
 			"attribution": ""
 		}
 	},
@@ -962,9 +843,9 @@
 		"body": "",
 		"instruction": "",
 		"_graphic": {
-			"large": "course/en/images/c-135.jpg",
-			"small": "course/en/images/c-135.jpg",
-			"alt": "Compass icon",
+			"large": "course/en/images/single_width.jpg",
+			"small": "course/en/images/single_width.jpg",
+			"alt": "Placeholder graphic.",
 			"attribution": ""
 		}
 	},
@@ -992,7 +873,7 @@
 			},
 			{
 				"text": "Block",
-				"_shouldBeSelected": false
+				"_shouldBeSelected": true
 			},
 			{
 				"text": "Component",
@@ -1029,15 +910,15 @@
 		"body": "",
 		"instruction": "",
 		"_graphic": {
-			"large": "course/en/images/c-145.jpg",
-			"small": "course/en/images/c-145.jpg",
-			"alt": "Computer mouse",
+			"large": "course/en/images/single_width.jpg",
+			"small": "course/en/images/single_width.jpg",
+			"alt": "Placeholder graphic.",
 			"attribution": ""
 		}
 	},
 	{
 		"_id": "c-147",
-		"_parentId": "b-107",
+		"_parentId": "b-105",
 		"_type": "component",
 		"_component": "text",
 		"_classes": "",
@@ -1051,7 +932,7 @@
 	},
 	{
 		"_id": "c-150",
-		"_parentId": "b-105",
+		"_parentId": "b-110",
 		"_type": "component",
 		"_component": "assessmentResults",
 		"_classes": "",
@@ -1089,320 +970,6 @@
 				"_score": 100,
 				"feedback": "You passed, achieving a score of {{scoreAsPercent}}%.<br><br>You’re clearly already a black belt in Adapt! If you haven’t already, please consider sharing your expertise on the Adapt community forums.",
 				"_allowRetry": false
-			}
-		],
-		"_pageLevelProgress": {
-			"_isEnabled": true
-		}
-	},
-	{
-		"_id": "c-155",
-		"_parentId": "b-110",
-		"_type": "component",
-		"_component": "text",
-		"_classes": "",
-		"_layout": "full",
-		"title": "Text - spanned",
-		"displayTitle": "Text - spanned",
-		"body": "The simple text component can often be the best choice for imparting information, particularly when used in conjunction with complementary graphics. In this example we’ve used the blank component to the right to create a window through to the block background.<br><br>Remember, content doesn’t always warrant an interaction so less can often be really be more. Instead, look to intersperse more interactive components with text and graphics where they add the maximum value.<br><br>Component can either be single or spanned.",
-		"_pageLevelProgress": {
-			"_isEnabled": true
-		}
-	},
-	{
-		"_id": "c-160",
-		"_parentId": "b-115",
-		"_type": "component",
-		"_component": "media",
-		"_classes": "",
-		"_layout": "left",
-		"_comment": "_setCompletionOn = inview | play | ended",
-		"_setCompletionOn": "play",
-		"_useClosedCaptions": false,
-		"title": "Media - single width",
-		"displayTitle": "Media - single width",
-		"body": "Sometimes we need to make use of rich media to really drive home a point, bring a complex subject to life or just let audio to literally do the talking. This is when the media component comes to the fore.<br><br>Component can be either single or spanned.",
-		"instruction": "Select the play button to start the video.",
-		"_media": {
-			"mp4": "course/en/video/c-40.mp4",
-			"ogv": "course/en/video/c-40.ogv",
-			"poster": "course/en/video/c-40.jpg",
-			"cc": [
-				{
-					"srclang": "",
-					"src": ""
-				}
-			]
-		},
-		"_transcript": {
-			"_inlineTranscript": true,
-			"_externalTranscript": false,
-			"inlineTranscriptButton": "Transcript",
-			"inlineTranscriptCloseButton": "Close Transcript",
-			"inlineTranscriptBody": "Transcript body text should go here",
-			"transcriptLinkButton": "Transcript",
-			"transcriptLink": ""
-		},
-		"_pageLevelProgress": {
-			"_isEnabled": true
-		}
-	},
-	{
-		"_id": "c-167",
-		"_parentId": "b-115",
-		"_type": "component",
-		"_component": "media",
-		"_classes": "",
-		"_layout": "right",
-		"_comment": "_setCompletionOn = inview | play | ended",
-		"_setCompletionOn": "play",
-		"_useClosedCaptions": false,
-		"title": "Media - with audio source",
-		"displayTitle": "Media - with audio source",
-		"body": "Sometimes we need to make use of rich media to really drive home a point, bring a complex subject to life or just let audio to literally do the talking. This is when the media component comes to the fore.<br><br>Component can be either single or spanned.",
-		"instruction": "Select the play button to start the audio.",
-		"_media": {
-			"mp3": "course/en/audio/c-167.mp3"
-		},
-		"_transcript": {
-			"_inlineTranscript": true,
-			"_externalTranscript": false,
-			"inlineTranscriptButton": "Transcript",
-			"inlineTranscriptCloseButton": "Close Transcript",
-			"inlineTranscriptBody": "Transcript body text should go here",
-			"transcriptLinkButton": "Transcript",
-			"transcriptLink": ""
-		},
-		"_pageLevelProgress": {
-			"_isEnabled": true
-		}
-	},
-	{
-		"_id": "c-163",
-		"_parentId": "b-117",
-		"_type": "component",
-		"_component": "narrative",
-		"_classes": "",
-		"_layout": "full",
-		"_comment": "setCompletionOn = inview | allItems",
-		"_setCompletionOn": "allItems",
-		"_hasNavigationInTextArea": true,
-		"title": "Narrative - nav in display text",
-		"displayTitle": "Narrative - nav in display text",
-		"body": "The narrative component lets you scroll through a series of images each with some accompanying text.<br><br>This component is always spanned.",
-		"instruction": "Select the arrow to find out more.",
-		"mobileInstruction": "Select the arrow followed by the plus icon to find out more.",
-		"_items": [
-			{
-				"title": "Narrative item 1",
-				"body": "Narratives are particularly good for showing dialogue between two or more characters, with each step of the conversation being accompanied by an image. This photo story approach can be used to provide context for the learning about to follow, to illustrate real world application of the learning or to show the impact on people when the learning hasn’t been applied correctly.",
-				"_graphic": {
-					"src": "course/en/images/c-30-1.jpg",
-					"alt": "2 business men talking holding a tablet"
-				},
-				"strapline": "Narrative item 1"
-			},
-			{
-				"title": "Narrative item 2",
-				"body": "Narratives can also be used to present case studies, where the different displays are used to set the scene, show the key events and then the outcome.",
-				"_graphic": {
-					"src": "course/en/images/c-30-2.jpg",
-					"alt": "Beach telescope"
-				},
-				"strapline": "Narrative item 2"
-			},
-			{
-				"title": "Narrative item 3",
-				"body": "The narrative can also be used when you want to illustrate the constituent steps that make up a larger process.",
-				"_graphic": {
-					"src": "course/en/images/c-30-3.jpg",
-					"alt": "Female pointing to the word excellent"
-				},
-				"strapline": "Narrative item 3"
-			}
-		],
-		"_pageLevelProgress": {
-			"_isEnabled": true
-		}
-	},
-	{
-		"_id": "c-170",
-		"_parentId": "b-120",
-		"_type": "component",
-		"_component": "textinput",
-		"_classes": "",
-		"_layout": "full",
-		"_attempts": 1,
-		"_questionWeight": 1,
-		"_canShowModelAnswer": true,
-		"_shouldDisplayAttempts": false,
-		"_isRandom": true,
-		"_allowsAnyCase": true,
-		"_allowsPunctuation": true,
-		"title": "Text Input - spanned",
-		"displayTitle": "Text Input - spanned",
-		"body": "Can you name one of the three companies that established Adapt as a community led Open Source project?",
-		"instruction": "Input your answers and select Submit.",
-		"_items": [
-			{
-				"prefix": "",
-				"placeholder": "Enter answer here (City & Guilds Kineo)",
-				"suffix": "",
-				"_answers": [
-					"City & Guilds Kineo",
-					"Kineo"
-				]
-			},
-			{
-				"prefix": "",
-				"placeholder": "Enter answer here (Learning Pool)",
-				"suffix": "",
-				"_answers": [
-					"Learning Pool"
-				]
-			},
-			{
-				"prefix": "",
-				"placeholder": "Enter answer here (Sponge)",
-				"suffix": "",
-				"_answers": [
-					"Sponge"
-				]
-			}
-		],
-		"_feedback": {
-			"correct": "Correct answer feedback.<br><br>That’s correct. The Adapt Open Source project was established by City & Guilds Kineo, Learning Pool and Sponge. At the time of writing, there are a total of seven <a href='https://community.adaptlearning.org/mod/page/view.php?id=51' target='_blank'>official collaborators</a>.<br><br>Component facts: <strong>Text input</strong> components let learners enter their own answers, which is great for questions that require a bit more flexibility, like those with answers that could be written as both full words and numbers.",
-			"_partlyCorrect": {
-				"final": "Incorrect answer feedback.<br><br>Sorry, that’s not right. The Adapt Open Source project was established by City & Guilds Kineo, Learning Pool and Sponge. At the time of writing, there are a total of seven <a href='https://community.adaptlearning.org/mod/page/view.php?id=51' target='_blank'>official collaborators</a>.<br><br>Component facts: <strong>Text input</strong> components let learners enter their own answers, which is great for questions that require a bit more flexibility, like those with answers that could be written as both full words and numbers."
-			},
-			"_incorrect": {
-				"final": "Incorrect answer feedback.<br><br>Sorry, that’s not right. The Adapt Open Source project was established by City & Guilds Kineo, Learning Pool and Sponge. At the time of writing, there are a total of seven <a href='https://community.adaptlearning.org/mod/page/view.php?id=51' target='_blank'>official collaborators</a>.<br><br>Component facts: <strong>Text input</strong> components let learners enter their own answers, which is great for questions that require a bit more flexibility, like those with answers that could be written as both full words and numbers."
-			}
-		},
-		"_pageLevelProgress": {
-			"_isEnabled": true
-		}
-	},
-	{
-		"_id": "c-175",
-		"_parentId": "b-125",
-		"_type": "component",
-		"_component": "matching",
-		"_classes": "",
-		"_layout": "left",
-		"_attempts": 2,
-		"_questionWeight": 1,
-		"_canShowModelAnswer": true,
-		"_shouldDisplayAttempts": false,
-		"_isRandom": true,
-		"title": "Matching - single width",
-		"displayTitle": "Matching - single width",
-		"body": "Can you identify some of the key facts and figures associated with the Adapt Open Source project?<br><br>Note: you have two attempts for this question.",
-		"instruction": "Choose an option from each drop down list and select Submit.",
-		"placeholder": "Select an option",
-		"_items": [
-			{
-				"text": "The Adapt open source project was formed in:",
-				"_options": [
-					{
-						"text": "2008",
-						"_isCorrect": false
-					},
-					{
-						"text": "2010",
-						"_isCorrect": false
-					},
-					{
-						"text": "2013",
-						"_isCorrect": true
-					},
-					{
-						"text": "2015",
-						"_isCorrect": false
-					}
-				]
-			},
-			{
-				"text": "Adapt adheres to the WCAG 2.0 guidelines to level AA, but when we’re these published?",
-				"_options": [
-					{
-						"text": "2008",
-						"_isCorrect": true
-					},
-					{
-						"text": "2010",
-						"_isCorrect": false
-					},
-					{
-						"text": "2013",
-						"_isCorrect": false
-					},
-					{
-						"text": "2015",
-						"_isCorrect": false
-					}
-				]
-			},
-			{
-				"text": "Which of these languages would benefit from using the recent addition of Right To Left (RTL) language support within Adapt?",
-				"_options": [
-					{
-						"text": "Portuguese",
-						"_isCorrect": false
-					},
-					{
-						"text": "Hebrew",
-						"_isCorrect": true
-					},
-					{
-						"text": "Finnish",
-						"_isCorrect": false
-					},
-					{
-						"text": "Esperanto",
-						"_isCorrect": false
-					}
-				]
-			}
-		],
-		"_feedback": {
-			"correct": "Correct answer feedback.<br><br>Yes, that’s right. Adapt was established as an Open Source project in 2013. The Web Accessibility Initiative (WAI) published the WCAG 2.0 guidelines in 2008 and Hebrew is the only language of the four shown which reads right to left.<br><br><em>Component facts: The <strong>matching</strong> component lets you match a series of questions or statements with the corresponding options from the dropdown box. Component is either single or spanned.</em>",
-			"_partlyCorrect": {
-				"notFinal": "Partially correct answer feedback.<br><br>That’s partially correct. Have another go.",
-				"final": "Partially correct answer feedback.<br><br>That’s partially correct. Adapt was established as an Open Source project in 2013. The Web Accessibility Initiative (WAI) published the WCAG 2.0 guidelines in 2008 and Hebrew is the only language of the four shown which reads right to left.<br><br><em>Component facts: The <strong>matching</strong> component lets you match a series of questions or statements with the corresponding options from the dropdown box. Component is either single or spanned.</em>"
-			},
-			"_incorrect": {
-				"notFinal": "Incorrect answer feedback.<br><br>Sorry, that’s not right. Have another go.",
-				"final": "Incorrect answer feedback.<br><br>Sorry, that’s not right. Adapt was established as an Open Source project in 2013. The Web Accessibility Initiative (WAI) published the WCAG 2.0 guidelines in 2008 and Hebrew is the only language of the four shown which reads right to left.<br><br><em>Component facts: The <strong>matching</strong> component lets you match a series of questions or statements with the corresponding options from the dropdown box. Component is either single or spanned.</em>"
-			}
-		},
-		"_pageLevelProgress": {
-			"_isEnabled": true
-		}
-	},
-	{
-		"_id": "c-165",
-		"_parentId": "b-125",
-		"_type": "component",
-		"_component": "accordion",
-		"_classes": "",
-		"_layout": "right",
-		"title": "Accordion - single width",
-		"displayTitle": "Accordion - single width",
-		"body": "You can use the <strong>accordion</strong> component to present learners with a series of headings, which once selected, expand to reveal associated text. Select each of the headings below to find out more about how accordions can be used.<br><br>These components can be either single or spanned. If spanned they can also contain a graphic.",
-		"instruction": "Select the headings to find out more.",
-		"_items": [
-			{
-				"title": "Lists",
-				"body": "This is display text 1 and we’re using it to discuss lists.<br><br>If you need to present a list which can standalone as a piece of content, but which can also be explored in more detail, then accordions are a great choice."
-			},
-			{
-				"title": "Steps in a process",
-				"body": "This is display text 2 and now we’re discussing how accordions can be great at presenting a process.<br><br>The headings can be used to present the high level stages in the process which once selected, provide a more extensive explanation of what happens at that specific point."
-			},
-			{
-				"title": "Recaps",
-				"body": "This is display text 3 and we’re now talking about using accordions to provide the learner with a summary.<br><br>Each accordion item corresponds to a key piece of learning presented on the page. When this item is selected a short summary of the learning point is provided."
 			}
 		],
 		"_pageLevelProgress": {

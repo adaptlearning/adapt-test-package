@@ -7,11 +7,13 @@ define(function(require) {
 
         defaults: {
             screenSize : {
-                small:520,
-                medium:760,
-                large:1024
+                small: 520,
+                medium: 760,
+                large: 1024
             },
-            _canLoadData:true
+            _forceRouteLocking: false,
+            _canLoadData: true,
+            _disableAnimation: false
         },
 
         initialize: function(attrs, options) {
@@ -27,6 +29,16 @@ define(function(require) {
                     }
                     if(this.get('_defaultDirection')=='rtl'){//We're going to use rtl style
                     	$('html').addClass('dir-rtl');
+                    }
+                    // check if animations should be disabled
+                    var disableAnimationArray = this.get('_disableAnimationFor');
+                    if (disableAnimationArray && disableAnimationArray.length > 0) {
+                        for (var i=0; i < disableAnimationArray.length; i++) {
+                            if ($("html").is(disableAnimationArray[i])) {
+                                this.set('_disableAnimation', true);
+                                console.log('Animation disabled.');
+                            }
+                        }
                     }
                 }, this),
                 error: function() {
