@@ -32,7 +32,7 @@
 
     // JQUERY INJECTED ELEMENTS
         var domInjectElements = {
-            "focuser": '<a id="a11y-focuser" href="#" class="prevent-default a11y-ignore" tabindex="-1" role="region">&nbsp;</a>',
+            "focuser": '<a id="a11y-focuser" href="#" class="prevent-default a11y-ignore" tabindex="-1" role="presentation" aria-label=".">&nbsp;</a>',
             "focusguard": '<a id="a11y-focusguard" class="a11y-ignore a11y-ignore-focus" tabindex="0" role="button">&nbsp;</a>',
             "selected": '<a id="a11y-selected" href="#" class="prevent-default a11y-ignore" tabindex="-1">&nbsp;</a>',
             "arialabel": "<span class='aria-label prevent-default' tabindex='0' role='region'></span>"
@@ -1147,10 +1147,14 @@
 
                 if (previousTabIndex === -1) {
                     //hide element from screen reader
-                    $item.attr('aria-hidden', true).addClass("aria-hidden");
-                } else {
-                    //show element to screen reader
-                    $item.removeAttr('aria-hidden').removeClass("aria-hidden");
+                    return $item.attr('aria-hidden', true).addClass("aria-hidden");
+                }
+
+                //show element to screen reader
+                $item.removeAttr('aria-hidden').removeClass("aria-hidden");
+                
+                if ($item.is(domSelectors.hideableElements)) {
+                    $item.removeAttr("tabindex");
                 }
             });
 
