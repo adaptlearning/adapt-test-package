@@ -27,7 +27,7 @@
 		"body": "",
 		"_assessment": {
 			"_isEnabled": true,
-			"_id": "a-15",
+			"_id": "a-15-en",
 			"_isPercentageBased": true,
 			"_scoreToPass": 70,
 			"_includeInTotalScore": true,
@@ -40,10 +40,11 @@
 			"_questions": {
 				"_resetType": "hard",
 				"_canShowFeedback": false,
-				"_canShowMarking": true
+				"_canShowMarking": false,
+				"_canShowModelAnswer": false
 			},
 			"_isResetOnRevisit": true,
-			"_attempts": "infinite"
+			"_attempts": 3
 		},
 		"_trickle": {
 			"_isEnabled": true
@@ -51,7 +52,7 @@
 	},
 	{
 		"_id": "a-20",
-		"_parentId": "co-20",
+		"_parentId": "co-15",
 		"_type": "article",
 		"_classes": "",
 		"title": "a-20",

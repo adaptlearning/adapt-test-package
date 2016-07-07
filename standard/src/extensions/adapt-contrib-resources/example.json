@@ -1,5 +1,6 @@
 // To go in the course.json file
-"_resources": { 
+"_resources": {
+    "_isEnabled": true,
     "title": "Resources",
     "description": "Click here to view resources for this course",
     "_filterButtons": {
@@ -15,6 +16,7 @@
         "mediaAria": "View media resources",
         "linkAria": "View resource links"
     },
+    "itemAriaExternal": "This content will open in a new window",
     "_resourcesItems": [
         {
             "_type":"document",

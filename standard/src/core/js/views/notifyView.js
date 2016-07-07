@@ -9,7 +9,7 @@ define(function(require) {
         escapeKeyAttached: false,
 
         initialize: function() {
-            this.disableAnimation = $("html").is(".ie8");
+            this.disableAnimation = Adapt.config.has('_disableAnimation') ? Adapt.config.get('_disableAnimation') : false;
 
             this.setupEventListeners();
 
@@ -27,7 +27,7 @@ define(function(require) {
         },
 
         setupEscapeKey: function() {
-            var hasAccessibility = Adapt.config.has('_accessibility') && Adapt.config.get('_accessibility')._isEnabled;
+            var hasAccessibility = Adapt.config.has('_accessibility') && Adapt.config.get('_accessibility')._isActive;
 
             if (!hasAccessibility && ! this.escapeKeyAttached) {
                 $(window).on("keyup", this._onKeyUp);
@@ -47,7 +47,6 @@ define(function(require) {
             event.preventDefault();
 
             this.closeNotify();
-            Adapt.trigger('notify:closed');
         },
 
         events: {
@@ -64,7 +63,7 @@ define(function(require) {
             //hide notify container
             this.$el.css("visibility", "hidden");
             //attach popup + shadow
-            this.$el.html(template(data)).appendTo('body');
+            this.$el.html(template(data)).prependTo('body');
             //hide popup
             this.$('.notify-popup').css("visibility", "hidden");
             //show notify container
@@ -92,7 +91,7 @@ define(function(require) {
             event.preventDefault();
             //tab index preservation, notify must close before subsequent callback is triggered
             this.closeNotify();
-            Adapt.trigger('notify:closed');
+            Adapt.trigger("notify:cancelled");
         },
 
         resetNotifySize: function() {
@@ -103,7 +102,7 @@ define(function(require) {
 
         resizeNotify: function() {
             var windowHeight = $(window).height();
-            var notifyHeight = this.$('.notify-popup').height();
+            var notifyHeight = this.$('.notify-popup').outerHeight();
 
             if (notifyHeight > windowHeight) {
                 this.$('.notify-popup').css({
@@ -121,7 +120,7 @@ define(function(require) {
 
         showNotify: function() {
 
-
+            Adapt.trigger('notify:opened', this);
 
             if (this.$("img").length > 0) {
                 this.$el.imageready( _.bind(loaded, this));
@@ -131,9 +130,7 @@ define(function(require) {
 
             function loaded() {
                 if (this.disableAnimation) {
-
                     this.$('.notify-shadow').css("display", "block");
-
                 } else {
 
                     this.$('.notify-shadow').velocity({ opacity: 0 }, {duration:0}).velocity({ opacity: 1 }, {duration:400, begin: _.bind(function() {
@@ -142,27 +139,30 @@ define(function(require) {
 
                 }
 
-
                 this.resizeNotify();
 
                 if (this.disableAnimation) {
 
                     this.$('.notify-popup').css("visibility", "visible");
-
+                    complete.call(this);
+                    
                 } else {
 
                     this.$('.notify-popup').velocity({ opacity: 0 }, {duration:0}).velocity({ opacity: 1 }, { duration:400, begin: _.bind(function() {
                         this.$('.notify-popup').css("visibility", "visible");
+                        complete.call(this);
                     }, this) });
 
                 }
-
-                /*ALLOWS POPUP MANAGER TO CONTROL FOCUS*/
-                Adapt.trigger('popup:opened', this.$el);
-                $('body').scrollDisable();
-
-                //set focus to first accessible element
-                this.$('.notify-popup').a11y_focus();
+                
+                function complete() {
+                    /*ALLOWS POPUP MANAGER TO CONTROL FOCUS*/
+                    Adapt.trigger('popup:opened', this.$('.notify-popup'));
+                    $('body').scrollDisable();
+                    
+                    //set focus to first accessible element
+                    this.$('.notify-popup').a11y_focus();
+                }
             }
 
         },
@@ -190,6 +190,7 @@ define(function(require) {
 
             $('body').scrollEnable();
             Adapt.trigger('popup:closed');
+            Adapt.trigger('notify:closed');
         }
 
     });

@@ -13,10 +13,14 @@ define(function(require) {
         postRender: function() {
             this.setReadyStatus();
 
-            // Check if instruction or body is set, otherwise force completion
+            // Check if instruction or title or body is set, otherwise force completion
             var cssSelector = this.$('.component-instruction').length > 0
                 ? '.component-instruction'
-                : (this.$('.component-body').length > 0 ? '.component-body' : null);
+                : (this.$('.component-title').length > 0 
+                ? '.component-title' 
+                : (this.$('.component-body').length > 0 
+                ? '.component-body' 
+                : null));
 
             if (!cssSelector) {
                 this.setCompletionStatus();

@@ -5,6 +5,10 @@ define([
 
     //Captures the completion status and user selections of the question components
     //Returns and parses a base64 style string
+    var includes = {
+        "_isQuestionType": true,
+        "_isResetOnRevisit": false
+    };
 
     var serializer = {
         serialize: function () {
@@ -33,81 +37,78 @@ define([
         captureData: function() {
             var data = [];
             
-            var components = Adapt.components.toJSON();
-
-            var includes = {
-                "_isQuestionType": true,
-                "_isResetOnRevisit": false
-            };
-
-            components = _.where(components, includes);
-
+            var trackingIds = Adapt.blocks.pluck("_trackingId");
             var blocks = {};
             var countInBlock = {};
 
-            for (var i = 0, l = components.length; i < l; i++) {
-                var component = components[i];
-                var blockId = component._parentId;
+            for (var i = 0, l = trackingIds.length; i < l; i++) {
 
-                if (!blocks[blockId]) {
-                    blocks[blockId] = Adapt.findById(blockId).toJSON();
-                }
+                var trackingId = trackingIds[i];
+                var blockModel = Adapt.blocks.findWhere({_trackingId: trackingId });
+                var componentModels = blockModel.getChildren().where(includes);
 
-                var block = blocks[blockId];
-                if (countInBlock[blockId] === undefined) countInBlock[blockId] = -1;
-                countInBlock[blockId]++;
+                for (var c = 0, cl = componentModels.length; c < cl; c++) {
 
-                var blockLocation = countInBlock[blockId];
+                    var component = componentModels[c].toJSON();
+                    var blockId = component._parentId;
 
-                if (component['_isInteractionComplete'] === false || component['_isComplete'] === false) {
-                    //if component is not currently complete skip it
-                    continue;
-                }
+                    if (!blocks[blockId]) {
+                        blocks[blockId] = blockModel.toJSON();
+                    }
 
-                if (block['_trackingId'] === undefined) {
-                    //if block has no tracking id, skip it
-                    continue;
-                }
+                    var block = blocks[blockId];
+                    if (countInBlock[blockId] === undefined) countInBlock[blockId] = -1;
+                    countInBlock[blockId]++;
 
-                var hasUserAnswer = (component['_userAnswer'] !== undefined);
-                var isUserAnswerArray = (component['_userAnswer'] instanceof Array);
+                    var blockLocation = countInBlock[blockId];
 
-
-                var numericParameters = [
-                        blockLocation,
-                        block['_trackingId'],
-                        component['_score'] || 0
-                    ];
-
-                var booleanParameters = [
-                        hasUserAnswer,
-                        isUserAnswerArray,
-                        component['_isInteractionComplete'],
-                        component['_isSubmitted'],
-                        component['_isCorrect'] || false
-                    ];
-
-                var dataItem = [
-                    numericParameters,
-                    booleanParameters
-                ];
-
-
-                if (hasUserAnswer) {
-                    var userAnswer = isUserAnswerArray ? component['_userAnswer'] : [component['_userAnswer']];
-
-                    var arrayType = SCORMSuspendData.DataType.getArrayType(userAnswer);
-
-                    switch(arrayType.name) {
-                    case "string": case "variable":
-                        console.log("Cannot store _userAnswers from component " + component._id + " as array is of variable or string type.");
+                    if (component['_isInteractionComplete'] === false || component['_isComplete'] === false) {
+                        //if component is not currently complete skip it
                         continue;
                     }
 
-                    dataItem.push(userAnswer);
-                }
+                    var hasUserAnswer = (component['_userAnswer'] !== undefined);
+                    var isUserAnswerArray = (component['_userAnswer'] instanceof Array);
 
-                data.push(dataItem);
+
+                    var numericParameters = [
+                            blockLocation,
+                            block['_trackingId'],
+                            component['_score'] || 0,
+                            component['_attemptsLeft'] || 0
+                        ];
+
+                    var booleanParameters = [
+                            hasUserAnswer,
+                            isUserAnswerArray,
+                            component['_isInteractionComplete'],
+                            component['_isSubmitted'],
+                            component['_isCorrect'] || false
+                        ];
+
+                    var dataItem = [
+                        numericParameters,
+                        booleanParameters
+                    ];
+
+
+                    if (hasUserAnswer) {
+                        var userAnswer = isUserAnswerArray ? component['_userAnswer'] : [component['_userAnswer']];
+
+                        var arrayType = SCORMSuspendData.DataType.getArrayType(userAnswer);
+
+                        switch(arrayType.name) {
+                        case "string": case "variable":
+                            console.log("Cannot store _userAnswers from component " + component._id + " as array is of variable or string type.");
+                            continue;
+                        }
+
+                        dataItem.push(userAnswer);
+                    }
+
+                    data.push(dataItem);
+
+                }
 
             }
 
@@ -137,6 +138,7 @@ define([
                 var blockLocation = numericParameters[0];
                 var trackingId = numericParameters[1];
                 var score = numericParameters[2];
+                var attemptsLeft = numericParameters[3] || 0;
 
                 var hasUserAnswer = booleanParameters[0];
                 var isUserAnswerArray = booleanParameters[1];
@@ -145,13 +147,16 @@ define([
                 var isCorrect = booleanParameters[4];
 
                 var block = Adapt.blocks.findWhere({_trackingId: trackingId});
-                var component = block.getChildren().models[blockLocation];
+                var components = block.getChildren();
+                components = components.where(includes);
+                var component = components[blockLocation];
 
                 component.set("_isComplete", true);
                 component.set("_isInteractionComplete", isInteractionComplete);
                 component.set("_isSubmitted", isSubmitted);
                 component.set("_score", score);
                 component.set("_isCorrect", isCorrect);
+                component.set("_attemptsLeft", attemptsLeft);
 
                 if (hasUserAnswer) {
                     var userAnswer = dataItem[2];

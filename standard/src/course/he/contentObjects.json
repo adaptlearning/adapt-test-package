@@ -1,0 +1,62 @@
+[
+	{
+		"_id": "co-05",
+		"_parentId": "course",
+		"_type": "page",
+		"_classes": "",
+		"title": "רכיבי מצגת",
+		"displayTitle": "רכיבי מצגת",
+		"pageBody": "<strong>גלול למטה כדי לראות מה מצגת רכיבים זמינים כחלק צרור ליבת גרסת 2.0.</strong>",
+		"body": "גלה מה הרכיבים מצגת זמינים בתוך צרור הליבה ואיך מומלץ לשקול להשתמש בהם בתוך הקורסים שלך.",
+		"_graphic": {
+			"src": "course/en/images/menu_thumb.jpg",
+			"alt": "Placeholder graphic."
+		},
+		"linkText": "צפה",
+		"durationLabel": "Duration:",
+		"duration": "2 mins",
+		"_pageLevelProgress": {
+			"_isEnabled": true
+		}
+	},
+	{
+		"_id": "co-10",
+		"_parentId": "course",
+		"_type": "page",
+		"_classes": "",
+		"title": "",
+		"displayTitle": "רכיבי שאלה",
+		"pageBody": "אנחנו לא יכולים למדוד בקלות אם לומד עונים על יעד הקורס המיועד, לספק הדרכה ומשוב אם הם לא כל- או לתת להם הזדמנויות לתרגל חזרות סביבה בטוחה 'ללא מגוון של רכיבי השאלה <br>. <br>גלה מה השאלה רכיבים זמינים במסגרת, alongwith כמה טיפים על איך להשתמש בהם. <br><br><strong> לגלול למטה כדי לראות מה השאלה רכיבים זמינים כחלק צרור הליבה גרסה 2.0. </strong>",
+		"body": "גלה מה הרכיבים השאלה זמינים במסגרת, alongwith כמה טיפים על איך להשתמש בהם.",
+		"_graphic": {
+			"src": "course/en/images/menu_thumb.jpg",
+			"alt": "Placeholder graphic."
+		},
+		"linkText": "צפה",
+		"durationLabel": "Duration:",
+		"duration": "2 mins",
+		"_pageLevelProgress": {
+			"_isEnabled": true
+		}
+	},
+	{
+		"_id": "co-15",
+		"_parentId": "course",
+		"_type": "page",
+		"_classes": "assessment",
+		"title": "להתאים הערכה",
+		"displayTitle": "להתאים הערכה",
+		"pageBody": "חברנו חידון קצר מאוד כדי להדגים את הפונקציות החדשות על הערכה. בדוגמא פשוטה זו יש שני בנקים עשו אחד מהם מכיל שלוש שאלות עם שני ננקטים מכל ספסל באקראי. את הסדר שבו השאלות מוצגות אז כך אקראי, כמו גם ההסדר של כל אפשרויות שאלות. <br><br> <strong>חושב שאתה יכול לקבל ציון מושלם? גלול למטה כדי לנסות לשאלה הראשונה. </strong>",
+		"body": "גלה עוד על הפונקציות החדשות על הערכה ב V2.0, כוללים בנקים אקראיים תכונת תוצאות משופרות.",
+		"_graphic": {
+			"src": "course/en/images/menu_thumb.jpg",
+			"alt": "Placeholder graphic."
+		},
+		"linkText": "צפה",
+		"durationLabel": "Duration:",
+		"duration": "2 mins",
+		"_pageLevelProgress": {
+			"_isEnabled": true
+		}
+	}
+]

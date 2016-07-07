@@ -19,13 +19,23 @@
               "required": false,
               "legend": "Resources",
               "properties": {
+                "_isEnabled": {
+                  "type": "boolean",
+                  "required":true,
+                  "default": true,
+                  "title": "Is enabled",
+                  "inputType": {"type": "Boolean", "options": [true, false]},
+                  "validators": [],
+                  "help": "If set to 'false', Resources will be disabled"
+                },
                 "title": {
                   "type": "string",
                   "default":"Resources",
                   "required": true,
                   "title": "",
                   "inputType": "Text",
-                  "validators": ["required"]
+                  "validators": ["required"],
+                  "translatable": true
                 },
                 "description": {
                   "type": "string",
@@ -33,7 +43,8 @@
                   "required": false,
                   "title": "",
                   "inputType": "Text",
-                  "validators": []
+                  "validators": [],
+                  "translatable": true
                 },
                 "_filterButtons": {
                   "type":"object",
@@ -44,28 +55,32 @@
                       "default": "All",
                       "title": "",
                       "inputType": "Text",
-                      "validators": []
+                      "validators": [],
+                      "translatable": true
                     },
                     "document": {
                       "type": "string",
                       "default": "Documents",
                       "title": "",
                       "inputType": "Text",
-                      "validators": []
+                      "validators": [],
+                      "translatable": true
                     },
                     "media": {
                       "type": "string",
                       "default": "Media",
                       "title": "",
                       "inputType": "Text",
-                      "validators": []
+                      "validators": [],
+                      "translatable": true
                     },
                     "link": {
                       "type": "string",
                       "default": "Links",
                       "title": "",
                       "inputType": "Text",
-                      "validators": []
+                      "validators": [],
+                      "translatable": true
                     }
                   }
                 },
@@ -78,28 +93,32 @@
                       "default": "View all resources",
                       "title": "All",
                       "inputType": "Text",
-                      "validators": []
+                      "validators": [],
+                      "translatable": true
                     },
                     "documentAria": {
                       "type": "string",
                       "default": "View document resources",
                       "title": "Documents",
                       "inputType": "Text",
-                      "validators": []
+                      "validators": [],
+                      "translatable": true
                     },
                     "mediaAria": {
                       "type": "string",
                       "default": "View media resources",
                       "title": "Media",
                       "inputType": "Text",
-                      "validators": []
+                      "validators": [],
+                      "translatable": true
                     },
                     "linkAria": {
                       "type": "string",
                       "default": "View resource links",
                       "title": "Links",
                       "inputType": "Text",
-                      "validators": []
+                      "validators": [],
+                      "translatable": true
                     }
                   }
                 },
@@ -124,14 +143,16 @@
                         "require": true,
                         "title": "Title",
                         "inputType": "Text",
-                        "validators": ["required"]
+                        "validators": ["required"],
+                        "translatable": true
                       },
                       "description": {
                         "type": "string",
                         "require": false,
                         "title": "Description",
                         "inputType": "Text",
-                        "validators": []
+                        "validators": [],
+                        "translatable": true
                       },
                       "_link": {
                         "type": "string",

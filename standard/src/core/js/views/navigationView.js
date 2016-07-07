@@ -9,13 +9,14 @@ define(function(require) {
         className: "navigation",
 
         initialize: function() {
+            this.listenToOnce(Adapt, 'courseModel:dataLoading', this.remove);
             this.listenTo(Adapt, 'router:menu router:page', this.hideNavigationButton);
             this.template = "navigation";
             this.preRender();
         },
 
         events: {
-            'click a':'triggerEvent'
+            'click [data-event]':'triggerEvent'
         },
 
         preRender: function() {

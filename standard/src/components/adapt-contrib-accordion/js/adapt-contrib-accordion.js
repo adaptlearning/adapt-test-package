@@ -25,11 +25,11 @@ define(function(require) {
             // If reset is enabled set defaults
             if (isResetOnRevisit) {
                 this.model.reset(isResetOnRevisit);
-            }
 
-            _.each(this.model.get('_items'), function(item) {
-                item._isVisited = false;
-            });
+                _.each(this.model.get('_items'), function(item) {
+                    item._isVisited = false;
+                });
+            }
         },
 
         toggleItem: function(event) {
@@ -76,10 +76,8 @@ define(function(require) {
         },
 
         checkCompletionStatus: function() {
-            if (!this.model.get('_isComplete')) {
-                if (this.getVisitedItems().length == this.model.get('_items').length) {
-                    this.setCompletionStatus();
-                }
+            if (this.getVisitedItems().length == this.model.get('_items').length) {
+                this.setCompletionStatus();
             }
         }
 

@@ -1,4 +1,4 @@
-//https://github.com/cgkineo/jquery.resize 2015-06-01
+//https://github.com/cgkineo/jquery.resize 2016-02-02
 
 (function() {
 
@@ -27,12 +27,18 @@
   $.fn.off.elementResizeOriginalOff = orig;
 
   var expando = $.expando;
+  var expandoIndex = 0;
+
+  function checkExpando(element) {
+    if (!element[expando]) element[expando] = ++expandoIndex;
+    }
 
   //element + event handler storage
   var resizeObjs = {};
 
   //jQuery element + event handler attachment / removal
   var addResizeListener = function(data) {
+      checkExpando(this);
       resizeObjs[data.guid + "-" + this[expando]] = { 
         data: data, 
         $element: $(this) 
@@ -63,12 +69,12 @@
       //nothing to resize
       stopLoop();
       resizeIntervalDuration = 500;
-      startLoop(undefined, true);
+      repeatLoop();
     } else {
       //something to resize
       stopLoop();
       resizeIntervalDuration = 250;
-      startLoop(undefined, true);
+      repeatLoop();
     }
 
     if  (resizeHandlers.length > 0) {
@@ -107,8 +113,11 @@
   function triggerResize(item) {
     var measure = getDimensions(item.$element);
     //check if measure has the same values as last
+    var isFirstRun = false;
+    if (item._resizeData === undefined) isFirstRun = true;
     if (item._resizeData !== undefined && item._resizeData === measure.uniqueMeasurementId) return;
     item._resizeData = measure.uniqueMeasurementId;
+    if (isFirstRun) return;
     
     //make sure to keep listening until no more resize changes are found
     loopData.lastEvent = (new Date()).getTime();
@@ -126,10 +135,19 @@
   };
 
   //checking loop start and end
-  function startLoop(event, reset) {
-    if (!reset) loopData.lastEvent = (new Date()).getTime();
-    if (loopData.interval !== null) return;
-    loopData.interval = setInterval(resizeLoop, resizeIntervalDuration);
+  function startLoop() {
+    loopData.lastEvent = (new Date()).getTime();
+    if (loopData.interval !== null) {
+      stopLoop();
+    }
+    loopData.interval = setTimeout(resizeLoop, resizeIntervalDuration);
+  }
+
+  function repeatLoop() {
+    if (loopData.interval !== null) {
+      stopLoop();
+    }
+    loopData.interval = setTimeout(resizeLoop, resizeIntervalDuration);
   }
 
   function stopLoop() {

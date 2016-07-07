@@ -1,0 +1,62 @@
+[
+    {
+        "_id": "co-05",
+        "_parentId": "course",
+        "_type": "page",
+        "_classes": "",
+        "title": "Présentation Composants",
+        "displayTitle": "Présentation Composants",
+        "pageBody": "<strong>Faites défiler vers le bas pour voir quels éléments de présentation sont disponibles dans le cadre du noyau bundle version 2.0.</strong>",
+        "body": "Découvrez ce que les éléments de présentation sont disponibles au sein de l'ensemble de base et comment vous pourriez envisager de les utiliser au sein de vos cours.",
+        "_graphic": {
+            "src": "course/en/images/menu_thumb.jpg",
+            "alt": "Placeholder graphic."
+        },
+        "linkText": "vue",
+        "durationLabel": "Duration:",
+        "duration": "2 mins",
+        "_pageLevelProgress": {
+            "_isEnabled": true
+        }
+    },
+    {
+        "_id": "co-10",
+        "_parentId": "course",
+        "_type": "page",
+        "_classes": "",
+        "title": "Composants d'interrogation",
+        "displayTitle": "Composants d'interrogation",
+        "pageBody": "Nous ne pouvons pas mesurer facilement si les apprenants atteignent les objectifs de cours prévus, fournir des conseils et des commentaires si elles n'êtes pas ou leur donner la possibilité de pratiquer et de répéter dans un «environnement sûr» sans une gamme de composants de question<br>.<br>Découvrez quels composants question sont disponibles dans le cadre, alongwith quelques conseils sur la façon de les utiliser.<br><br><strong> défiler vers le bas pour voir quels composants question sont disponibles dans le cadre du paquet version 2.0 du noyau. </strong>",
+        "body": "Découvrez ce que les composants de question sont disponibles dans le cadre, alongwith quelques conseils sur la façon de les utiliser.",
+        "_graphic": {
+            "src": "course/en/images/menu_thumb.jpg",
+            "alt": "Placeholder graphic."
+        },
+        "linkText": "vue",
+        "durationLabel": "Duration:",
+        "duration": "2 mins",
+        "_pageLevelProgress": {
+            "_isEnabled": true
+        }
+    },
+    {
+        "_id": "co-15",
+        "_parentId": "course",
+        "_type": "page",
+        "_classes": "assessment",
+        "title": "Adapter l'évaluation",
+        "displayTitle": "Adapter l'évaluation",
+        "pageBody": "Nous avons mis en place un très court questionnaire pour démontrer les nouvelles fonctions sur l'évaluation. Dans cet exemple simple, il y a deux banques ont contiennent chacun trois questions avec deux prises de chaque banc au hasard. L'ordre dans lequel les questions sont présentées est alors si aléatoire, comme l'ordre de chaque Questions options.<br><br><strong> Vous pensez que vous pouvez obtenir un score parfait? Faites défiler vers le bas pour tenter la première question. </strong>",
+        "body": "Pour en savoir plus sur les nouvelles fonctions sur l'évaluation en V2.0, y compris les banques randomisées et à l'amélioration des résultats disposent.",
+        "_graphic": {
+            "src": "course/en/images/menu_thumb.jpg",
+            "alt": "Placeholder graphic."
+        },
+        "linkText": "vue",
+        "durationLabel": "Duration:",
+        "duration": "2 mins",
+        "_pageLevelProgress": {
+            "_isEnabled": true
+        }
+    }
+]

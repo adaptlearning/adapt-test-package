@@ -14,7 +14,9 @@ require([
     'coreModels/articleModel',
     'coreModels/blockModel',
     'coreModels/componentModel',
+    'coreModels/questionModel',
     'coreJS/offlineStorage',
+    'coreModels/lockingModel',
     'velocity',
     'imageReady',
     'inview',
@@ -26,7 +28,7 @@ require([
     'extensions/extensions',
     'menu/menu',
     'theme/theme'
-], function (Adapt, Router, Drawer, Device, PopupManager, Notify, Accessibility, NavigationView, AdaptCollection, ConfigModel, CourseModel, ContentObjectModel, ArticleModel, BlockModel, ComponentModel) {
+], function (Adapt, Router, Drawer, Device, PopupManager, Notify, Accessibility, NavigationView, AdaptCollection, ConfigModel, CourseModel, ContentObjectModel, ArticleModel, BlockModel, ComponentModel, QuestionModel) {
 
     // Append loading template and show
     window.Handlebars = _.extend(require("handlebars"), window.Handlebars)
@@ -39,14 +41,14 @@ require([
 
     // This function is called anytime a course object is loaded
     // Once all course files are loaded trigger events and call Adapt.initialize
-    function checkDataIsLoaded() {
+    Adapt.checkDataIsLoaded = function () {
         if (Adapt.contentObjects.models.length > 0
             && Adapt.articles.models.length > 0
             && Adapt.blocks.models.length > 0
             && Adapt.components.models.length > 0
             && Adapt.course.get('_id')) {
 
-            mapAdaptIdsToObjects();
+            Adapt.mapAdaptIdsToObjects();
 
             if (typeof Adapt.course.get('_buttons').submit !== 'undefined') {
                 // Backwards compatibility with v1.x
@@ -71,15 +73,23 @@ require([
             }
 
             // Triggered to setup model connections in AdaptModel.js
-            Adapt.trigger('app:dataLoaded');
+            try {
+                Adapt.trigger('app:dataLoaded');
+            } catch(e) {
+                outputError(e);
+            }
             // Sets up collection mapping
             Adapt.setupMapping();
             // Triggers once all the data is ready
-            Adapt.trigger('app:dataReady');
+            try {
+                Adapt.trigger('app:dataReady');
+            } catch(e) {
+                outputError(e);
+            }
             // Setups a new navigation view
             // This should be triggered after 'app:dataReady' as plugins might want
             // to manipulate the navigation
-            new NavigationView();
+            Adapt.navigation = new NavigationView();
             // Called once Adapt is ready to begin
             Adapt.initialize();
             // Remove event listeners
@@ -87,8 +97,13 @@ require([
 
         }
     }
+    
+    function outputError(e) {
+        //Allow plugin loading errors to output without stopping Adapt from loading
+        console.error(e);
+    }
 
-    function mapAdaptIdsToObjects () {
+    Adapt.mapAdaptIdsToObjects = function() {
         Adapt.contentObjects._byAdaptID = Adapt.contentObjects.groupBy("_id");
         Adapt.articles._byAdaptID = Adapt.articles.groupBy("_id");
         Adapt.blocks._byAdaptID = Adapt.blocks.groupBy("_id");
@@ -98,7 +113,9 @@ require([
     // This function is called when the config model triggers 'configModel:loadCourseData'
     // Once the config model is loaded get the course files
     // This enables plugins to tap in before the course files are loaded & also to change the default language
-    function loadCourseData() {
+    Adapt.loadCourseData = function() {
+        Adapt.on('adaptCollection:dataLoaded courseModel:dataLoaded', Adapt.checkDataIsLoaded);
+
         // All code that needs to run before adapt starts should go here
         var language = Adapt.config.get('_defaultLanguage');
 
@@ -124,14 +141,35 @@ require([
         });
 
         Adapt.components = new AdaptCollection(null, {
-            model: ComponentModel,
+            model: function(json) {
+
+                //use view+model object
+                var ViewModelObject = Adapt.componentStore[json._component];
+
+				if(!ViewModelObject) {
+                    throw new Error(json._component + ' component not found. Is it installed and included?');
+		        }
+
+                //if model defined for component use component model
+                if (ViewModelObject.model) {
+                    return new ViewModelObject.model(json);
+                }
+
+                var View = ViewModelObject.view || ViewModelObject;
+                //if question type use question model
+                if (View._isQuestionType) {
+                    return new QuestionModel(json);
+                }
+
+                //otherwise use component model
+                return new ComponentModel(json);
+            },
             url: courseFolder + "components.json"
         });
     }
 
     // Events that are triggered by the main Adapt content collections and models
-    Adapt.once('configModel:loadCourseData', loadCourseData);
+    Adapt.once('configModel:loadCourseData', Adapt.loadCourseData);
 
-    Adapt.on('adaptCollection:dataLoaded courseModel:dataLoaded', checkDataIsLoaded);
 
 });

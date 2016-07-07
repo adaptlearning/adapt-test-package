@@ -6,7 +6,7 @@
  
 It is a media playback component for audio and video. It uses HTML5 audio and video for browsers that support it and Flash/Silverlight fallbacks for browsers that don't.  
 
-The component uses [MediaElement.js (v2.13.2)](http://mediaelementjs.com/), a player with a number of useful features including subtitles and accessible (and CSS-skinnable) controls. [MediaElement.js](https://github.com/johndyer/mediaelement) carries the MIT license compatible with Adapt.  
+The component uses [MediaElement.js (v2.20.1)](http://mediaelementjs.com/), a player with a number of useful features including subtitles and accessible (and CSS-skinnable) controls. [MediaElement.js](https://github.com/johndyer/mediaelement) carries the MIT license compatible with Adapt.  
 
 [Visit the **Media** wiki](https://github.com/adaptlearning/adapt-contrib-media/wiki) for more information about its functionality and for explanations of key properties.  
 
@@ -48,6 +48,10 @@ guide the learner’s interaction with the component.
 
 **_useClosedCaptions** (boolean): If set to `true`, video will allow for Closed Captions and the **cc** object will be required. The default is `false`.  
 
+**_allowFullScreen** (boolean): Determines whether fullscreen mode is available or not. Note that changing this setting has no effect in Internet Explorer 9 as this browser does not support fullscreen mode for HTML video.
+
+**_startLanguage** (string): If using closed captions with multiple languages, use this property to specify which language should be shown by default. The value of this property must match one of the **srclang** values.  
+
 **_media** (object): The media attributes group will contain different values depending on the type of media: video or audio.  
 For video it contains values for **mp4**, **ogv**, **poster**, and **cc**. Both **mp4** and **ogv** are optional, but at least one is required (see below for alternate properties for YouTube video).  
 For audio it contains **mp3** and **ogg**. As with video, both are optional, but at least one is required.  
@@ -70,6 +74,8 @@ The decision to include more than one file format is typically based on the brow
 >**ogg** (string): File name (including path) of the audio file. Path should be relative to the *src* folder (e.g., *course/en/audio/audio-1.ogg*).
 
 **_transcript** (object):  The transcript attributes group contains values for **_inlineTranscript**, **_externalTranscript**, **inlineTranscriptButton**, **inlineTranscriptCloseButton**, **inlineTranscriptBody**, **transcriptLinkButton**, and **transcriptLink**.
+
+>**_setCompletionOnView** (boolean): This determines if Adapt will register this component as having been completed by the user when the inline transcript is opened. This is true by default.
 
 >**_inlineTranscript** (boolean): Determines whether the button that toggles the display of the inline transcript text will be displayed or not. 
 
@@ -107,8 +113,16 @@ The attributes described above focus on the component's use with standard video.
 **YouTube video example:**
 ```json
 "_media": {
-	"source": "http://www.youtube.com/watch?v=nOEw9iiopwI",
+	"source": "//www.youtube.com/watch?v=RT-KmgAgxuo",
 	"type": "video/youtube"
+},
+```  
+
+**Vimeo video example:**
+```json
+"_media": {
+	"source": "//player.vimeo.com/video/96961553",
+	"type": "video/vimeo"
 },
 ```  
 
@@ -126,12 +140,12 @@ The attributes described above focus on the component's use with standard video.
 
 ## Limitations
  
-Flash Player 10 is required to play media on IE8.  
+Users of Internet Explorer v8  will need to have [Adobe Flash Player](https://get.adobe.com/flashplayer/) v10 (or better) or Microsoft [Silverlight](https://www.microsoft.com/getsilverlight/get-started/install/) installed to enable media playback, due to that browser's lack of support for HTML audio/video.
 
 ----------------------------
-**Version number:**  2.0   <a href="https://community.adaptlearning.org/ target="_blank"><img src="https://github.com/adaptlearning/documentation/blob/master/04_wiki_assets/plug-ins/images/adapt-logo-mrgn-lft.jpg" alt="adapt learning logo" align="right"></a> 
+**Version number:**  2.0.4   <a href="https://community.adaptlearning.org/" target="_blank"><img src="https://github.com/adaptlearning/documentation/blob/master/04_wiki_assets/plug-ins/images/adapt-logo-mrgn-lft.jpg" alt="adapt learning logo" align="right"></a> 
 **Framework versions:** 2.0  
 **Author / maintainer:** Adapt Core Team with [contributors](https://github.com/adaptlearning/adapt-contrib-media/graphs/contributors)  
 **Accessibility support:** WAI AA   
 **RTL support:** yes  
-**Cross-platform coverage:** Chrome, Chrome for Android, Firefox (ESR + latest version), IE 11, IE10, IE9, IE8, IE Mobile 11, Safari for iPhone (iOS 7+8), Safari for iPad (iOS 7+8), Safari 8, Opera     
+**Cross-platform coverage:** Chrome, Chrome for Android, Firefox (ESR + latest version), Edge 12, IE 11, IE10, IE9, IE8, IE Mobile 11, Safari for iPhone (iOS 8+9), Safari for iPad (iOS 8+9), Safari 8, Opera     

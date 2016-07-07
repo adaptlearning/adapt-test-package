@@ -37,6 +37,15 @@
       "validators": ["required", "number"],
       "help": "How many attempts the learner is allowed"
     },
+    "_canShowModelAnswer": {
+      "type":"boolean",
+      "required":true,
+      "default": true,
+      "title": "Display Model Answer",
+      "inputType": {"type": "Boolean", "options": [true, false]},
+      "validators": [],
+      "help": "Select 'true' to allow the user to view the 'model answer' should they answer the question incorrectly"
+    },
     "_shouldDisplayAttempts": {
       "type":"boolean",
       "required":false,
@@ -48,7 +57,7 @@
     },
     "_isRandom": {
       "type":"boolean",
-      "required":true,
+      "required":false,
       "default": true,
       "title": "Randomised Items",
       "inputType": {"type": "Boolean", "options": [true, false]},
@@ -64,14 +73,23 @@
       "validators": ["number"],
       "help": "How much this question is worth"
     },
+    "_recordInteraction": {
+      "type":"boolean",
+      "required":false,
+      "default": true,
+      "title": "Record interaction",
+      "inputType": {"type": "Boolean", "options": [true, false]},
+      "validators": [],
+      "help": "If set to 'true', the user's answer(s) will be recorded to cmi.interactions on the LMS (where supported)."
+    },
     "placeholder": {
       "type":"string",
       "required":true,
-      "default":"Please enter your answer",
+      "default":"Please select an option",
       "title": "",
       "inputType": "Text",
       "validators": ["required"],
-      "help": "Enter answer here"
+      "help": "Text that will be displayed at the top of each list of options."
     },
     "_items": {
       "type":"array",
@@ -110,10 +128,10 @@
                   "type":"boolean",
                   "required":true,
                   "default":false,
-                  "title": "Is correct option",
+                  "title": "Is correct option?",
                   "inputType": {"type": "Boolean", "options": [false, true]},
                   "validators": [],
-                  "help": "Set this option to 'true' if this is one of the correct answers"
+                  "help": "Set this to 'true' if this is one of the correct answers."
                 }
               }
             }
@@ -151,35 +169,35 @@
             },
             "notFinal": {
               "type":"string",
-              "required": true,
+              "required": false,
               "default": "",
               "title": "Incorrect Not Final",
               "inputType": "TextArea",
-              "validators": ["required"],
+              "validators": [],
               "help": "Incorrect feedback for any attempt apart from the last attempt"
             }
           }
         },
         "_partlyCorrect": {
           "type":"object",
-          "required":true,
+          "required":false,
           "properties":{
             "final": {
               "type":"string",
-              "required": true,
+              "required": false,
               "default": "",
               "title": "Partly Correct Final",
               "inputType": "TextArea",
-              "validators": ["required"],
+              "validators": [],
               "help": "Partly correct feedback for the final attempt"
             },
             "notFinal": {
               "type":"string",
-              "required": true,
+              "required": false,
               "default": "",
               "title": "Partly Correct Not Final",
               "inputType": "TextArea",
-              "validators": ["required"],
+              "validators": [],
               "help": "Partly correct feedback for any attempt apart from the last attempt"
             }
           }

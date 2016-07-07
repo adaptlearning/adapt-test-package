@@ -32,44 +32,42 @@ define(function(require) {
             });
 
             this.restoreUserAnswers();
-            if (this.model.get("_isSubmitted")) return;
+            if (this.model.get('_isSubmitted')) return;
 
-            this.selectItem(0);
+            this.selectItem(0, true);
         },
 
         setupModelItems: function() {
-            var items = [],
-                answer = this.model.get('_correctAnswer'),
-                range = this.model.get('_correctRange'),
-                start = this.model.get('_scaleStart'),
-                end = this.model.get('_scaleEnd');
+            var items = [];
+            var answer = this.model.get('_correctAnswer');
+            var range = this.model.get('_correctRange');
+            var start = this.model.get('_scaleStart');
+            var end = this.model.get('_scaleEnd');
 
-            for(var i = start; i <= end; i++) {
-                if(answer != "") {
-                    items.push({value: i, selected:false, correct: (i == answer)});
+            for (var i = start; i <= end; i++) {
+                if (answer) {
+                    items.push({value: i, selected: false, correct: (i == answer)});
                 } else {
-                    items.push({value: i, selected:false, correct: (i >= range._bottom && i <= range._top)});
+                    items.push({value: i, selected: false, correct: (i >= range._bottom && i <= range._top)});
                 }
             }
+
             this.model.set('_items', items);
         },
 
         restoreUserAnswers: function() {
-            if (!this.model.get("_isSubmitted")) return;
+            if (!this.model.get('_isSubmitted')) return;
 
-            var selectedItem = {};
-            var items = this.model.get("_items");
-            var userAnswer = this.model.get("_userAnswer");
+            var items = this.model.get('_items');
+            var userAnswer = this.model.get('_userAnswer');
             for (var i = 0, l = items.length; i < l; i++) {
                 var item = items[i];
                 if (item.value == userAnswer) {
-                    item._isSelected = true;
-                    selectedItem = item;
-                    this.model.set("_selectedItem", selectedItem);
-                    this.selectItem(item.value);
+                    this.model.set('_selectedItem', item);
+                    this.selectItem(this.getIndexFromValue(item.value), true);
                     break;
                 }
-            }            
+            }
 
             this.setQuestionAsSubmitted();
             this.markQuestion();
@@ -87,7 +85,7 @@ define(function(require) {
         enableQuestion: function() {
             this.setAllItemsEnabled(true);
         },
-        
+
         setAllItemsEnabled: function(isEnabled) {
             if (isEnabled) {
                 this.$('.slider-widget').removeClass('disabled');
@@ -156,12 +154,17 @@ define(function(require) {
 
         onDragReleased: function (event) {
             event.preventDefault();
-            $(document).off('mousemove touchmove');
-            
-            var itemIndex = this.getIndexFromValue(this.model.get('_selectedItem').value);
-            //this.selectItem(itemIndex);
+
+            if (Modernizr.touch) {
+                this.$('.slider-handle').off('touchmove');
+            } else {
+                $(document).off('mousemove.adapt-contrib-slider');
+            }
+
+            var itemValue = this.model.get('_selectedItem').value;
+            var itemIndex = this.getIndexFromValue(itemValue);
             this.animateToPosition(this.mapIndexToPixels(itemIndex));
-            this.setAltText(itemIndex + 1);
+            this.setAltText(itemValue);
         },
 
         onHandleDragged: function (event) {
@@ -192,7 +195,7 @@ define(function(require) {
 
         onHandlePressed: function (event) {
             event.preventDefault();
-            if (!this.model.get("_isEnabled") || this.model.get("_isSubmitted")) return;
+            if (!this.model.get('_isEnabled') || this.model.get('_isSubmitted')) return;
 
             this.showScaleMarker(true);
 
@@ -200,16 +203,22 @@ define(function(require) {
                 width:this.$('.slider-sliderange').width(),
                 offsetLeft: this.$('.slider-sliderange').offset().left
             };
-            $(document).on('mousemove touchmove', eventData, _.bind(this.onHandleDragged, this));
-            $(document).one('mouseup touchend', eventData, _.bind(this.onDragReleased, this));
+
+            if(Modernizr.touch) {
+                this.$('.slider-handle').on('touchmove', eventData, _.bind(this.onHandleDragged, this));
+                this.$('.slider-handle').one('touchend', eventData, _.bind(this.onDragReleased, this));
+            } else {
+                $(document).on('mousemove.adapt-contrib-slider', eventData, _.bind(this.onHandleDragged, this));
+                $(document).one('mouseup', eventData, _.bind(this.onDragReleased, this));
+            }
         },
 
         onKeyDown: function(event) {
             if(event.which == 9) return; // tab key
             event.preventDefault();
-            
+
             var newItemIndex = this.getIndexFromValue(this.model.get('_selectedItem').value);
-            
+
             switch (event.which) {
                 case 40: // ↓ down
                 case 37: // ← left
@@ -222,35 +231,48 @@ define(function(require) {
             }
 
             this.selectItem(newItemIndex);
-            if(typeof newItemIndex == "number") this.showScaleMarker(true);
+            if(typeof newItemIndex == 'number') this.showScaleMarker(true);
             this.animateToPosition(this.mapIndexToPixels(newItemIndex));
-            this.setAltText(newItemIndex + 1);
+            this.setAltText(this.getValueFromIndex(newItemIndex));
         },
 
         onSliderSelected: function (event) {
             event.preventDefault();
-             if (!this.model.get("_isEnabled") || this.model.get("_isSubmitted")) return;
-            
+
+            if (!this.model.get('_isEnabled') || this.model.get('_isSubmitted')) {
+              return;
+            }
+
             this.showScaleMarker(true);
-                    
-            var offsetLeft = this.$('.slider-sliderange').offset().left,
-                width = this.$('.slider-sliderange').width(),
-                left = (event.pageX || event.originalEvent.touches[0].pageX) - offsetLeft;
-            
+
+            var offsetLeft = this.$('.slider-sliderange').offset().left;
+            var width = this.$('.slider-sliderange').width();
+            var left = (event.pageX || event.originalEvent.touches[0].pageX) - offsetLeft;
+
             left = Math.max(Math.min(left, width), 0);
-            left = this.mapPixelsToIndex(left);
-            this.selectItem(left);
-            this.animateToPosition(this.mapIndexToPixels(left));
-            this.setAltText(left + 1);
+            var itemIndex = this.mapPixelsToIndex(left);
+            this.selectItem(itemIndex);
+            this.animateToPosition(this.mapIndexToPixels(itemIndex));
+            this.setAltText(this.getValueFromIndex(itemIndex));
         },
 
         onNumberSelected: function(event) {
             event.preventDefault();
-            if (this.model.get("_isComplete")) return;
-            var index = parseInt($(event.currentTarget).attr("data-id")) - 1;
+
+            if (this.model.get('_isComplete')) {
+              return;
+            }
+
+            var itemValue = parseInt($(event.currentTarget).attr('data-id'));
+            var index = this.getIndexFromValue(itemValue);
+            var $scaler = this.$('.slider-scaler');
             this.selectItem(index);
-            this.animateToPosition(this.mapIndexToPixels(index));
-            this.setAltText(index + 1);
+            this.animateToPosition(this.mapIndexToPixels(index, $scaler));
+            this.setAltText(itemValue);
+        },
+
+        getValueFromIndex: function(index) {
+          return this.model.get('_items')[index].value;
         },
 
         preventEvent: function(event) {
@@ -260,10 +282,12 @@ define(function(require) {
         resetControlStyles: function() {
             this.$('.slider-handle').empty();
             this.showScaleMarker(false);
-            this.$('.slider-bar').animate({width:'0px'});     
+            this.$('.slider-bar').animate({width:'0px'});
         },
 
-        //Use to check if the user is allowed to submit the question
+        /**
+        * allow the user to submit immediately; the slider handle may already be in the position they want to choose
+        */
         canSubmit: function() {
             return true;
         },
@@ -271,12 +295,11 @@ define(function(require) {
         // Blank method for question to fill out when the question cannot be submitted
         onCannotSubmit: function() {},
 
-        //This preserve the state of the users answers for returning or showing the users answer
+        //This preserves the state of the users answers for returning or showing the users answer
         storeUserAnswer: function() {
             this.model.set('_userAnswer', this.model.get('_selectedItem').value);
         },
 
-        // this return a boolean based upon whether to question is correct or not
         isCorrect: function() {
             var numberOfCorrectAnswers = 0;
 
@@ -294,14 +317,10 @@ define(function(require) {
 
         // Used to set the score based upon the _questionWeight
         setScore: function() {
-
             var numberOfCorrectAnswers = this.model.get('_numberOfCorrectAnswers');
-            var questionWeight = this.model.get("_questionWeight");
-            
+            var questionWeight = this.model.get('_questionWeight');
             var score = questionWeight * numberOfCorrectAnswers;
-
             this.model.set('_score', score);
-
         },
 
         // This is important and should give the user feedback on how they answered the question
@@ -311,7 +330,6 @@ define(function(require) {
                 .addClass(this.model.get('_selectedItem').correct ? 'correct' : 'incorrect');
         },
 
-        // Used by the question to determine if the question is incorrect or partly correct
         isPartlyCorrect: function() {
             return this.model.get('_isAtLeastOneCorrectSelection');
         },
@@ -327,7 +345,7 @@ define(function(require) {
         // Used by the question view to reset the look and feel of the component.
         // This could also include resetting item data
         resetQuestion: function() {
-            this.selectItem(0);
+            this.selectItem(0, true);
             this.animateToPosition(0);
             this.resetControlStyles();
             this.showScaleMarker(true);
@@ -342,26 +360,49 @@ define(function(require) {
             }, this);
         },
 
-        onScreenSizeChanged: function() {
-            this.$(".slider-markers").empty();
-            var $scaler = this.$('.slider-scaler'),
-                $markers = this.$('.slider-markers');
-            for(var i = 0, count = this.model.get('_items').length; i < count; i++) {
-                $markers.append("<div class='slider-line component-item-color'>");
-                $('.slider-line', $markers).eq(i).css({left: this.mapIndexToPixels(i, $scaler) + 'px'});
+        showScale: function () {
+            this.$('.slider-markers').empty();
+            if (this.model.get('_showScale') === false) {
+                this.$('.slider-markers').eq(0).css({display: 'none'});
+                this.model.get('_showScaleIndicator')
+                    ? this.$('.slider-scale-numbers').eq(0).css({visibility: 'hidden'})
+                    : this.$('.slider-scale-numbers').eq(0).css({display: 'none'});
+            } else {
+                var $scaler = this.$('.slider-scaler');
+                var $markers = this.$('.slider-markers');
+                for (var i = 0, count = this.model.get('_items').length; i < count; i++) {
+                    $markers.append("<div class='slider-line component-item-color'>");
+                    $('.slider-line', $markers).eq(i).css({left: this.mapIndexToPixels(i, $scaler) + 'px'});
+                }
+                var scaleWidth = $scaler.width(),
+                    $numbers = this.$('.slider-scale-number');
+                for (var i = 0, count = this.model.get('_items').length; i < count; i++) {
+                    var $number = $numbers.eq(i),
+                        newLeft = Math.round($number.data('normalisedPosition') * scaleWidth);
+                    $number.css({left: newLeft});
+                }
             }
-            var scaleWidth = $scaler.width(),
-                $numbers = this.$('.slider-scale-number');
-            for(var i = 0, count = this.model.get('_items').length; i < count; i++) {
-                var $number = $numbers.eq(i),
-                    newLeft = Math.round($number.data('normalisedPosition') * scaleWidth);
-                $number.css({left: newLeft});
+        },
+
+        //Labels are enabled in slider.hbs. Here we manage their containing div.
+        showLabels: function () {
+            if(!this.model.get('labelStart') && !this.model.get('labelEnd')) {
+                this.$('.slider-scale-labels').eq(0).css({display: 'none'});
             }
+        },
+
+        remapSliderBar: function() {
+            var $scaler = this.$('.slider-scaler');
             var currentIndex = this.getIndexFromValue(this.model.get('_selectedItem').value);
             this.$('.slider-handle').css({left: this.mapIndexToPixels(currentIndex, $scaler) + 'px'});
             this.$('.slider-scale-marker').css({left: this.mapIndexToPixels(currentIndex, $scaler) + 'px'});
             this.$('.slider-bar').width(this.mapIndexToPixels(currentIndex, $scaler));
+        },
 
+        onScreenSizeChanged: function() {
+            this.showScale();
+            this.showLabels();
+            this.remapSliderBar();
             if (this.$('.slider-widget.user .button.model').css('display') === 'inline-block') {
                 this.hideCorrectAnswer();
             } else if (this.$('.slider-widget.model .button.user ').css('display') === 'inline-block') {
@@ -369,20 +410,21 @@ define(function(require) {
             }
         },
 
-        // Used by the question to display the correct answer to the user
         showCorrectAnswer: function() {
-            var answers = [],
-                bottom = this.model.get('_correctRange')._bottom,
-                top = this.model.get('_correctRange')._top,
-                range = top - bottom;
+            var answers = [];
+            var bottom = this.model.get('_correctRange')._bottom;
+            var top = this.model.get('_correctRange')._top;
+            var range = top - bottom;
+            var correctAnswer = this.model.get('_correctAnswer');
 
             this.showScaleMarker(false);
 
-            if(this.model.get('_correctAnswer') != "") {
-                answers.push(this.model.get('_correctAnswer'));
-            } else if(bottom !== undefined) {
-                for(var i = 0; i <= range; i++) {
-                    answers.push(this.model.get('_items')[this.getIndexFromValue(bottom) + i].value);
+            if (correctAnswer) {
+                // Check that correctAnswer is neither undefined nor empty
+                answers.push(correctAnswer);
+            } else if (bottom !== undefined) {
+                for (var i = 0; i <= range; i++) {
+                  answers.push(this.model.get('_items')[this.getIndexFromValue(bottom) + i].value);
                 }
             } else {
                 console.log(this.constructor + "::WARNING: no correct answer or correct range set in JSON")
@@ -400,7 +442,7 @@ define(function(require) {
                 var $element = $(this.$('.slider-modelranges .slider-model-answer')[index]),
                     startingLeft = this.mapIndexToPixels(this.getIndexFromValue(this.model.get('_selectedItem').value));
 
-                if(this.model.get("_showNumber")) $element.html(correctAnswer);
+                if(this.model.get('_showNumber')) $element.html(correctAnswer);
 
                 $element.css({left:startingLeft}).fadeIn(0, _.bind(function() {
                     $element.animate({left: this.mapIndexToPixels(this.getIndexFromValue(correctAnswer))});
@@ -412,22 +454,22 @@ define(function(require) {
         // hide the correct answer
         // Should use the values stored in storeUserAnswer
         hideCorrectAnswer: function() {
-            var userAnswerIndex = this.getIndexFromValue(this.model.get("_userAnswer"));
+            var userAnswerIndex = this.getIndexFromValue(this.model.get('_userAnswer'));
             this.$('.slider-modelranges').empty();
 
             this.showScaleMarker(true);
-            this.selectItem(userAnswerIndex);
+            this.selectItem(userAnswerIndex, true);
             this.animateToPosition(this.mapIndexToPixels(userAnswerIndex));
         },
 
         // according to given item index this should make the item as selected
-        selectItem: function(itemIndex) {
+        selectItem: function(itemIndex, noFocus) {
             this.$el.a11y_selected(false);
             _.each(this.model.get('_items'), function(item, index) {
                 item.selected = (index == itemIndex);
                 if(item.selected) {
                     this.model.set('_selectedItem', item);
-                    this.$('.slider-scale-number[data-id="'+(itemIndex+1)+'"]').a11y_selected(true);
+                    this.$('.slider-scale-number[data-id="'+item.value+'"]').a11y_selected(true, noFocus);
                 }
             }, this);
             this.showNumber(true);
@@ -456,18 +498,32 @@ define(function(require) {
         // this should add the current slider value to the marker
         showNumber: function(show) {
             var $scaleMarker = this.$('.slider-scale-marker');
-            if(this.model.get("_showNumber")) {
+            if(this.model.get('_showNumber')) {
                 if(show) {
                     $scaleMarker.html(this.model.get('_selectedItem').value);
                 } else {
                     $scaleMarker.html = "";
                 }
             }
+        },
+
+        /**
+        * Used by adapt-contrib-spoor to get the user's answers in the format required by the cmi.interactions.n.student_response data field
+        */
+        getResponse:function() {
+            return this.model.get('_userAnswer').toString();
+        },
+
+        /**
+        * Used by adapt-contrib-spoor to get the type of this question in the format required by the cmi.interactions.n.type data field
+        */
+        getResponseType:function() {
+            return "numeric";
         }
 
     });
 
-    Adapt.register("slider", Slider);
+    Adapt.register('slider', Slider);
 
     return Slider;
 });

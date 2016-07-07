@@ -49,11 +49,15 @@ guide the learner’s interaction with the component.
 
 **_shouldDisplayAttempts** (boolean): Determines whether or not the text set in **remainingAttemptText** and **remainingAttemptsText** will be displayed. These two attributes are part of the [core buttons](https://github.com/adaptlearning/adapt_framework/wiki/Core-Buttons) attribute group. The default is `false`.  
 
-**_isRandom** (boolean): Setting this value to `true` will cause the `_items` to appear in a random order each time the component is loaded. The default is `true`.  
+**_isRandom** (boolean): Setting this value to `true` will cause the possible answers associated with each *item* to appear in a random order each time the component is loaded. The default is `false`.   
 
-**_questionWeight** (number): A number which reflects the significance of the question in relation to the other questions in the course. This number is used in calculations of the final score reported to the LMS.
+**_questionWeight** (number): A number which reflects the significance of the question in relation to the other questions in the course. This number is used in calculations of the final score reported to the LMS.  
 
-**placeholder** (string): This text is displayed as input before a learner interacts with the element.  
+**_canShowModelAnswer** (boolean): Setting this to `false` prevents the [**_showCorrectAnswer** button](https://github.com/adaptlearning/adapt_framework/wiki/Core-Buttons) from being displayed. The default is `true`.
+
+**_recordInteraction** (boolean) Determines whether or not the learner's answers will be recorded to the LMS via cmi.interactions. Default is `true`. For further information, see the entry for `_shouldRecordInteractions` in the README for [adapt-contrib-spoor](https://github.com/adaptlearning/adapt-contrib-spoor).
+
+**placeholder** (string): This is the text that is initially displayed on each drop-down. It is usually set to something like 'Please select an option'.  
 
 **_items** (array): Multiple items may be created. Each *item* represents one question and its possible answers. It contains values for **text** and multiple **_options**.  
 
@@ -66,7 +70,7 @@ guide the learner’s interaction with the component.
 >>**_isCorrect** (boolean): This value determines whether the dropdown must be selected for a correct answer. Set to `true` if this *option* is a correct answer. The default is `false`.  
 
 **_feedback** (object): If the [**Tutor** extension](https://github.com/adaptlearning/adapt-contrib-tutor) is enabled, these various texts will be displayed depending on the submitted answer. **_feedback**
-contains values for three types of answers: **correct**, **_incorrect**, and **_partlyCorrect**.
+contains values for three types of answers: **correct**, **_incorrect**, and **_partlyCorrect**. Some attributes are optional. If they are not supplied, the default that is noted below will be used. 
 
 >**correct** (string): Text that will be displayed when the submitted answer is correct.  
 
@@ -74,13 +78,13 @@ contains values for three types of answers: **correct**, **_incorrect**, and **_
 
 >>**final** (string): Text that will be displayed when the submitted answer is incorrect and no more attempts are permitted. 
 
->>**notFinal** (string): Text that will be displayed when the submitted answer is incorrect while more attempts are permitted.  
+>>**notFinal** (string): Text that will be displayed when the submitted answer is incorrect while more attempts are permitted. This is optional&mdash;if you do not supply it, the **_incorrect.final** feedback will be shown instead.
 
->**_partlyCorrect** (object): Texts that will be displayed when the submitted answer is partially correct. It contains values that are displayed under differing conditions: **final** and **notFinal**.  
+>**_partlyCorrect** (object): Texts that will be displayed when the submitted answer is partially correct. It contains values that are displayed under differing conditions: **final** and **notFinal**.
 
->>**final** (string): Text that will be displayed when the submitted answer is partly correct and no more attempts are permitted. 
+>>**final** (string): Text that will be displayed when the submitted answer is partly correct and no more attempts are permitted. This is optional&mdash;if you do not supply it, the **_incorrect.final** feedback will be shown instead.
 
->>**notFinal** (string): Text that will be displayed when the submitted answer is partly correct while more attempts are permitted.   
+>>**notFinal** (string): Text that will be displayed when the submitted answer is partly correct while more attempts are permitted. This is optional&mdash;if you do not supply it, the **_incorrect.notFinal** feedback will be shown instead.
 
 ### Accessibility
 **Matching** has been assigned a label using the [aria-label](https://github.com/adaptlearning/adapt_framework/wiki/Aria-Labels) attribute: **ariaRegion**. This label is not a visible element. It is utilized by assistive technology such as screen readers. Should the region's text need to be customised, it can be found within the **globals** object in [*properties.schema*](https://github.com/adaptlearning/adapt-contrib-matching/blob/master/properties.schema).   
@@ -91,9 +95,9 @@ contains values for three types of answers: **correct**, **_incorrect**, and **_
 No known limitations.
 
 ----------------------------
-**Version number:**  2.0   <a href="https://community.adaptlearning.org/ target="_blank"><img src="https://github.com/adaptlearning/documentation/blob/master/04_wiki_assets/plug-ins/images/adapt-logo-mrgn-lft.jpg" alt="adapt learning logo" align="right"></a> 
+**Version number:**  2.0.3   <a href="https://community.adaptlearning.org/" target="_blank"><img src="https://github.com/adaptlearning/documentation/blob/master/04_wiki_assets/plug-ins/images/adapt-logo-mrgn-lft.jpg" alt="adapt learning logo" align="right"></a> 
 **Framework versions:** 2.0  
 **Author / maintainer:** Adapt Core Team with [contributors](https://github.com/adaptlearning/adapt-contrib-matching/graphs/contributors)  
 **Accessibility support:** WAI AA   
 **RTL support:** yes  
-**Cross-platform coverage:** Chrome, Chrome for Android, Firefox (ESR + latest version), IE 11, IE10, IE9, IE8, IE Mobile 11, Safari for iPhone (iOS 7+8), Safari for iPad (iOS 7+8), Safari 8, Opera    
+**Cross-platform coverage:** Chrome, Chrome for Android, Firefox (ESR + latest version), Edge 12, IE 11, IE10, IE9, IE8, IE Mobile 11, Safari for iPhone (iOS 8+9), Safari for iPad (iOS 8+9), Safari 8, Opera    

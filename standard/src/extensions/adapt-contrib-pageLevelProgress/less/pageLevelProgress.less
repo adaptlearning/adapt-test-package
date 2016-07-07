@@ -6,11 +6,12 @@
         padding:@item-padding;
         display:block;
         &.drawer-item-open.disabled {
-            background-color:@item-disabled-color;
-            color:@item-text-disabled-color;
+            box-sizing:border-box;
+            background-color:@item-color-disabled;
+            color:@item-text-color-disabled;
             .no-touch &:hover {
-                background-color:@item-disabled-color;
-                color:@item-text-disabled-color;
+                background-color:@item-color-disabled;
+                color:@item-text-color-disabled;
             }
         }
         .drawer-item-open {
@@ -22,7 +23,7 @@
             color:@drawer-item-text-hover-color;
             .page-level-progress-indicator-complete {
                 .page-level-progress-indicator-bar {
-                    background-color:@inverted-foreground-color;
+                    background-color:@foreground-color-inverted;
                 }
             }
         }
@@ -53,16 +54,16 @@
     display: inline-block;
     border-radius:5px;
     overflow:hidden;
-    background-color:@item-hover-color;
+    background-color:@item-color-hover;
 }
 
 .page-level-progress-indicator-complete {
     .page-level-progress-indicator-bar {
         width:100%;
         height:10px;
-        background-color:@inverted-foreground-color;
+        background-color:@foreground-color-inverted;
         .no-touch &:hover {
-            background-color:@inverted-foreground-color;
+            background-color:@foreground-color-inverted;
         }
     }
 }
@@ -111,7 +112,7 @@
 
 .menu {
     .page-level-progress-menu-item {
-      padding:@menu-body-padding;
+        padding:@menu-body-padding;
     }
 
     .page-level-progress-menu-item-indicator {

@@ -6,21 +6,23 @@ define(function(require) {
 
     var TextInput = QuestionView.extend({
         events: {
-            "blur input":"forceFixedPositionFakeScroll",
             "focus input":"clearValidationError"
         },
 
-        // Used by the question to reset the question when revisiting the component
         resetQuestionOnRevisit: function() {
             this.setAllItemsEnabled(false);
             this.resetQuestion();
         },
 
-        // Used by question to setup itself just before rendering
         setupQuestion: function() {
+            this.model.set( '_genericAnswerIndexOffset', genericAnswerIndexOffset );
             this.setupItemIndexes();
             this.restoreUserAnswer();
-            // Check if items need to be randomised
+
+            this.setupRandomisation();
+        },
+
+        setupRandomisation: function() {
             if (this.model.get('_isRandom') && this.model.get('_isEnabled')) {
                 this.model.set("_items", _.shuffle(this.model.get("_items")));
             }
@@ -44,16 +46,17 @@ define(function(require) {
             var genericAnswers = this.model.get("_answers");
             _.each(this.model.get("_items"), function(item) {
                 var answerIndex = userAnswer[item._index];
-                if (answerIndex > -1) {
-                    item.userAnswer = item._answers[answerIndex];
-                    item._answerIndex = answerIndex;
-                } else if (answerIndex >= genericAnswerIndexOffset) {
+                if (answerIndex >= genericAnswerIndexOffset) {
                     item.userAnswer = genericAnswers[answerIndex - genericAnswerIndexOffset];
+                    item._answerIndex = answerIndex;
+                } else if (answerIndex > -1) {
+                    item.userAnswer = item._answers[answerIndex];
                     item._answerIndex = answerIndex;
                 } else {
                     if (item.userAnswer === undefined) item.userAnswer = "******";
                     item._answerIndex = -1;
                 }
+                if (item.userAnswer instanceof Array) item.userAnswer = item.userAnswer[0];
             });
 
             this.setQuestionAsSubmitted();
@@ -63,12 +66,10 @@ define(function(require) {
             this.setupFeedback();
         },  
 
-        // Used by question to disable the question during submit and complete stages
         disableQuestion: function() {
             this.setAllItemsEnabled(false);
         },
 
-        // Used by question to enable the question during interactions
         enableQuestion: function() {
             this.setAllItemsEnabled(true);
         },
@@ -85,17 +86,8 @@ define(function(require) {
             }, this);
         },
 
-        // Used by question to setup itself just after rendering
         onQuestionRendered: function() {
             this.setReadyStatus();
-        },
-
-        forceFixedPositionFakeScroll: function() {
-            if (Modernizr.touch) {
-                _.defer(function() {
-                    window.scrollTo(document.body.scrollLeft, document.body.scrollTop);
-                });
-            }
         },
 
         clearValidationError: function() {
@@ -138,7 +130,6 @@ define(function(require) {
             this.model.set("_userAnswer", userAnswer);
         },
 
-        // Return a boolean based upon whether question is correct or not
         isCorrect: function() {
             if(this.model.get('_answers')) this.markGenericAnswers();
             else this.markSpecificAnswers();
@@ -151,12 +142,14 @@ define(function(require) {
         markGenericAnswers: function() {
             var numberOfCorrectAnswers = 0;
             var correctAnswers = this.model.get('_answers').slice();
+            var usedAnswerIndexes = [];
             _.each(this.model.get('_items'), function(item, itemIndex) {
                 _.each(correctAnswers, function(answerGroup, answerIndex) {
                     if(this.checkAnswerIsCorrect(answerGroup, item.userAnswer)) {
+                        if (_.indexOf(usedAnswerIndexes, answerIndex) > -1) return;
+                        usedAnswerIndexes.push(answerIndex);
                         item._isCorrect = true;
                         item._answerIndex = answerIndex + genericAnswerIndexOffset;
-                        correctAnswers.splice(answerIndex,1);
                         numberOfCorrectAnswers++;
                         this.model.set('_numberOfCorrectAnswers', numberOfCorrectAnswers);
                         this.model.set('_isAtLeastOneCorrectSelection', true);
@@ -232,12 +225,10 @@ define(function(require) {
             }, this);
         },
 
-        // Used by the question to determine if the question is incorrect or partly correct
         isPartlyCorrect: function() {
             return this.model.get('_isAtLeastOneCorrectSelection');
         },
 
-        // Used by the question view to reset the stored user answer
         resetUserAnswer: function() {
             _.each(this.model.get('_items'), function(item) {
                 item["_isCorrect"] = false;
@@ -246,7 +237,6 @@ define(function(require) {
         },
 
         // Used by the question view to reset the look and feel of the component.
-        // This could also include resetting item data
         resetQuestion: function() {
             this.$('.textinput-item-textbox').prop('disabled', !this.model.get('_isEnabled')).val('');
 
@@ -256,7 +246,6 @@ define(function(require) {
             });
         },
 
-        // Used by the question to display the correct answer to the user
         showCorrectAnswer: function() {
             
             if(this.model.get('_answers'))  {
@@ -274,13 +263,26 @@ define(function(require) {
             
         },
 
-        // Used by the question to display the users answer and
-        // hide the correct answer
-        // Should use the values stored in storeUserAnswer
         hideCorrectAnswer: function() {
             _.each(this.model.get('_items'), function(item, index) {
                 this.$(".textinput-item-textbox").eq(index).val(item.userAnswer);
             }, this);
+        },
+
+        /**
+        * used by adapt-contrib-spoor to get the user's answers in the format required by the cmi.interactions.n.student_response data field
+        * returns the user's answers as a string in the format "answer1[,]answer2[,]answer3"
+        * the use of [,] as an answer delimiter is from the SCORM 2004 specification for the fill-in interaction type
+        */
+        getResponse: function() {
+            return _.pluck(this.model.get('_items'), 'userAnswer').join('[,]');
+        },
+
+        /**
+        * used by adapt-contrib-spoor to get the type of this question in the format required by the cmi.interactions.n.type data field
+        */
+        getResponseType: function() {
+            return "fill-in";
         }
     });
 

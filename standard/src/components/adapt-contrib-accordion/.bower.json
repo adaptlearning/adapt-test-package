@@ -1,5 +1,6 @@
 {
   "name": "adapt-contrib-accordion",
+  "version": "2.0.4",
   "framework": "^2.0.0",
   "homepage": "https://github.com/adaptlearning/adapt-contrib-accordion",
   "issues": "https://adaptlearning.atlassian.net/secure/CreateIssueDetails!init.jspa?pid=10100&issuetype=1&priority=6&components=10515",
@@ -12,14 +13,14 @@
     "adapt-component"
   ],
   "license": "GPLv3",
-  "_release": "5ccc6bbdea",
+  "_release": "2.0.4",
   "_resolution": {
-    "type": "branch",
-    "branch": "develop",
-    "commit": "5ccc6bbdeabb3f7ec676755169bd9cd1c38fc00b"
+    "type": "version",
+    "tag": "v2.0.4",
+    "commit": "cb958d11a9a44029639ef3bb7a87b89d4dcdab09"
   },
   "_source": "git://github.com/adaptlearning/adapt-contrib-accordion.git",
-  "_target": "develop",
+  "_target": "~2.0.4",
   "_originalSource": "adapt-contrib-accordion",
   "_direct": true
 }
