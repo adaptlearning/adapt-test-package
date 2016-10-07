@@ -8,40 +8,11 @@ adapt-contrib-resources - https://github.com/adaptlearning/adapt-contrib-resourc
 adapt-contrib-glossary - https://github.com/adaptlearning/adapt-contrib-glossary/tree/feature/ml
 
 
-# Testpackages:
-## base requirements
+# Testpackages requirements:
 - include special chars
 - translated aria labels
 - assessment, with language specific assessment-id's
 - include one rtl language
-
-**main flavours:**
-## spoor
-- f1: spoor installend and enabeled
-- f2: spoor installed not enabled
-- f3: spoor not installed
-
-## language-picker
-- f4: enabled and showOnCourseLoad:false  
-- *disabled* <-- comparision sample  
-
----
-
-**mixins:**
-
-## startcontroller
-- disabled
-- enabled
-
-## resources
-- unique for each language
-- one version for all languages
-
-## glossary
-- enabled with resources
-- enabled without resources
-
----
 
 # Settings:
 ## f1:
