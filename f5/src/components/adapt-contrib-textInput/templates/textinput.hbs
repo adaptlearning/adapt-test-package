@@ -1,0 +1,32 @@
+{{! Maintainers - Kev Adsett, Himanshu Rajotia <himanshu.rajotia@credipoint.com>}}
+<div class="textinput-inner component-inner" role="region" aria-label="{{_globals._components._textinput.ariaRegion}}" {{#if _globals._components._textinput.ariaRegion}}tabindex="0"{{/if}}>
+    {{> component this}}
+    {{! complex unless and if combination to set the correct classes for CSS to use in showing marking and disabled states}}
+    <div class="textinput-widget component-widget {{#unless _isEnabled}} disabled {{#if _isInteractionComplete}} complete submitted show-user-answer {{#if _isCorrect}}correct{{/if}} {{/if}} {{/unless}}">
+        {{#each _items}}
+        <div class="textinput-item component-item component-item-color component-item-border clearfix {{#if prefix}}prefix{{/if}} {{#if suffix}}suffix{{/if}} {{#unless ../_isEnabled}}{{#if ../_canShowMarking}}{{#if _isCorrect}}correct{{else}}incorrect{{/if}}{{/if}}{{/unless}}">
+            {{#if prefix}}
+                <label class="textinput-item-prefix component-item-text-color" id="{{../../_id}}-{{@index}}-aria" for="{{../../_id}}-{{@index}}" aria-label="{{{prefix}}}">
+                    {{{prefix}}}
+                </label>
+            {{/if}}
+            {{#if ../_isEnabled}}
+                <input type="text" placeholder="{{{placeholder}}}" class="textinput-item-textbox" data-id="input-{{@index}}" id="{{../../_id}}-{{@index}}" aria-labelledby="{{../../_id}}-{{@index}}-aria" value="" role="textbox">
+            {{else}}
+                <input type="text" placeholder="{{{placeholder}}}" class="textinput-item-textbox" data-id="input-{{@index}}" value="{{userAnswer}}" disabled="true" role="textbox">
+            {{/if}}
+            {{#if suffix}}
+                <label class="textinput-item-suffix component-item-text-color" id="{{../../_id}}-{{@index}}-aria" for="{{../../_id}}-{{@index}}" aria-label="{{{suffix}}}">
+                    {{{suffix}}}
+                </label>
+            {{/if}}
+            <div class="textinput-item-state">
+                <div class="textinput-icon textinput-correct-icon icon icon-tick"></div>
+                <div class="textinput-icon textinput-incorrect-icon icon icon-cross"></div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    <div class="buttons">
+    </div>
+</div>

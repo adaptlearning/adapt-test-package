@@ -1,0 +1,171 @@
+//Ordered, multiple correct answer variations
+{
+    "_id":"c-30",
+    "_parentId":"b-15",
+    "_type":"component",
+    "_component":"textinput",
+    "_classes":"",
+    "_layout":"right",
+    "title": "Title of our text input component",
+    "displayTitle": "Title of our text input component",
+    "body": "If A is 1% and Z is 26%, what are B, C and D?",
+    "instruction": "",
+    "_attempts": 1,
+    "_shouldDisplayAttempts": false,
+    "_questionWeight":10,
+    "_isRandom":false,
+    "_canShowModelAnswer": true,
+    "_canShowMarking": true,
+    "_recordInteraction": true,
+    "_allowsAnyCase": true,
+    "_allowsPunctuation": true,
+    "_buttons": {
+      "_submit": {
+        "buttonText": "Submit",
+        "ariaLabel": "Select here to submit your answer."
+      },
+      "_reset": {
+        "buttonText": "Reset",
+        "ariaLabel": ""
+      },
+      "_showCorrectAnswer": {
+        "buttonText": "Correct Answer",
+        "ariaLabel": ""
+      },
+      "_hideCorrectAnswer": {
+        "buttonText": "My Answer",
+        "ariaLabel": ""
+      },
+      "_showFeedback": {
+        "buttonText": "Show feedback",
+        "ariaLabel": ""
+      },
+      "remainingAttemptsText": "attempts remaining",
+      "remainingAttemptText": "final attempt"
+    },
+    "_feedback": {
+        "correct": "This feedback will appear if you answered the question correctly.",
+        "_incorrect": {
+            "notFinal": "",
+            "final": "This feedback will appear if you answered the question incorrectly."
+        },
+        "_partlyCorrect": {
+            "notFinal": "",
+            "final": "This feedback will appear if you answered part of the question correctly."
+        }
+    },
+    "_items": [
+        {
+            "prefix": "B:",
+            "suffix": "%",
+            "_answers": [
+                "2",
+                "two"
+            ],
+            "placeholder": "Enter answer here"
+        },
+        {
+            "prefix": "C:",
+            "suffix": "%",
+            "_answers": [
+                "3",
+                "three"
+            ],
+            "placeholder": "Enter answer here"
+        },
+        {
+            "prefix": "D:",
+            "suffix": "%",
+            "_answers": [
+                "4",
+                "four"
+            ],
+            "placeholder": "Enter answer here"
+        }
+    ]
+}
+
+//Unordered, single correct answer variations
+{
+    "_id": "c-35",
+    "_parentId": "b-25",
+    "_type": "component",
+    "_component": "textinput",
+    "_classes": "",
+    "_layout": "left",
+    "title": "Greek alphabet",
+    "displayTitle": "Greek alphabet",
+    "body": "Type Greek alphabet in any order (alpha, beta, gamma and delta).",
+    "instruction": "Fill in your answers below.",
+    "_attempts": 2,
+    "_allowsAnyCase": true,
+    "_allowsPunctuation": true,
+    "_questionWeight": 10,
+    "_buttons": {
+      "_submit": {
+        "buttonText": "Submit",
+        "ariaLabel": "Select here to submit your answer."
+      },
+      "_reset": {
+        "buttonText": "Reset",
+        "ariaLabel": ""
+      },
+      "_showCorrectAnswer": {
+        "buttonText": "Correct answer",
+        "ariaLabel": ""
+      },
+      "_hideCorrectAnswer": {
+        "buttonText": "My answer",
+        "ariaLabel": ""
+      },
+      "_showFeedback": {
+        "buttonText": "Show feedback",
+        "ariaLabel": ""
+      },
+      "remainingAttemptsText": "attempts remaining",
+      "remainingAttemptText": "final attempt",
+      "disabledAriaLabel": "This button is disabled at the moment"
+    },
+    "_feedback": {
+      "correct": "This feedback will appear if you answered the question correctly.",
+      "_incorrect": {
+        "notFinal": "",
+        "final": "This feedback will appear if you answered the question incorrectly."
+      },
+      "_partlyCorrect": {
+        "notFinal": "",
+        "final": "This feedback will appear if you answered part of the question correctly."
+      }
+    },
+    "_answers": [
+      ["alpha"],
+      ["beta"],
+      ["gamma"],
+      ["delta"]
+    ],
+    "_items": [
+      {
+        "prefix": "",
+        "suffix": "",
+        "placeholder": "Enter answer here"
+      },
+      {
+        "prefix": "",
+        "suffix": "",
+        "placeholder": "Enter answer here"
+      },
+      {
+        "prefix": "",
+        "suffix": "",
+        "placeholder": "Enter answer here"
+      },
+      {
+        "prefix": "",
+        "suffix": "",
+        "placeholder": "Enter answer here"
+      }
+    ],
+    "_pageLevelProgress": {
+      "_isEnabled": true
+    }
+}

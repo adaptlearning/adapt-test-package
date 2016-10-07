@@ -1,0 +1,204 @@
+{
+  "type":"object",
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "id": "http://jsonschema.net",
+  "required":false,
+  "properties":{
+    "pluginLocations": {
+      "type":"object",
+      "required":true,
+      "properties":{
+        "config": {
+          "type":"object",
+          "properties":{
+            "_spoor": {
+              "type":"object",
+              "required":false,
+              "legend": "Spoor",
+              "properties":{
+                "_isEnabled": {
+                  "type":"boolean",
+                  "required":true,
+                  "default": "true",
+                  "title":"Is Enabled",
+                  "inputType": {"type": "Boolean", "options": [true, false]},
+                  "validators": [],
+                  "help": "If set to true, the plugin will try to find and track to a SCORM conformant LMS. Set to false to switch off SCORM tracking."
+                },
+                "_tracking": {
+                  "type":"object",
+                  "required":false,
+                  "title": "Tracking",
+                  "properties":{
+                    "_requireCourseCompleted": {
+                      "type":"boolean",
+                      "required":false,
+                      "default": "true",
+                      "title":"Course completion required",
+                      "inputType": {"type": "Boolean", "options": [true, false]},
+                      "validators": [],
+                      "help": "If set to true, the plugin will require that the user must complete all the components in the course before the course can be marked as finished in the LMS."
+                    },
+                    "_requireAssessmentPassed": {
+                      "type":"boolean",
+                      "required":false,
+                      "default": "false",
+                      "title":"Assessment pass required",
+                      "inputType": {"type": "Boolean", "options": [true, false]},
+                      "validators": [],
+                      "help": "If set to true, the plugin will require that the user must pass the course assessment before the course can be marked as finished in the LMS."
+                    },
+                    "_shouldSubmitScore": {
+                      "type":"boolean",
+                      "required":false,
+                      "default": "false",
+                      "title":"Submit score",
+                      "inputType": {"type": "Boolean", "options": [true, false]},
+                      "validators": [],
+                      "help": "If set to true, the score attained in any assessment will be reported back to the LMS (regardless of whether the user passes or fails the assessment)."
+                    },
+                    "_shouldStoreResponses": {
+                      "type":"boolean",
+                      "required":false,
+                      "default": "false",
+                      "title":"Store responses",
+                      "inputType": {"type": "Boolean", "options": [true, false]},
+                      "validators": [],
+                      "help": "If set to true, the user's question responses will be saved to the LMS."
+                    }
+                  }
+                },
+                "_reporting": {
+                  "type":"object",
+                  "required":true,
+                  "title": "Reporting",
+                  "properties":{
+                    "_onTrackingCriteriaMet": {
+                      "type":"string",
+                      "required":true,
+                      "default": "completed",
+                      "title":"Tracking success status",
+                      "enum": ["completed", "passed", "failed", "incomplete"],
+                      "inputType": {
+                        "type": "Select",
+                        "options": ["completed", "passed", "failed", "incomplete"]
+                      },
+                      "validators": [],
+                      "help": "What status to report back to the LMS when the tracking criteria are met."
+                    },
+                    "_onAssessmentFailure": {
+                      "type":"string",
+                      "required":false,
+                      "default": "incomplete",
+                      "title":"Assessment failure status",
+                      "enum": ["completed", "failed", "incomplete"],
+                      "inputType": {
+                        "type": "Select",
+                        "options": ["completed", "failed", "incomplete"]
+                      },
+                      "validators": [],
+                      "help": "What status to report back to the LMS when the assessment is failed."
+                    },
+                    "_resetStatusOnLanguageChange": {
+                      "type":"boolean",
+                      "required":false,
+                      "default": "false",
+                      "title":"Reset status when Languge changes",
+                      "inputType": {"type": "Boolean", "options": [true, false]},
+                      "validators": [],
+                      "help": "If set to true, the status of the course will be set to 'incomplete'."
+                    }
+                  }
+                },
+                "_advancedSettings": {
+                  "type":"object",
+                  "required":false,
+                  "title": "Advanced Settings",
+                  "properties":{
+                    "_showDebugWindow": {
+                      "type":"boolean",
+                      "required":false,
+                      "default": "false",
+                      "title":"SCORM debug window",
+                      "inputType": {"type": "Boolean", "options": [true, false]},
+                      "validators": [],
+                      "help": "If set to true, a popup window will be shown on course launch that gives detailed information about what SCORM calls are being made. This can be very useful for debugging SCORM issues. Note that this popup window will appear automatically if the SCORM code encounters an error, even if this is set to false."
+                    },
+                    "_commitOnStatusChange": {
+                      "type":"boolean",
+                      "required":false,
+                      "default": "true",
+                      "title":"Commit data on status change",
+                      "inputType": {"type": "Boolean", "options": [true, false]},
+                      "validators": [],
+                      "help": "Whether a 'commit' call should be made automatically every time the lesson_status is changed or not."
+                    },
+                    "_timedCommitFrequency": {
+                      "type":"number",
+                      "required":false,
+                      "default": "10",
+                      "title":"Frequency (mins) of automatic commits",
+                      "inputType": "Number",
+                      "validators": ["number"],
+                      "help": "The frequency (in minutes) at which a 'commit' call should be made automatically. Set to 0 to disable automatic commits altogether."
+                    },
+                    "_maxCommitRetries": {
+                      "type":"number",
+                      "required":false,
+                      "default": "5",
+                      "title":"Maximum number of commit retries",
+                      "inputType": "Number",
+                      "validators": ["number"],
+                      "help": "If a 'commit' call fails, this setting controls how many times it should be retried before giving up and throwing an error."
+                    },
+                    "_commitRetryDelay": {
+                      "type":"number",
+                      "required":false,
+                      "default": "2000",
+                      "title":"Commit retry delay",
+                      "inputType": "Number",
+                      "validators": ["number"],
+                      "help": "How much of a delay (in milliseconds) to leave between commit retries."
+                    },
+                    "_suppressErrors": {
+                      "type":"boolean",
+                      "required":false,
+                      "default": "false",
+                      "title":"Supress LMS errors",
+                      "inputType": {"type": "Boolean", "options": [true, false]},
+                      "validators": [],
+                      "help": "Set this to 'true' to stop this plugin from displaying error messages when tracking problems occur."
+                    },
+                    "_commitOnVisibilityChangeHidden": {
+                      "type": "boolean",
+                      "default": true,
+                      "title": "Commit on visibility change hidden",
+                      "inputType": { "type": "Boolean", "options": [ true, false ] },
+                      "validators": [],
+                      "help": "Whether a 'commit' call should be made whenever the course becomes hidden."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "course": {
+          "type":"object"
+        },
+        "contentobject": {
+          "type":"object"
+        },
+        "article": {
+          "type":"object"
+        },
+        "block": {
+          "type":"object"
+        },
+        "component": {
+          "type":"object"
+        }
+      }
+    }
+  }
+}

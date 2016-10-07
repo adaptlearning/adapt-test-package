@@ -1,0 +1,59 @@
+[
+    {
+        "_id": "co-05",
+        "_parentId": "course",
+        "_type": "page",
+        "_classes": "",
+        "title": "Präsentationskomponenten",
+        "displayTitle": "Präsentationskomponenten",
+        "pageBody": "<strong>German - Scroll down to see what presentation components are available as part of the Version 2.0 core bundle.</strong>",
+        "body": "Hier erfahrens Sie welche Präsentationskomponenten im Standard-Framework verfügbar sind und wie Sie sie in Ihren Kursen einsetzen können.",
+        "_graphic": {
+            "src": "course/en/images/menu_thumb.jpg",
+            "alt": "Platzhalter"
+        },
+        "linkText": "Start",
+        "duration": "2 min",
+        "_pageLevelProgress": {
+            "_isEnabled": true
+        }
+    },
+    {
+        "_id": "co-10",
+        "_parentId": "course",
+        "_type": "page",
+        "_classes": "",
+        "title": "Fragekomponenten",
+        "displayTitle": "Fragekomponenten",
+        "pageBody": "German - We can’t easily measure whether learners are meeting the intended course objectives, provide guidance and feedback if they’re not or give them opportunities to practice and rehearse in a ‘safe environment’ without a range of question components.<br><br>Discover what question components are available within the framework, along with some tips on how to use them.<br><br><strong>Scroll down to see what question components are available as part of the Version 2.0 core bundle.</strong>",
+        "body": "Auf dieser Seite entdecken Sie, welche Frage Komponenten im Standard-Framework vorhanden sind. Zusätzlich erhalten Sie ein paar Tipps, wie man sie  nutzen kann.",
+        "_graphic": {
+            "src": "course/en/images/menu_thumb.jpg",
+            "alt": "Platzhalter."
+        },
+        "linkText": "View",
+        "duration": "2 mins",
+        "_pageLevelProgress": {
+            "_isEnabled": true
+        }
+    },
+    {
+        "_id": "co-15",
+        "_parentId": "course",
+        "_type": "page",
+        "_classes": "assessment",
+        "title": "Adapt Assessment",
+        "displayTitle": "Adapt Assessment",
+        "pageBody": "German - We’ve put together a very short quiz to demonstrate the new assessment functionality. In this simple example there are two banks that each contain three questions with two being taken from each bank at random. The order in which the questions are presented is then also randomised, as is the order of each questions options.<br><br><strong>Think you can get a perfect score? Scroll down to attempt the first question.</strong>",
+        "body": "In diesem Kapitel wird Ihenen das neue Assessment in Version 2.0 vorgestellt. Organisieren Sie Fragen in Question-Banks und geben Sie Ihren Lernern detailiertes Feedback abhängig vom erzielten Ergebnis.",
+        "_graphic": {
+            "src": "course/en/images/menu_thumb.jpg",
+            "alt": "Paltzhalter"
+        },
+        "linkText": "View",
+        "duration": "2 mins",
+        "_pageLevelProgress": {
+            "_isEnabled": true
+        }
+    }
+]

@@ -1,0 +1,117 @@
+.textinput-item {
+    background-color: @item-color;
+    padding: @item-padding;
+    position: relative;
+    border: @item-border;
+    margin-bottom: 2px;
+}
+
+.textinput-item label {
+    background-color: transparent;
+    line-height: 32px;
+    padding: 0px;
+    float: left;
+    .dir-rtl & {
+        float: right;
+    }
+    text-align: center;
+    cursor: default;
+    color: @item-text-color;
+}
+
+.textinput-item-prefix,
+.textinput-item-suffix {
+    width: 20%;
+}
+
+.textinput-item-textbox {
+    box-sizing: border-box;
+    padding: 0 5px;
+    width: 100%;
+    float: left;
+    .dir-rtl & {
+        float: right;
+    }
+    height: 26px;
+    &.textinput-validation-error {
+        border: 2px solid @validation-error-border-color;
+    }
+}
+
+.textinput-item {
+    &.prefix,
+    &.suffix {
+        .textinput-item-textbox {
+            width: 80%
+        }
+    }
+    &.prefix.suffix {
+        .textinput-item-textbox {
+            width: 60%
+        }
+    }
+    &.suffix {
+        .textinput-item-state {
+            margin-right: 20%;
+            .dir-rtl & {
+                margin-right: inherit;
+                margin-left: 20%;
+            }
+        }
+    }
+}
+
+.textinput-widget {
+    &.submitted {
+        .textinput-item {
+            background-color: @item-color-disabled;
+        }
+    }
+
+    &.show-user-answer {
+        .incorrect {
+            .textinput-incorrect-icon {
+                display: block;
+            }
+        }
+        .correct {
+            .textinput-correct-icon {
+                display: block;
+            }
+        }
+    }
+
+    &.show-correct-answer {
+        .textinput-select-icon {
+            display: none;
+        }
+        .correct .textinput-correct-icon {
+            display: block;
+        }
+    }
+
+    .textinput-item-state {
+        background: none;
+        position: absolute;
+        right: (@icon-size/2);
+        .dir-rtl & {
+            right: inherit;
+            left: (@icon-size/2);
+        }
+        width: @icon-size;
+        height: @icon-size;
+        top: 50%;
+        margin-top: -(@icon-size/2);
+        z-index: 0;
+    }
+
+    .textinput-correct-icon {
+        color: @icon-correct-color;
+        display: none;
+    }
+
+    .textinput-incorrect-icon {
+        color: @icon-incorrect-color;
+        display: none;
+    }
+}

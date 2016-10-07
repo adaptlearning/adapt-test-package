@@ -1,0 +1,27 @@
+{
+  "name": "adapt-contrib-pageLevelProgress",
+  "version": "2.0.7",
+  "framework": "^2.0.0",
+  "homepage": "https://github.com/adaptlearning/adapt-contrib-pageLevelProgress",
+  "issues": "https://github.com/adaptlearning/adapt_framework/issues/new?title=contrib-pageLevelProgress%3A%20please%20enter%20a%20brief%20summary%20of%20the%20issue%20here&body=please%20provide%20a%20full%20description%20of%20the%20problem,%20including%20steps%20on%20how%20to%20replicate,%20what%20browser(s)/device(s)%20the%20problem%20occurs%20on%20and,%20where%20helpful,%20screenshots.",
+  "displayName": "Page Level Progress",
+  "extension": "pageLevelProgress",
+  "description": "An extension to show a user's progress through a page",
+  "main": "/js/adapt-contrib-pageLevelProgress.js",
+  "keywords": [
+    "adapt-plugin",
+    "adapt-extension"
+  ],
+  "license": "GPLv3",
+  "targetAttribute": "_pageLevelProgress",
+  "_release": "2.0.7",
+  "_resolution": {
+    "type": "version",
+    "tag": "v2.0.7",
+    "commit": "fc82e8ec695bafe5579e45b6908f8ee81325af61"
+  },
+  "_source": "git://github.com/adaptlearning/adapt-contrib-pageLevelProgress.git",
+  "_target": "~2.0.7",
+  "_originalSource": "adapt-contrib-pageLevelProgress",
+  "_direct": true
+}

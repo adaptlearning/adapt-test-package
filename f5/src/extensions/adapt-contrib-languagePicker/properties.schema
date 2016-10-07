@@ -1,0 +1,226 @@
+{
+  "type": "object",
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "id": "http://jsonschema.net",
+  "required": false,
+  "globals": {
+  },
+  "properties": {
+    "pluginLocations": {
+      "type": "object",
+      "required": true,
+      "properties": {
+        "config": {
+          "type": "object",
+          "properties": {
+            "_languagePicker": {
+              "type": "object",
+              "required": false,
+              "legend": "Language Picker",
+              "properties": {
+                "_isEnabled": {
+                  "type": "boolean",
+                  "required": true,
+                  "default": false,
+                  "title": "Is enabled",
+                  "inputType": {"type": "Boolean", "options": [true, false]},
+                  "validators": [],
+                  "help": "If set to 'true', a Language Picker will be displayed."
+                },
+                "title": {
+                  "type": "string",
+                  "required": false,
+                  "default": "",
+                  "title": "Browser Window Title",
+                  "inputType": "Text",
+                  "validators": [],
+                  "help": "Text to be shown in the browser's title bar when the language picker is displayed."
+                },
+                "displayTitle": {
+                  "type": "string",
+                  "required": false,
+                  "default": "",
+                  "title": "Language Picker Title",
+                  "inputType": "Text",
+                  "validators": [],
+                  "help": "Header text for the Language Picker"
+                },
+                "body": {
+                  "type": "string",
+                  "required": false,
+                  "default": "",
+                  "title": "Language Picker Body text",
+                  "inputType": "Text",
+                  "validators": [],
+                  "help": "Introductory or explanatory text for the Language Picker"
+                },
+                "_showOnCourseLoad": {
+                  "type": "boolean",
+                  "required": true,
+                  "default": true,
+                  "title": "Show on course load",
+                  "inputType": {"type": "Boolean", "options": [true, false]},
+                  "validators": [],
+                  "help": "If set to 'false', language picker will not be displayed on course load"
+                },
+                "_languages": {
+                  "type": "array",
+                  "required": true,
+                  "title": "Languages",
+                  "items": {
+                    "type": "object",
+                    "required": true,
+                    "title": "Language",
+                    "properties": {
+                      "_language": {
+                        "type": "string",
+                        "required": true,
+                        "default": "",
+                        "title": "Language Code",
+                        "inputType": "Text",
+                        "validators": ["required"],
+                        "help": "This text must match the name of the language-specific folder located in the course root, e.g. en, fr, es"
+                      },
+                      "_direction": {
+                        "type": "string",
+                        "required": true,
+                        "default": "ltr",
+                        "title": "Text direction",
+                        "inputType": {"type": "Select", "options": ["ltr", "rtl"]},
+                        "validators": ["required"],
+                        "help": ""
+                      },
+                      "displayName": {
+                        "type": "string",
+                        "required": true,
+                        "default": "",
+                        "title": "Language Name",
+                        "inputType": "Text",
+                        "validators": ["required"],
+                        "help": "A user friendly name for the language, e.g. English, Français, Español"
+                      },
+                      "warningTitle": {
+                        "type": "string",
+                        "required": true,
+                        "default": "",
+                        "title": "Confirm Title",
+                        "inputType": "Text",
+                        "validators": ["required"],
+                        "help": "This text appears as the header of the dialog confirming the learner's intent to change languages."
+                      },
+                      "warningMessage": {
+                        "type": "string",
+                        "required": true,
+                        "default": "",
+                        "title": "Confirm Message",
+                        "inputType": "Text",
+                        "validators": ["required"],
+                        "help": "This text appears as the body of the dialog confirming the learner's intent to change languages.  Note: the warning message should indicate that any progress will be lost when the language is switched."
+                      },
+                      "_buttons": {
+                        "type": "object",
+                        "required": true,
+                        "title": "Prompt Buttons",
+                        "properties": {
+                          "yes": {
+                            "type": "string",
+                            "required": true,
+                            "default": "Yes",
+                            "title": "Confirm",
+                            "inputType": "Text",
+                            "validators": ["required"],
+                            "help": "Button text to confirm language change."
+                          },
+                          "no": {
+                            "type": "string",
+                            "required": true,
+                            "default": "No",
+                            "title": "Cancel",
+                            "inputType": "Text",
+                            "validators": ["required"],
+                            "help": "Button text to cancel language change."
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "_accessibility": {
+                  "type": "object",
+                  "required": false,
+                  "title": "Accessibility",
+                  "properties": {
+                    "accessibilityToggleTextOn": {
+                      "type": "string",
+                      "required": true,
+                      "default": "Turn accessibility on?",
+                      "title": "Toggle on label",
+                      "inputType": "Text",
+                      "validators": ["required"],
+                      "help": ""
+                    },
+                    "accessibilityToggleTextOff": {
+                      "type": "string",
+                      "required": true,
+                      "default": "Turn accessibility off?",
+                      "title": "Toggle off label",
+                      "inputType": "Text",
+                      "validators": ["required"],
+                      "help": ""
+                    },
+                    "_accessibilityInstructions": {
+                      "type": "object",
+                      "required": false,
+                      "title": "Accessibility instructions",
+                      "properties": {
+                        "touch": {
+                          "type": "string",
+                          "required": true,
+                          "default": "Usage instructions. Use swipe right for next. Use swipe left for previous. Use a double tap to select. Use a two finger slide up to go to the top of the page.",
+                          "title": "For touch devices",
+                          "inputType": "Text",
+                          "validators": ["required"],
+                          "help": ""
+                        },
+                        "notouch": {
+                          "type": "string",
+                          "required": true,
+                          "default": "Usage instructions. Use tab for next. Use shift tab for previous. Use enter to select. Use escape to go to the top of the page.",
+                          "title": "For non-touch devices",
+                          "inputType": "Text",
+                          "validators": ["required"],
+                          "help": ""
+                        },
+                        "ipad": {
+                          "type": "string",
+                          "required": true,
+                          "default": "Usage instructions for touchscreens. Use swipe right for next. Use swipe left for previous. Use a double tap to select. Use a two finger slide up to go to the top of the page. Usage instructions for keyboard access. Use right for next. Use left for previous. Use up and down together to select.",
+                          "title": "For iPad",
+                          "inputType": "Text",
+                          "validators": ["required"],
+                          "help": ""
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "contentobject": {
+          "type": "object"
+        },
+        "article": {
+          "type": "object"
+        },
+        "block": {
+          "type": "object"
+        },
+        "component": {
+          "type": "object"
+        }
+      }
+    }
+  }
+}

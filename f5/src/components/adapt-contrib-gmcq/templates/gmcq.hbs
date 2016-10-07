@@ -1,0 +1,27 @@
+<div class="gmcq-inner component-inner clearfix" role="region" aria-label="{{_globals._components._gmcq.ariaRegion}}">
+    {{> component this}}
+    <div class="gmcq-widget component-widget clearfix {{#unless _isEnabled}} disabled {{#if _isInteractionComplete}} complete submitted show-user-answer {{#if _isCorrect}}correct{{/if}} {{/if}} {{/unless}}">
+        {{#each _items}}
+        <div class="gmcq-item component-item {{#unless ../_isEnabled}} {{#if _isCorrect}}correct{{else}}incorrect{{/if}} {{/unless}} item-{{@index}} {{odd @index}}">
+            <input type="checkbox" id="{{../_id}}-{{@index}}" aria-labelledby="{{../_id}}-{{@index}}-aria"{{#unless ../_isEnabled}} disabled{{/unless}} aria-label="{{a11y_normalize text}} {{_graphic.alt}}"/>
+            <label aria-hidden="true" id="{{../_id}}-{{@index}}-aria" for="{{../_id}}-{{@index}}" class="{{#unless ../_isEnabled}}disabled {{/unless}} component-item-color component-item-text-color component-item-border {{#if _isSelected}}selected{{/if}}">
+
+                <img src="{{_graphic.src}}" data-large="{{_graphic.large}}" data-small="{{_graphic.small}}"/>
+
+                <div class="gmcq-item-checkbox">
+                    <div class="gmcq-item-state">
+                        <div class="gmcq-item-icon gmcq-answer-icon {{#if ../_isRadio}}radio{{else}}checkbox{{/if}} icon"></div>
+                        <div class="gmcq-item-icon gmcq-correct-icon icon icon-tick"></div>
+                        <div class="gmcq-item-icon gmcq-incorrect-icon icon icon-cross"></div>
+                    </div>
+                    <div class="gmcq-item-inner">
+                        {{{text}}}
+                    </div>
+                </div>
+            </label>
+        </div>
+        {{/each}}
+    </div>
+    <div class="buttons">
+    </div>
+</div>
