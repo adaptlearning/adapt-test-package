@@ -1,7 +1,7 @@
 # Used Versions
 **adapt_framework** - https://github.com/adaptlearning/adapt_framework/tree/feature/ml    
 
-**Plugin branches:**
+**Plugin branches:**     
 adapt-contrib-languagePicker - https://github.com/adaptlearning/adapt-contrib-languagepicker    
 adapt-contrib-spoor - https://github.com/adaptlearning/adapt-contrib-spoor/tree/feature/ml2    
 adapt-contrib-resources - https://github.com/adaptlearning/adapt-contrib-resources    
