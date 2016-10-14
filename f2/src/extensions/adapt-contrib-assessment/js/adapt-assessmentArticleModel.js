@@ -244,6 +244,10 @@ define([
                 newSettings._canShowModelAnswer = questionConfig._canShowModelAnswer;
             }
 
+            if (questionConfig.hasOwnProperty('_canShowMarking')) {
+                newSettings._canShowMarking = questionConfig._canShowMarking;
+            }
+
             if(!_.isEmpty(newSettings)) {
                 for (var i = 0, l = questionComponents.length; i < l; i++) {
                     questionComponents[i].set(newSettings, { pluginName: "_assessment" });
@@ -612,7 +616,7 @@ define([
             this.set("_score", score || 0);
 
             if (score) {
-                scoreAsPercent = Math.floor( score / maxScore  * 100);
+                scoreAsPercent = Math.round( score / maxScore  * 100);
             } else {
                 scoreAsPercent = 0;
             }

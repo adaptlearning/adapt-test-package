@@ -138,8 +138,9 @@
                 "_isFullWidth": true,
                 "_autoHide": true,
                 "_className": "",
-                "text": "Weiter",
-                "finalText": "Fertig",
+                "text": "de-> Continue",
+                "startText": "de-> Begin",
+                "finalText": "de-> Finish",
                 "_component": "trickle-button"
             },
             "_stepLocking": {
@@ -170,8 +171,9 @@
                 "_isFullWidth": true,
                 "_autoHide": true,
                 "_className": "",
-                "text": "Weiter",
-                "finalText": "Fertig",
+                "text": "de-> Continue",
+                "startText": "de-> Begin",
+                "finalText": "de-> Finish",
                 "_component": "trickle-button"
             },
             "_stepLocking": {
@@ -202,8 +204,9 @@
                 "_isFullWidth": true,
                 "_autoHide": true,
                 "_className": "",
-                "text": "Weiter",
-                "finalText": "Fertig",
+                "text": "de-> Continue",
+                "startText": "de-> Begin",
+                "finalText": "de-> Finish",
                 "_component": "trickle-button"
             },
             "_stepLocking": {
@@ -234,8 +237,9 @@
                 "_isFullWidth": true,
                 "_autoHide": true,
                 "_className": "",
-                "text": "Weiter",
-                "finalText": "Fertig",
+                "text": "de-> Continue",
+                "startText": "de-> Begin",
+                "finalText": "de-> Finish",
                 "_component": "trickle-button"
             },
             "_stepLocking": {
@@ -266,8 +270,9 @@
                 "_isFullWidth": true,
                 "_autoHide": true,
                 "_className": "",
-                "text": "Weiter",
-                "finalText": "Fertig",
+                "text": "de-> Continue",
+                "startText": "de-> Begin",
+                "finalText": "de-> Finish",
                 "_component": "trickle-button"
             },
             "_stepLocking": {
@@ -298,8 +303,9 @@
                 "_isFullWidth": true,
                 "_autoHide": true,
                 "_className": "",
-                "text": "Weiter",
-                "finalText": "Fertig",
+                "text": "de-> Continue",
+                "startText": "de-> Begin",
+                "finalText": "de-> Finish",
                 "_component": "trickle-button"
             },
             "_stepLocking": {
@@ -330,8 +336,9 @@
                 "_isFullWidth": true,
                 "_autoHide": true,
                 "_className": "",
-                "text": "Weiter",
-                "finalText": "Fertig",
+                "text": "de-> Continue",
+                "startText": "de-> Begin",
+                "finalText": "de-> Finish",
                 "_component": "trickle-button"
             },
             "_stepLocking": {
@@ -362,8 +369,9 @@
                 "_isFullWidth": true,
                 "_autoHide": true,
                 "_className": "",
-                "text": "Weiter",
-                "finalText": "Fertig",
+                "text": "de-> Continue",
+                "startText": "de-> Begin",
+                "finalText": "de-> Finish",
                 "_component": "trickle-button"
             },
             "_stepLocking": {

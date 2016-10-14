@@ -17,7 +17,7 @@
     "_tracking": {
       "_requireCourseCompleted": true,
       "_requireAssessmentPassed": true,
-      "_shouldSubmitScore": false,
+      "_shouldSubmitScore": true,
       "_shouldStoreResponses": false,
       "_shouldRecordInteractions": true
     },
@@ -39,6 +39,8 @@
     "displayTitle": "Please select a language",
     "body": "This course is available in the following languages:",
     "_showOnCourseLoad": true,
+    "_comment": "default class names are: icon-globe, icon-language-1, icon-language-2",
+    "_languagePickerIconClass": "icon-language-2",
     "_languages": [
       {
         "_language": "en",
@@ -65,12 +67,12 @@
       {
         "_language": "he",
         "_direction": "rtl",
-        "displayName": "עִברִית",
-        "warningTitle": "שנה שפה",
-        "warningMessage": "שינוי השפה יאפס התקדמות כמובן.<br><br>האם אתה רוצה להמשיך?",
+        "displayName": "Hebrew",
+        "warningTitle": "he-> Change language?",
+        "warningMessage": "he-> Changing the language will reset course progress.<br><br>Would you like to proceed?",
         "_buttons": {
-          "yes": "כן",
-          "no": "לא"
+          "yes": "he-> Yes",
+          "no": "he-> No"
         }
       }
     ],
